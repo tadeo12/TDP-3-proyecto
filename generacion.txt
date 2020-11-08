@@ -1,1 +1,42 @@
-dsbBFLJKSDFHY
+//EN JUEGO
+void nivelCompleto(){
+	if(nivelActual.getValor()<director.cantNiveles()){
+		nivelActual=director.construirSiguienteNivel();
+		cargarInfectados(nivelActual.getInfectados());//recorre la lista agregando los infectados a la lista de entidades 
+	}
+	else
+	//gano el juego
+}
+
+
+//EN DIRECTOR
+...
+Nivel construirSiguienteNivel(){
+  valor++;
+  int cantidad; 
+  for(int j=0;j<infectadosPorNivel.length();j++){
+      cantidad= infectadosPorNivel[valor][j];
+      for(int n=0;n<cantidad;n++)
+  	this.builder.construirInfectado(j);
+      }
+  return this.builder.getNivel();
+}
+	
+// 	        	a b c d
+//	nivel 1      1 2 3 4
+//	nivel 2      3 5 6 3
+//	nivel 3 	4 5 6 7
+//	nivel 4	
+
+//EN BUILDER
+
+void construirInfectado(int tipo){
+    Infectado inf = this.misFabricas[tipo].crearInfectado();
+    this.nivel.agregarInfectado(inf);
+}
+
+//EN NIVEL
+agregarInfectado(Infectado I){
+ this.infectados.add(I);
+ juego.agregarEntidad(I);
+}

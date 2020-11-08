@@ -1,9 +1,7 @@
-public class Entidad
+public abstract class Entidad
 {
-	...
-	public EstrategiaMovimiento em;
-	
-	public void mover()
+	...	
+	public void accionar()
 	{
 		this.eMovimiento.mover();
 	}
