@@ -8,31 +8,36 @@
 //-> EN ENEMIGO
 	...	
 	Enemigo (){
+		...
 		movimiento = new vertical_loop(this,vertical.ABAJO);
 	}
 
 //-> EN PREMIO
 	...	
 	Premio(){
+		...
 		movimiento = new vertical(this,vertical.ABAJO);
 	}
 
 //-> EN PROYECTIL SANITARIO
 	...	
 	Proyectil_sanitario(){
+		...
 		movimiento = new vertical(this,vertical.ARRIBA);
 	}
 
 //-> EN PROYECTIL PARTICULA_v
 	...	
 	Particula_v(){
+		...
 		movimiento = new vertical(this,vertical.ABAJO);
 	}
 
 //-> EN JUGADOR
 	...	
 	Jugador(){
-		movimiento = new vertical(this,horizontal.QUIETITO);
+		...
+		movimiento = new vertical(this,horizontal.QUIETO);
 	}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +88,7 @@ public class MovimientoVertical extends EstrategiaMovimiento
 //-> MovimientoHorizontal
 	static final int DERECHA = 1;
 	static final int IZQUIERDA = -1;
-	static final int QUIETITO = 0;
+	static final int QUIETO = 0;
 	
 	MovimientoVertical(Entidad e, int d)	{
 		super(e, d);
