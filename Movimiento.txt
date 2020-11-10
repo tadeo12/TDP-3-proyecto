@@ -37,7 +37,9 @@
 	...	
 	Jugador(){
 		...
+
 		movimiento = new vertical(this,horizontal.QUIETO);
+
 	}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +90,7 @@ public class MovimientoVertical extends EstrategiaMovimiento
 //-> MovimientoHorizontal
 	static final int DERECHA = 1;
 	static final int IZQUIERDA = -1;
-	static final int QUIETO = 0;
+	
 	
 	MovimientoVertical(Entidad e, int d)	{
 		super(e, d);
