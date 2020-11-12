@@ -37,9 +37,21 @@
 	...	
 	Jugador(){
 		...
+		movimiento = new vertical(this,horizontal.DERECHA);
+	}
 
-		movimiento = new vertical(this,horizontal.QUIETO);
-
+	accionar(){
+		if (juego.moviendoDerecha){
+			this.movimiento.setDireccion(movimieto.DERECHA);
+			this.movimiento.mover();
+		}
+		if(juego.moviendoIzquierda){
+			this.movimiento.setDireccion(movimieto.IZQUIERDA);
+			this.movimiento.mover();
+		}
+		if(juego.disparando){
+			disparar();
+		}
 	}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,11 +65,6 @@
 		this.d = d; ;
 	}
 	
-	int getDireccion()
-	{
-		return direccion;
-	}
-	
 	void setDireccion(int d)
 	{
 		this.direccion = d;
@@ -67,27 +74,36 @@
 }
 
 
-public class MovimientoVertical extends EstrategiaMovimiento
-{
+//-> EN VERTICAL
 	public static final int ABAJO = 1;
 	public static final int ARRIBA = -1;
 	
-	public MovimientoVertical(E, int d)
+	public Vertical(Entidad e, int d)
 	{
 		super(e, d);
 	}
 	
 	public void mover()
 	{
-		Grafico g = this.e.getGrafico();
-		g.setPosition(g.getX(), g.getY() + direccion * e.getVelocidad());
+		Grafico g = e.getGrafico();
+		g.setPosition(g.getX(), g.getY() + this.direccion * e.getVelocidad()); //falta controlar que no se salga del frame
 	}
-}
+
+//-> EN VERTICAL LOOP
+	public Vertical_loop(Entidad e)
+	{
+		super(e, EstrategiaMovimiento.ABAJO);
+	}
+	public void mover()
+	{
+		Grafico g = e.getGrafico();
+		g.setPosition(g.getX(), g.getY() + this.direccion * e.getVelocidad()); 
+		if(g.getY>ventana.getAltura())
+			g.setPosition(g.getX(), 0);
+	}
 
 
-////////////////////////////////////////////////////////////////////////////////////
-
-//-> MovimientoHorizontal
+//-> HORIZONTAL
 	static final int DERECHA = 1;
 	static final int IZQUIERDA = -1;
 	
@@ -98,17 +114,42 @@ public class MovimientoVertical extends EstrategiaMovimiento
 	
 	void mover(){
 		Grafico g = this.e.getGrafico();
-		g.setPosition(g.getX() direccion * e.getVelocidad(), g.getY());
+		g.setPosition(g.getX() + this.direccion * e.getVelocidad(), g.getY()); //falta controlar que no se salga del frame
 	}
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-oyenteTeclaIzquierda()
-{
-	Jugador.getEstrategiaMovimiento.setDireccion(MovimientoHorizontal.IZQUIERDA);
-	jugador.mover();
+//DESDE GUI 
+public class oyenteTeclado implements KeyListener{	
+	...
+	public void KeyPressed(KeyEvent e){
+		int codigoTecla= e.getKeyCode();
+		if(codigoTecla== KeyEvent.VK_LEFT || codigoTecla== KeyEvent.VK_A){
+			juego.setMovIzquierda(true);
+		}
+           		if(codigoTecla== KeyEvent.VK_RIGTH || codigoTecla==KeyEvent.VK_D){
+			juego.setMovDerecha(true);
+		}
+		if(codigoTecla==KeyEvent.SPACE){
+			juego.setDisparando(true);
+		}
+	}
+
+	public void KeyReleased(KeyEvent e){
+		int codigoTecla= e.getKeyCode();
+		if(codigoTecla== KeyEvent.VK_LEFT || codigoTecla== KeyEvent.VK_A){
+			juego.setMovIzquierda(false);
+		}
+           		if(codigoTecla== KeyEvent.VK_RIGTH || codigoTecla==KeyEvent.VK_D){
+			juego.setMovDerecha(false);
+		}
+		if(codigoTecla==KeyEvent.SPACE){
+			juego.setDisparando(false);
+		}
+
+	}
 }
 
 
