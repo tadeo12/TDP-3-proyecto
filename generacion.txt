@@ -23,8 +23,8 @@ Nivel construirSiguienteNivel(){
 }
 	
 // 	        	a b c d
-//	nivel 1      1 2 3 4
-//	nivel 2      3 5 6 3
+//	nivel 1   	1 2 3 4
+//	nivel 2      	3 5 6 3
 //	nivel 3 	4 5 6 7
 //	nivel 4	
 
@@ -40,3 +40,13 @@ agregarInfectado(Infectado I){
  this.infectados.add(I);
  juego.agregarEntidad(I);
 }
+
+---> EN FACTORY 
+//Al momento de crear cada uno de los infectados, se le asigna una posicion inicial aleatoria 
+//que va a ser fuera de la ventana en la parte superior (es decir que no será visible) y un tiempo 
+//durante el cual dicho infectado va a estar quieto luego va a empezar a bajar 
+
+
+
+
+
