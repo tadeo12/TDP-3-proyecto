@@ -2,11 +2,11 @@ package Entidades;
 
 import EntidadesGraficas.Entidad_grafica;
 
-public abstract class Infectado extends Entidad{
+public class InfectadoBeta extends Infectado {
 
-	public Infectado(Entidad_grafica entidad) {
+	public InfectadoBeta(Entidad_grafica entidad) {
 		super(entidad);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 }
