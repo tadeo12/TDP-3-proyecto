@@ -1,4 +1,4 @@
-package Logica;
+package Entidades;
 
 public abstract class Infectado {
 	
