@@ -37,7 +37,7 @@
 	...	
 	Jugador(){
 		...
-		movimiento = new vertical(this,horizontal.DERECHA);
+		movimiento = new Horizontal(this,horizontal.DERECHA);
 	}
 
 	accionar(){

@@ -9,33 +9,35 @@ public abstract class Entidad extends Element {
 	protected int velocidad;
 	protected Entidad_grafica entidad;
 	protected EstrategiaMovimiento movimiento;
-	protected Visitor visitor;
-	
+	// protected Visitor visitor;
+
 	public Entidad(Entidad_grafica entidad) {
-		this.entidad = entidad;		
-	}	
-	
+		this.entidad = entidad;
+	}
+
 	public void accionar() {
-		movimiento.mover();
+		this.movimiento.mover();
 	}
-	
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
-	}
-	
+
+	public abstract void accept(Visitor visitor);
+
 	public void setMovimiento(EstrategiaMovimiento movimiento) {
 		this.movimiento = movimiento;
 	}
-	
+
 	public int getVelocidad() {
 		return this.velocidad;
 	}
-	
+
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
 	}
-	
+
 	public void eliminar() {
-		
+
+	}
+
+	public Entidad_grafica getGrafico() {
+		return entidad;
 	}
 }
