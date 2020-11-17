@@ -11,36 +11,28 @@ import Entidades.SuperProyectil;
 
 public abstract class Visitor {
 
-	public void visit(InfectadoAlpha infectado) {
+	public abstract void visit(InfectadoAlpha infectado) ;
 
-	}
 
-	public void visit(Jugador jugador) {
+	public abstract void visit(Jugador jugador) ;
 
-	}
+	
+	public abstract void visit(InfectadoBeta infectado) ;
 
-	public void visit(InfectadoBeta infectado) {
 
-	}
+	public abstract void visit(PremioTemporal premio) ;
 
-	public void visit(PremioTemporal premio) {
 
-	}
+	public abstract void visit(ObjetoPrecioso objeto) ;
 
-	public void visit(ObjetoPrecioso objeto) {
+	
+	public abstract void visit(ParticulaV particula) ;
 
-	}
+	
+	public abstract void visit(SuperProyectil proyectil) ;
 
-	public void visit(ParticulaV particula) {
+	
+	public abstract void visit(ProyectilNormal proyectil) ;
 
-	}
-
-	public void visit(SuperProyectil proyectil) {
-
-	}
-
-	public void visit(ProyectilNormal proyectil) {
-
-	}
 
 }
