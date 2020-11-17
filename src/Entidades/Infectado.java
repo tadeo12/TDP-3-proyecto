@@ -15,7 +15,7 @@ public abstract class Infectado extends Entidad {
 		carga_viral = 100;
 	}
 
-	public abstract void disminuirCargaViral();
+	public abstract void disminuirCargaViral(int desinfeccion);
 
 	public Proyectil disparar() {
 		return null;
@@ -29,4 +29,5 @@ public abstract class Infectado extends Entidad {
 	public void accionar() {
 
 	}
+	
 }
