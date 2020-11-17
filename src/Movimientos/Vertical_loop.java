@@ -9,7 +9,6 @@ public class Vertical_loop extends Vertical {
 		super(entidad, direccion);
 	}
 
-
 	public void mover() {
 		Entidad_grafica g = entidad.getGrafico();
 		g.setLocation(g.getX(), g.getY() + this.direccion * entidad.getVelocidad());
