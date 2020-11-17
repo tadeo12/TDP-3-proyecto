@@ -7,12 +7,12 @@ import Visitors.Visitor;
 
 public abstract class Entidad extends Element {
 	protected int velocidad;
-	protected Entidad_grafica entidad;
+	protected Entidad_grafica entidad_graf;
 	protected EstrategiaMovimiento movimiento;
 	// protected Visitor visitor;
 
 	public Entidad(Entidad_grafica entidad) {
-		this.entidad = entidad;
+		this.entidad_graf = entidad;
 	}
 
 	public void accionar() {
@@ -38,6 +38,6 @@ public abstract class Entidad extends Element {
 	}
 
 	public Entidad_grafica getGrafico() {
-		return entidad;
+		return entidad_graf;
 	}
 }

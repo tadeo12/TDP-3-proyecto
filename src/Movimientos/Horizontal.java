@@ -1,5 +1,8 @@
 package Movimientos;
 
+import java.awt.Container;
+import java.awt.Rectangle;
+
 import Entidades.Entidad;
 import EntidadesGraficas.Entidad_grafica;
 
@@ -14,8 +17,15 @@ public class Horizontal extends EstrategiaMovimiento {
 
 	@Override
 	public void mover() {
-		Entidad_grafica g = this.entidad.getGrafico();
-		// falta controlar que no se salga del frame
-		g.setLocation(g.getX() + this.direccion * entidad.getVelocidad(), g.getY()); 
+		Entidad_grafica g = this.entidad.getGrafico();	
+		g.setLocation(g.getX() + this.direccion * entidad.getVelocidad(), g.getY());
+		if(direccion==DERECHA) {
+			if(g.getX()>limiteX)
+				g.setLocation(limiteX, g.getY());
+		}
+		else {
+			if(g.getX()<0)
+				g.setLocation(0,g.getY());
+		}
 	}
 }

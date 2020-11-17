@@ -13,7 +13,7 @@ public class Vertical_loop extends Vertical {
 	public void mover() {
 		Entidad_grafica g = entidad.getGrafico();
 		g.setLocation(g.getX(), g.getY() + this.direccion * entidad.getVelocidad());
-		if (g.getY() > ventana.getAltura())
+		if (g.getY() > limiteY)
 			g.setLocation(g.getX(), 0);
 	}
 	 
