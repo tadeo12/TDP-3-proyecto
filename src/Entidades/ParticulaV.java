@@ -1,13 +1,12 @@
 package Entidades;
 
-import Logica.Juego;
 import Movimientos.Vertical;
 import Visitors.Visitor;
 
 public class ParticulaV extends Proyectil {
 
-	public ParticulaV(Juego juego) {
-		super(juego);
+	public ParticulaV() {
+		super();
 		movimiento = new Vertical(this, Vertical.ABAJO);
 	}
 

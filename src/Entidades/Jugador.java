@@ -14,7 +14,7 @@ public class Jugador extends Entidad {
 	protected int carga_viral;
 
 	public Jugador( Juego juego) {
-		super( juego);
+		super();
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);

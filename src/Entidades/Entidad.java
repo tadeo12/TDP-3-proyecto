@@ -12,8 +12,8 @@ public abstract class Entidad extends Element {
 	protected EstrategiaMovimiento movimiento;
 	protected Juego juego;
 
-	public Entidad(Juego juego) {
-		this.juego = juego;
+	public Entidad() {
+		this.juego = Juego.juego;
 	}
 
 	public void accionar() {

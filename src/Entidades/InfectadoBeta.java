@@ -1,13 +1,12 @@
 package Entidades;
 
-import Logica.Juego;
 import Visitors.Visitor;
 
 public class InfectadoBeta extends Infectado {
 	
 
-	public InfectadoBeta(Juego juego) {
-		super(juego);
+	public InfectadoBeta() {
+		super();
 		this.carga_viral=carga_viral*2;
 	}
 

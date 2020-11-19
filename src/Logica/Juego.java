@@ -10,6 +10,7 @@ public class Juego {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
+	public static Juego juego;
 
 	private Gui gui;
 	private List<Entidad> entidades;
@@ -23,6 +24,7 @@ public class Juego {
 		this.gui = gui;
 		entidades = new LinkedList<Entidad>();
 		director = new Director();
+		juego = this;
 	}
 
 	public boolean moviendoIzquierda() {
@@ -44,5 +46,7 @@ public class Juego {
 	public void eliminarEntidad(Entidad a_eliminar) {
 		entidades.remove(a_eliminar);
 	}
+	
+	
 
 }
