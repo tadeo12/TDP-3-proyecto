@@ -17,10 +17,15 @@ public class Director {
 	
 	public Director(){
 		int actual=0;
-		infectadosPorNivel=LectorArchivo.obtenerMatrizInfectado();
+		LectorArchivo l= new LectorArchivo();
+		infectadosPorNivel=l.obtenerMatrizInfectado();
 		
 	}
 	
+	public Nivel construirSiguienteNivel() {
+		
+		return
+	}
 	
 	
 	
