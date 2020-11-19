@@ -1,12 +1,12 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 import Movimientos.Vertical;
 
 public abstract class ProyectilSanitario extends Proyectil {
 
-	public ProyectilSanitario(Entidad_grafica entidad) {
-		super(entidad);
+	public ProyectilSanitario(Juego juego) {
+		super(juego);
 		movimiento = new Vertical(this,Vertical.ARRIBA);
 	}
 

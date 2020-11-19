@@ -1,13 +1,12 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class ProyectilNormal extends ProyectilSanitario {
 
-	public ProyectilNormal(Entidad_grafica entidad) {
-		super(entidad);
-		// TODO Auto-generated constructor stub
+	public ProyectilNormal(Juego juego) {
+		super(juego);
 	}
 
 	public void accept(Visitor visitor) {

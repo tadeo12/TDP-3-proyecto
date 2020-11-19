@@ -1,11 +1,11 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 
 public abstract class Proyectil extends Entidad{
 	protected int damage;
-	public Proyectil(Entidad_grafica entidad) {
-		super(entidad);
+	public Proyectil(Juego juego) {
+		super(juego);
 		// TODO Auto-generated constructor stub
 	}
 

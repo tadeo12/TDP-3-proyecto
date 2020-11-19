@@ -1,13 +1,14 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import EntidadesGraficas.Label_infectado_alpha;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class InfectadoAlpha extends Infectado {
 
-
-	public InfectadoAlpha(Entidad_grafica entidad) {
-		super(entidad);
+	public InfectadoAlpha(Juego juego) {
+		super(juego);
+		this.entidad_graf = new Label_infectado_alpha();
 	}
 
 	@Override
@@ -18,12 +19,6 @@ public class InfectadoAlpha extends Infectado {
 		} else {
 			carga_viral -= desinfeccion;
 		}
-	}
-
-	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void accept(Visitor visitor) {

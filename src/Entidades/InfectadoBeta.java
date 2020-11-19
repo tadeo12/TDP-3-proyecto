@@ -1,13 +1,13 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 import Visitors.Visitor;
 
 public class InfectadoBeta extends Infectado {
 	
 
-	public InfectadoBeta(Entidad_grafica entidad) {
-		super(entidad);
+	public InfectadoBeta(Juego juego) {
+		super(juego);
 		this.carga_viral=carga_viral*2;
 	}
 
@@ -20,9 +20,6 @@ public class InfectadoBeta extends Infectado {
 			carga_viral -= desinfeccion;
 		}
 
-	}
-
-	public void eliminar() {
 	}
 
 	public void accept(Visitor visitor) {

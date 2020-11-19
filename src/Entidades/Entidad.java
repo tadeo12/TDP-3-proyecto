@@ -1,6 +1,7 @@
 package Entidades;
 
 import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 import Movimientos.EstrategiaMovimiento;
 import Visitors.Element;
 import Visitors.Visitor;
@@ -9,10 +10,10 @@ public abstract class Entidad extends Element {
 	protected int velocidad;
 	protected Entidad_grafica entidad_graf;
 	protected EstrategiaMovimiento movimiento;
-	// protected Visitor visitor;
+	protected Juego juego;
 
-	public Entidad(Entidad_grafica entidad) {
-		this.entidad_graf = entidad;
+	public Entidad(Juego juego) {
+		this.juego = juego;
 	}
 
 	public void accionar() {
@@ -34,6 +35,7 @@ public abstract class Entidad extends Element {
 	}
 
 	public void eliminar() {
+		juego.eliminarEntidad(this);
 
 	}
 
