@@ -12,7 +12,7 @@ public class ConArmaNormal extends EstadoArma{
 
 	@Override
 	public Proyectil disparar() {
-		return new ProyectilNormal();
+		
 	}
 
 }

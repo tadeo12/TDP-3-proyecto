@@ -4,20 +4,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
-import GUI.GUI;
+import GUI.Gui;
 
 public class Juego {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
 
-	private GUI gui;
-
+	private Gui gui;
 	private List<Entidad> entidades;
 
 	private Director director;
 
-	public Juego(GUI gui) {
+	public Juego(Gui gui) {
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
@@ -45,4 +44,5 @@ public class Juego {
 	public void eliminarEntidad(Entidad a_eliminar) {
 		entidades.remove(a_eliminar);
 	}
+
 }
