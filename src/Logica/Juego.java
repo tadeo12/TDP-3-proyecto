@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
-import GUI.GUI;
+import GUI.Gui;
 
 public class Juego {
 	
@@ -12,13 +12,13 @@ public class Juego {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 	
-	private GUI gui;
+	private Gui gui;
 	
 	private List<Entidad> entidades;
 	
 	private Director director;
 	
-	public Juego(GUI gui) {
+	public Juego(Gui gui) {
 		moviendoIzquierda=false;
 		moviendoDerecha=false;
 		disparando=false;
