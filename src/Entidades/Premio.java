@@ -1,12 +1,12 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 import Movimientos.Vertical;
 
 public abstract class Premio extends Entidad {
 
-	public Premio(Entidad_grafica entidad) {
-		super(entidad);
+	public Premio(Juego juego) {
+		super(juego);
 		movimiento = new Vertical(this,Vertical.ABAJO);
 	}
 

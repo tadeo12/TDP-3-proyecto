@@ -1,6 +1,6 @@
 package Entidades;
 
-import EntidadesGraficas.Entidad_grafica;
+import Logica.Juego;
 import Movimientos.Vertical;
 import Movimientos.Vertical_loop;
 
@@ -8,18 +8,17 @@ public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
 
-	public Infectado(Entidad_grafica entidad) {
-		super(entidad);
-		movimiento = new Vertical_loop(this, Vertical.ABAJO);
-		suelta_premio = false;
-		carga_viral = 100;
+	public Infectado(Juego juego) {
+		super(juego);
+		this.movimiento = new Vertical_loop(this, Vertical.ABAJO);
+		this.suelta_premio = false;
+		this.carga_viral = 100;
 	}
 
 	public abstract void disminuirCargaViral(int desinfeccion);
 
 	public Proyectil disparar() {
-		return null;
-		// new ParticulaV(?????);
+		return new ParticulaV(juego);
 	}
 
 	public int getCargaViral() {
