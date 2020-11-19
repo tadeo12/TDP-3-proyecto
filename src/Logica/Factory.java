@@ -1,5 +1,7 @@
 package Logica;
 
-public abstract class Factory {
+import Entidades.Infectado;
 
+public abstract class Factory {
+	public abstract Infectado crearInfectado();
 }
