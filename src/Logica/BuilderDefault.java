@@ -5,18 +5,19 @@ import Entidades.Infectado;
 public class BuilderDefault extends BuilderNivel {
 	
 	private Tanda tandaActual;
+	private int nivelesCreados;
 	
 	public BuilderDefault() {
 		super();
 		misFabricas.add(new FactoryAlpha());
 		misFabricas.add(new FactoryBeta());
 		misFabricas.add(new FactoryBoss());
-		
+		nivelesCreados=0;
 	}
 	
 	@Override
 	public void reset() {
-		nivel=new Nivel();
+		nivel=new Nivel(nivelesCreados);
 		tandaActual=new Tanda();
 		
 	}
@@ -30,7 +31,7 @@ public class BuilderDefault extends BuilderNivel {
 	@Override
 	public Nivel getNivel() {
 		Nivel aRetornar=nivel;
-		nivel=new Nivel();
+		nivel=new Nivel(nivelesCreados);
 		tandaActual=new Tanda();
 		return aRetornar;
 	}

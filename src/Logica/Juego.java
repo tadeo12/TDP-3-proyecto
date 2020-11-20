@@ -10,21 +10,28 @@ public class Juego {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
-	public static Juego juego;
+	private static  Juego juego;
 
 	private Gui gui;
 	private List<Entidad> entidades;
 
 	private Director director;
+	private Nivel nivelActual;
 
-	public Juego(Gui gui) {
+	private Juego() {
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
-		this.gui = gui;
 		entidades = new LinkedList<Entidad>();
 		director = new Director();
+		nivelActual=director.construirSiguienteNivel();
 		juego = this;
+	}
+	
+	public static Juego getJuego() {
+		if(juego==null)
+			juego= new Juego();
+		return juego;
 	}
 
 	public boolean moviendoIzquierda() {
@@ -48,5 +55,16 @@ public class Juego {
 	}
 	
 	
+	public void nivelCompleto() {
+		if(director.finJuego())
+			gui.gano();
+		else
+			nivelActual=director.construirSiguienteNivel();
+		
+	}
+	
+	public void setGUI(Gui gui) {
+		this.gui=gui;
+	}
 
 }

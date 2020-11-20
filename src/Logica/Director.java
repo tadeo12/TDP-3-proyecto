@@ -27,7 +27,11 @@ public class Director {
 			}
 			builder.siguienteTanda();
 		}
+		nivelActual++;
 		return builder.getNivel();
 	}
-
+	
+	public boolean finJuego() {
+		return nivelActual==infectadosPorNivel.length;
+	}
 }

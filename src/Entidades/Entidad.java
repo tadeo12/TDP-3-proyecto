@@ -13,7 +13,7 @@ public abstract class Entidad extends Element {
 	protected Juego juego;
 
 	public Entidad() {
-		this.juego = Juego.juego;
+		this.juego = Juego.getJuego();
 	}
 
 	public void accionar() {

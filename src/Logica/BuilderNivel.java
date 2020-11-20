@@ -8,8 +8,9 @@ public abstract class BuilderNivel {
 	protected List<Factory> misFabricas;
 	protected Nivel nivel;
 	
+	
 	public BuilderNivel() {
-		nivel= new Nivel();
+		nivel= new Nivel(0);
 		misFabricas=new LinkedList<Factory>();
 	}
 	
