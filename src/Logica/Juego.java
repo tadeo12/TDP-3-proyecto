@@ -1,9 +1,11 @@
 package Logica;
 
+import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
+import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
 
 public class Juego {
@@ -14,6 +16,8 @@ public class Juego {
 
 	private Gui gui;
 	private List<Entidad> entidades;
+	private List<Entidad> aEliminar;
+	private List<Entidad> aAgregar;
 
 	private Director director;
 	private Nivel nivelActual;
@@ -23,6 +27,8 @@ public class Juego {
 		moviendoDerecha = false;
 		disparando = false;
 		entidades = new LinkedList<Entidad>();
+		aEliminar= new LinkedList<Entidad>();
+		aAgregar= new LinkedList<Entidad>();
 		director = new Director();
 		nivelActual=director.construirSiguienteNivel();
 		juego = this;
@@ -47,13 +53,12 @@ public class Juego {
 	}
 
 	public void agregarEntidad(Entidad nueva) {
-		entidades.add(nueva);
+		aAgregar.add(nueva);
 	}
 
 	public void eliminarEntidad(Entidad a_eliminar) {
-		entidades.remove(a_eliminar);
+		aEliminar.add(a_eliminar);
 	}
-	
 	
 	public void nivelCompleto() {
 		if(director.finJuego())
@@ -66,5 +71,54 @@ public class Juego {
 	public void setGUI(Gui gui) {
 		this.gui=gui;
 	}
+	
+	public void Jugar() {
+		while(true) {
+			for(Entidad e: entidades) {
+				e.accionar();
+			}
+			detectarColisiones();
+			removerEntidadesEliminadas();
+			agregarEntidadesNuevas();
+			
+		}
+	}
+
+	private void detectarColisiones() {
+		int cantEntidades=entidades.size();
+		for(int i=0;i<cantEntidades;i++) {
+			Entidad a=entidades.get(i);
+			for(int j=i+1;j<cantEntidades;j++) {
+				Entidad b=entidades.get(j);
+				if(colisionan(a,b)) {
+					a.accept(b.getVisitor());
+					b.accept(a.getVisitor());
+				}
+			}
+		}
+	}
+
+	private boolean colisionan(Entidad a, Entidad b) {
+		Rectangle A=a.getGrafico().getBounds();
+		Rectangle B=b.getGrafico().getBounds();
+		return A.intersects(B);
+	}
+
+	private void removerEntidadesEliminadas() {
+		for(Entidad e: aEliminar) {
+			entidades.remove(e);
+		}
+		aEliminar= new LinkedList<Entidad>();
+	}
+	
+	private void agregarEntidadesNuevas() {
+		for(Entidad e: aAgregar) {
+			entidades.add(e);
+		}
+		aAgregar= new LinkedList<Entidad>();
+	}
+	
+	
+	
 
 }
