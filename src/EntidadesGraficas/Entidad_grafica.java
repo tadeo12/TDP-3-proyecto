@@ -5,7 +5,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import com.sun.javafx.iio.gif.GIFImageLoader2;
+//import com.sun.javafx.iio.gif.GIFImageLoader2;
 
 public abstract class Entidad_grafica extends JLabel {
 	

@@ -55,8 +55,9 @@ public class Gui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-// VerticalShot = Juego.getJuego(); //<<<---CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
-//		VerticalShot.setGUI(this);
+		
+		VerticalShot = Juego.getJuego(); //<<<---CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
+		VerticalShot.setGUI(this);
 
 		// JLabel lblNewLabel = new JLabel("");
 		// lblNewLabel.setIcon(new

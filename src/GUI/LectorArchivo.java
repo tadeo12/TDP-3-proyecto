@@ -12,14 +12,11 @@ public class LectorArchivo {
 	private String rutaArchivo = "Datos/generadorInfectados.txt";
 
 	private int cantTiposInfectados = 3;
-	private int cantNiveles = 3;
+	private int cantTandas = 6;
 
 	public int[][] obtenerMatrizInfectado() {
 
-		//SE CAIA DE LA MATRIZ, AGREGUE EL *2 Y AHÍ BUENO, EXPLOTO TODO :(
-//		NO QUISE TOCAR MUCHO, ESPERO QUE SEPAS LO QUE PUEDE ESTAR PASANDO </3
-		//AH, POR QUÉ GRITABA
-		int[][] toReturn = new int[cantNiveles*2][cantTiposInfectados];
+		int[][] toReturn = new int[cantTandas][cantTiposInfectados];
 
 		
 		try {
@@ -33,14 +30,18 @@ public class LectorArchivo {
 			while (linea != null) {
 				
 				String[] enteros = linea.split(" ");
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < cantTiposInfectados; i++)
 					toReturn[fila][i] = Integer.parseInt(enteros[i]);
 
 				fila++; 
 				linea = br.readLine(); 
 			}
 			br.close();
-
+//			for (int i = 0; i < cantTandas; i++) {
+//				for (int j = 0; j < cantTiposInfectados; j++)
+//					System.out.print(toReturn[i][j] + " ");
+//				System.out.println();
+//			}
 
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra archivo");

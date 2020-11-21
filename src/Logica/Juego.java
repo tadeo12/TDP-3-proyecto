@@ -12,7 +12,7 @@ public class Juego {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
-	private static  Juego juego;
+	private static Juego juego;
 
 	private Gui gui;
 	private List<Entidad> entidades;
@@ -23,6 +23,7 @@ public class Juego {
 	private Nivel nivelActual;
 
 	private Juego() {
+		System.out.println("estoy en juego");
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
@@ -35,8 +36,9 @@ public class Juego {
 	}
 	
 	public static Juego getJuego() {
-		if(juego==null)
-			juego= new Juego();
+		if(juego==null) {
+			System.out.println("estoy en el if");
+			juego= new Juego();}
 		return juego;
 	}
 
