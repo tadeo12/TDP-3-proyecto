@@ -11,9 +11,12 @@ public abstract class Entidad extends Element {
 	protected Entidad_grafica entidad_graf;
 	protected EstrategiaMovimiento movimiento;
 	protected Juego juego;
+	protected Visitor visitor;
+	
 
-	public Entidad(Juego juego) {
-		this.juego = juego;
+	public Entidad() {
+		this.juego = Juego.getJuego();
+		juego.agregarEntidad(this);
 	}
 
 	public void accionar() {
@@ -41,5 +44,9 @@ public abstract class Entidad extends Element {
 
 	public Entidad_grafica getGrafico() {
 		return entidad_graf;
+	}
+	
+	public Visitor getVisitor() {
+		return visitor;
 	}
 }

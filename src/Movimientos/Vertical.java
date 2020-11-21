@@ -13,16 +13,17 @@ public class Vertical extends EstrategiaMovimiento {
 
 	@Override
 	public void mover() {
-		Entidad_grafica g = entidad.getGrafico();		
-		g.setLocation(g.getX(), g.getY() + this.direccion * entidad.getVelocidad());
-		if(direccion==ABAJO) {
-			if(g.getY()>limiteY)
-				g.setLocation(g.getX(), limiteY);
-		}
-		else {
-			if(g.getY()<0)
-				g.setLocation(g.getX(),0);
-		}
+		Entidad_grafica g = entidad.getGrafico();
+		int siguientePosY = g.getY() + this.direccion * entidad.getVelocidad();
+
+		if (siguientePosY > limiteY)
+			g.setLocation(g.getX(), limiteY);
+		else 
+			if (siguientePosY < 0)
+				g.setLocation(g.getX(), 0);
+			else
+				g.setLocation(g.getX(), siguientePosY);
+		
 	}
 
 }

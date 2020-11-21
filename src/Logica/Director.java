@@ -1,32 +1,37 @@
 package Logica;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-
 import GUI.LectorArchivo;
 
 public class Director {
-	
-	private final String rutaArchivo= "Datos/cantInfectados.txt";
-	
-	
+
 	private int infectadosPorNivel[][];
 	private int nivelActual;
+	private BuilderNivel builder;
 	
-	public Director(){
-		int actual=0;
-		LectorArchivo l= new LectorArchivo();
-		infectadosPorNivel=l.obtenerMatrizInfectado();
-		
+	private final int tandasPorNivel = 2;
+
+	public Director() {
+		nivelActual = 0;
+		LectorArchivo l = new LectorArchivo();
+		infectadosPorNivel = l.obtenerMatrizInfectado();
+		builder= new BuilderDefault();
 	}
-	
+
 	public Nivel construirSiguienteNivel() {
-		
-		return
+		int cantInfectados;
+		for (int n = 0; n < tandasPorNivel; n++) {
+			for (int j = 0; j < infectadosPorNivel[0].length; j++) {
+				cantInfectados = infectadosPorNivel[nivelActual * tandasPorNivel][j];
+				for (int i = 0; i < cantInfectados; i++)
+					builder.construirInfectado(j);
+			}
+			builder.siguienteTanda();
+		}
+		nivelActual++;
+		return builder.getNivel();
 	}
 	
-	
-	
+	public boolean finJuego() {
+		return nivelActual==infectadosPorNivel.length;
+	}
 }

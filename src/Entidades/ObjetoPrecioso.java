@@ -6,7 +6,7 @@ import Visitors.Visitor;
 public class ObjetoPrecioso extends Premio {
 
 	public ObjetoPrecioso(Juego juego) {
-		super(juego);
+		super();
 	}
 
 	public void accept(Visitor visitor) {

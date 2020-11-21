@@ -17,15 +17,16 @@ public class Horizontal extends EstrategiaMovimiento {
 
 	@Override
 	public void mover() {
-		Entidad_grafica g = this.entidad.getGrafico();	
-		g.setLocation(g.getX() + this.direccion * entidad.getVelocidad(), g.getY());
-		if(direccion==DERECHA) {
-			if(g.getX()>limiteX)
-				g.setLocation(limiteX, g.getY());
-		}
+		Entidad_grafica g = this.entidad.getGrafico();
+		int siguientePosX = g.getX() + this.direccion * entidad.getVelocidad();
+		if (siguientePosX > limiteX)
+			g.setLocation(limiteX, g.getY());
 		else {
-			if(g.getX()<0)
-				g.setLocation(0,g.getY());
+			if (siguientePosX < 0)
+				g.setLocation(0, g.getY());
+			else
+				g.setLocation(siguientePosX, g.getY());
 		}
+
 	}
 }

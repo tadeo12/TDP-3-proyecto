@@ -11,9 +11,11 @@ public class Vertical_loop extends Vertical {
 
 	public void mover() {
 		Entidad_grafica g = entidad.getGrafico();
-		g.setLocation(g.getX(), g.getY() + this.direccion * entidad.getVelocidad());
-		if (g.getY() > limiteY)
+		int siguientePosY = g.getY() + this.direccion * entidad.getVelocidad();
+		if (siguientePosY > limiteY)
 			g.setLocation(g.getX(), 0);
+		else 
+			g.setLocation(g.getX(), siguientePosY);
 	}
 	 
 }

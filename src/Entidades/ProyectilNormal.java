@@ -1,12 +1,11 @@
 package Entidades;
 
-import Logica.Juego;
 import Visitors.Visitor;
 
 public class ProyectilNormal extends ProyectilSanitario {
 
-	public ProyectilNormal(Juego juego) {
-		super(juego);
+	public ProyectilNormal() {
+		super();
 	}
 
 	public void accept(Visitor visitor) {

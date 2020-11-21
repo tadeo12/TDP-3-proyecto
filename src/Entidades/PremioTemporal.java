@@ -1,13 +1,12 @@
 package Entidades;
 
-import Logica.Juego;
 import Visitors.Visitor;
 
 public class PremioTemporal extends Premio {
 	protected int duracion;
 	
-	public PremioTemporal(Juego juego) {
-		super(juego);
+	public PremioTemporal() {
+		super();
 	}
 
 	public void accept(Visitor visitor) {
