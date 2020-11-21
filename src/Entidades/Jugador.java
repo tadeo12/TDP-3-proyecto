@@ -13,16 +13,12 @@ public class Jugador extends Entidad {
 	protected EstadoJugador estado_jugador;
 	protected int carga_viral;
 
-	public Jugador( Juego juego) {
+	public Jugador(Juego juego) {
 		super();
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
 		carga_viral = 0;
-	}
-
-	public void setEstado(EstadoJugador estado) {
-		estado_jugador = estado;
 	}
 
 	public int getCargaViral() {
@@ -64,5 +60,13 @@ public class Jugador extends Entidad {
 
 	public void setEstadoArma(EstadoArma estado_arma) {
 		this.estado_arma = estado_arma;
+	}
+
+	public EstadoArma getEstadoArma() {
+		return estado_arma;
+	}
+	
+	public EstadoJugador getEstadoJugador() {
+		return estado_jugador;		
 	}
 }

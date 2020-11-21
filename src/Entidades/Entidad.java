@@ -11,6 +11,7 @@ public abstract class Entidad extends Element {
 	protected Entidad_grafica entidad_graf;
 	protected EstrategiaMovimiento movimiento;
 	protected Juego juego;
+	protected Visitor visitor;
 
 	public Entidad() {
 		this.juego = Juego.getJuego();
@@ -36,7 +37,6 @@ public abstract class Entidad extends Element {
 
 	public void eliminar() {
 		juego.eliminarEntidad(this);
-
 	}
 
 	public Entidad_grafica getGrafico() {

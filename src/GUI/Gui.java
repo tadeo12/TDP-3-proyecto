@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 
 public class Gui extends JFrame {
 
@@ -70,6 +71,10 @@ public class Gui extends JFrame {
 		FONDO.setBounds(0, 0, 914, 600);
 		contentPane.add(FONDO);
 		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/Recursos_Graficos/FONDO-LVL1.png")));
+		
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setBounds(68, 242, 146, 14);
+		contentPane.add(progressBar);
 		
 		
 		
