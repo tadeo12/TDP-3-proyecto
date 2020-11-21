@@ -59,7 +59,7 @@ public class Gui extends JFrame {
 		lblNewLabel_3.setBounds(682, 13, 198, 164);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
+		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(Gui.class.getResource("/Recursos_Graficos/mov_right.gif")));
 		lblNewLabel_2.setBounds(391, 490, 146, 110);
 		contentPane.add(lblNewLabel_2);
