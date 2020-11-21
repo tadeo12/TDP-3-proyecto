@@ -7,6 +7,7 @@ import EstadosJugador.EstadoJugador;
 import Logica.Juego;
 import Movimientos.Horizontal;
 import Visitors.Visitor;
+import Visitors.VisitorJugador;
 
 public class Jugador extends Entidad {
 	protected EstadoArma estado_arma;
@@ -19,6 +20,10 @@ public class Jugador extends Entidad {
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
 		carga_viral = 0;
+	}
+
+	public void setVisitor(Visitor visitor) {
+		this.visitor = visitor;
 	}
 
 	public int getCargaViral() {
@@ -65,8 +70,8 @@ public class Jugador extends Entidad {
 	public EstadoArma getEstadoArma() {
 		return estado_arma;
 	}
-	
+
 	public EstadoJugador getEstadoJugador() {
-		return estado_jugador;		
+		return estado_jugador;
 	}
 }

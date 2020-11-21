@@ -2,14 +2,10 @@ package Visitors;
 
 import Entidades.*;
 
-public class VisitorParticulaV extends VisitorProyectil{
+public class VisitorParticulaV extends Visitor{
 	
-	public void visit(InfectadoAlpha i) {
-		
-	}
-	
-	public void visit(InfectadoBeta i) {
-		
+	public void visit(Jugador j) {
+
 	}
 	
 }

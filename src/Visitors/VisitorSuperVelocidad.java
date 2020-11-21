@@ -7,8 +7,9 @@ import Entidades.Jugador;
 import Entidades.SuperVelocidad;
 import EstadosJugador.EstadoJugador;
 import EstadosJugador.SuperVeloz;
-
+//TEMPORAL
 public class VisitorSuperVelocidad extends Visitor {
+	
 	public int duracion;
 
 	public VisitorSuperVelocidad(SuperVelocidad premioTemp) {

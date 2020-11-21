@@ -51,6 +51,18 @@ public class Juego {
 	public boolean disparando() {
 		return disparando;
 	}
+	
+	public void setMoviendoIzquierda(boolean mov) {
+		this.moviendoIzquierda = mov;
+	}
+
+	public void setMoviendoDerecha(boolean mov) {
+		this.moviendoDerecha = mov;
+	}
+
+	public void setDisparando(boolean mov) {
+		this.disparando = mov;
+	}
 
 	public void agregarEntidad(Entidad nueva) {
 		aAgregar.add(nueva);

@@ -124,29 +124,29 @@
 //DESDE GUI 
 public class oyenteTeclado implements KeyListener{	
 	...
-	public void KeyPressed(KeyEvent e){
-		int codigoTecla= e.getKeyCode();
-		if(codigoTecla== KeyEvent.VK_LEFT || codigoTecla== KeyEvent.VK_A){
-			juego.setMovIzquierda(true);
+	public void KeyPressed(KeyEvent e) {
+		int codigoTecla = e.getKeyCode();
+		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
+			VerticalShot.setMoviendoIzquierda(true);
 		}
-           		if(codigoTecla== KeyEvent.VK_RIGTH || codigoTecla==KeyEvent.VK_D){
-			juego.setMovDerecha(true);
+		if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
+			VerticalShot.setMoviendoDerecha(true);
 		}
-		if(codigoTecla==KeyEvent.SPACE){
-			juego.setDisparando(true);
+		if (codigoTecla == KeyEvent.VK_SPACE) {
+			VerticalShot.setDisparando(true);
 		}
 	}
 
-	public void KeyReleased(KeyEvent e){
-		int codigoTecla= e.getKeyCode();
-		if(codigoTecla== KeyEvent.VK_LEFT || codigoTecla== KeyEvent.VK_A){
-			juego.setMovIzquierda(false);
+	public void KeyReleased(KeyEvent e) {
+		int codigoTecla = e.getKeyCode();
+		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
+			VerticalShot.setMoviendoIzquierda(false);
 		}
-           		if(codigoTecla== KeyEvent.VK_RIGTH || codigoTecla==KeyEvent.VK_D){
-			juego.setMovDerecha(false);
+		if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
+			VerticalShot.setMoviendoDerecha(false);
 		}
-		if(codigoTecla==KeyEvent.SPACE){
-			juego.setDisparando(false);
+		if (codigoTecla == KeyEvent.VK_SPACE) {
+			VerticalShot.setDisparando(false);
 		}
 
 	}

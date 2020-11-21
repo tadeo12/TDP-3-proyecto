@@ -16,8 +16,12 @@ public class LectorArchivo {
 
 	public int[][] obtenerMatrizInfectado() {
 
-		int[][] toReturn = new int[cantNiveles][cantTiposInfectados];
+		//SE CAIA DE LA MATRIZ, AGREGUE EL *2 Y AHÍ BUENO, EXPLOTO TODO :(
+//		NO QUISE TOCAR MUCHO, ESPERO QUE SEPAS LO QUE PUEDE ESTAR PASANDO </3
+		//AH, POR QUÉ GRITABA
+		int[][] toReturn = new int[cantNiveles*2][cantTiposInfectados];
 
+		
 		try {
 			
 			InputStream in = LectorArchivo.class.getClassLoader().getResourceAsStream(rutaArchivo);
@@ -29,7 +33,7 @@ public class LectorArchivo {
 			while (linea != null) {
 				
 				String[] enteros = linea.split(" ");
-				for (int i = 0; i < enteros.length; i++)
+				for (int i = 0; i < 3; i++)
 					toReturn[fila][i] = Integer.parseInt(enteros[i]);
 
 				fila++; 

@@ -7,7 +7,7 @@ import Entidades.Jugador;
 import Entidades.SuperArma;
 import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
-
+//TEMPORAL
 public class VisitorSuperArma extends Visitor {
 	private int duracion;
 
