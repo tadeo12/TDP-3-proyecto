@@ -11,7 +11,6 @@ public class Director {
 	private final int tandasPorNivel = 2;
 
 	public Director() {
-		System.out.println("estoy en dire");
 		nivelActual = 0;
 		LectorArchivo l = new LectorArchivo();
 		infectadosPorNivel = l.obtenerMatrizInfectado();

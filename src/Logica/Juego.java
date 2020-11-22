@@ -23,7 +23,7 @@ public class Juego {
 	private Nivel nivelActual;
 
 	private Juego() {
-		System.out.println("estoy en juego");
+		juego = this; 
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
@@ -32,7 +32,7 @@ public class Juego {
 		aAgregar= new LinkedList<Entidad>();
 		director = new Director();
 		nivelActual=director.construirSiguienteNivel();
-		juego = this;
+		
 	}
 	
 	public static Juego getJuego() {
