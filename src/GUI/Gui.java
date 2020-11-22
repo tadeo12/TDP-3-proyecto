@@ -17,6 +17,8 @@ import EntidadesGraficas.Label_infectado_beta;
 import EntidadesGraficas.Label_jugador;
 import EntidadesGraficas.Label_particulaV_Alpha;
 import EntidadesGraficas.Label_particulaV_Beta;
+import EntidadesGraficas.Label_proyectil;
+import EntidadesGraficas.Label_proyectil_normal;
 import EntidadesGraficas.Label_super_proyectil;
 import Logica.Juego;
 
@@ -85,38 +87,43 @@ public class Gui extends JFrame {
 //		contentPane.add(lblNewLabel_2);
 //		
 
-		JLabel FONDO = new JLabel("");
-		FONDO.setBounds(0, 0, 914, 600);
-		contentPane.add(FONDO);
-		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
-
+		
 		for (int i = 0; i < 9; i++) {
 			Entidad infectado = new InfectadoAlpha();			
 			JLabel probando = infectado.getGrafico();
-			FONDO.add(probando);
+			contentPane.add(probando);
 			infectado.accionar();
 
 		}
 
 		for (int i = 0; i < 9; i++) {
 			JLabel probando = new Label_infectado_beta();
-			FONDO.add(probando);
+			contentPane.add(probando);
 		}
 
 		JLabel jugador_prueba = new Label_jugador();
-		FONDO.add(jugador_prueba);
+		contentPane.add(jugador_prueba);
 
 		JLabel disparo2_prueba = new Label_particulaV_Beta();
-		FONDO.add(disparo2_prueba);
+		contentPane.add(disparo2_prueba);
 
 		JLabel disparo1_prueba = new Label_particulaV_Alpha();
-		FONDO.add(disparo1_prueba);
+		contentPane.add(disparo1_prueba);
 
-		JLabel disparo_boost_prueba = new Label_super_proyectil();
-		FONDO.add(disparo_boost_prueba);
+//		JLabel disparo_boost_prueba = new Label_super_proyectil();
+//		contentPane.add(disparo_boost_prueba);
+
+		JLabel disparo_prueba = new Label_proyectil_normal();
+		contentPane.add(disparo_prueba);
+		
+		
+		
+		JLabel FONDO = new JLabel("");
+		FONDO.setBounds(0, 0, 914, 600);
+		contentPane.add(FONDO);
+		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
 		contentPane.repaint();
-
 	}
 
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
