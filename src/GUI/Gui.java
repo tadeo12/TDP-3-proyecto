@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -55,6 +56,7 @@ public class Gui extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 932, 647);
 		contentPane = new JPanel();
+		contentPane.setBounds(100, 100, 932, 647);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -138,5 +140,9 @@ public class Gui extends JFrame {
 
 	public void gano() {
 
+	}
+	
+	public Container getMapa() {
+		return contentPane;
 	}
 }

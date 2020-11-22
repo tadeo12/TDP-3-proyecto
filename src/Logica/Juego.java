@@ -1,5 +1,6 @@
 package Logica;
 
+import java.awt.Container;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
@@ -36,9 +37,8 @@ public class Juego {
 	}
 	
 	public static Juego getJuego() {
-		if(juego==null) {
-			System.out.println("estoy en el if");
-			juego= new Juego();}
+		if(juego==null) 
+			juego= new Juego();
 		return juego;
 	}
 
@@ -132,6 +132,9 @@ public class Juego {
 		aAgregar= new LinkedList<Entidad>();
 	}
 	
+	public Container getMapa(){
+		return gui.getMapa();
+	}
 	
 	
 

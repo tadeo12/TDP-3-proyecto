@@ -48,4 +48,8 @@ public abstract class Entidad extends Element {
 	public Visitor getVisitor() {
 		return visitor;
 	}
+
+	public Juego getJuego() {
+		return juego;
+	}
 }
