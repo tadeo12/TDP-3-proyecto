@@ -1,5 +1,7 @@
 package Movimientos;
 
+import java.awt.Container;
+
 import Entidades.Entidad;
 
 public abstract class EstrategiaMovimiento {
@@ -10,11 +12,9 @@ public abstract class EstrategiaMovimiento {
 	public EstrategiaMovimiento(Entidad entidad, int direccion) {
 		this.direccion = direccion;
 		this.entidad = entidad;
-	
-//		limiteX = (int) entidad.getGrafico().getParent().getBounds().getMaxX()
-//				- (int) entidad.getGrafico().getBounds().getMaxX();
-//		limiteY = (int) entidad.getGrafico().getParent().getBounds().getMaxY()
-//				- (int) entidad.getGrafico().getBounds().getMaxY();
+		Container mapa=entidad.getJuego().getMapa();
+		limiteX = (int) mapa.getWidth()+mapa.getX() - (int) entidad.getGrafico().getWidth();
+		limiteY = (int) mapa.getHeight()+mapa.getY() - (int) entidad.getGrafico().getHeight();
 	}
 
 	public abstract void mover();
