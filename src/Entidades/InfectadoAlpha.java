@@ -1,6 +1,8 @@
 package Entidades;
 
 import EntidadesGraficas.Label_infectado_alpha;
+import Movimientos.Vertical;
+import Movimientos.Vertical_loop;
 import Visitors.Visitor;
 
 public class InfectadoAlpha extends Infectado {
@@ -8,6 +10,7 @@ public class InfectadoAlpha extends Infectado {
 	public InfectadoAlpha() {
 		super();
 		this.entidad_graf = new Label_infectado_alpha();
+		velocidad = 100;		
 	}
 
 	@Override

@@ -14,8 +14,9 @@ public class Vertical_loop extends Vertical {
 		int siguientePosY = g.getY() + this.direccion * entidad.getVelocidad();
 		if (siguientePosY > limiteY)
 			g.setLocation(g.getX(), 0);
-		else 
+		else
 			g.setLocation(g.getX(), siguientePosY);
+
 	}
-	 
+
 }

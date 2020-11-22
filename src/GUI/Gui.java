@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Entidades.Entidad;
+import Entidades.InfectadoAlpha;
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_alpha;
@@ -55,8 +57,7 @@ public class Gui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		
-		VerticalShot = Juego.getJuego(); //<<<---CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
+		VerticalShot = Juego.getJuego(); //<--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
 		VerticalShot.setGUI(this);
 
 		// JLabel lblNewLabel = new JLabel("");
@@ -90,8 +91,11 @@ public class Gui extends JFrame {
 		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
 		for (int i = 0; i < 9; i++) {
-			Label_infectado probando = new Label_infectado_alpha();
+			Entidad infectado = new InfectadoAlpha();			
+			JLabel probando = infectado.getGrafico();
 			FONDO.add(probando);
+			infectado.accionar();
+
 		}
 
 		for (int i = 0; i < 9; i++) {
@@ -110,7 +114,7 @@ public class Gui extends JFrame {
 
 		JLabel disparo_boost_prueba = new Label_super_proyectil();
 		FONDO.add(disparo_boost_prueba);
-		
+
 		contentPane.repaint();
 
 	}

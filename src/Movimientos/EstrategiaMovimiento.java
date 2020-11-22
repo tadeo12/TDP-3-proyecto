@@ -10,10 +10,11 @@ public abstract class EstrategiaMovimiento {
 	public EstrategiaMovimiento(Entidad entidad, int direccion) {
 		this.direccion = direccion;
 		this.entidad = entidad;
-		limiteX = (int) entidad.getGrafico().getParent().getBounds().getMaxX()
-				- (int) entidad.getGrafico().getBounds().getMaxX();
-		limiteY = (int) entidad.getGrafico().getParent().getBounds().getMaxY()
-				- (int) entidad.getGrafico().getBounds().getMaxY();
+	
+//		limiteX = (int) entidad.getGrafico().getParent().getBounds().getMaxX()
+//				- (int) entidad.getGrafico().getBounds().getMaxX();
+//		limiteY = (int) entidad.getGrafico().getParent().getBounds().getMaxY()
+//				- (int) entidad.getGrafico().getBounds().getMaxY();
 	}
 
 	public abstract void mover();
