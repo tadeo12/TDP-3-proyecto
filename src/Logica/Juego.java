@@ -33,7 +33,7 @@ public class Juego implements Runnable {
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
 		director = new Director();
-		nivelActual = director.construirSiguienteNivel();
+		
 
 	}
 
@@ -144,6 +144,7 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
+		new Jugador(this);
 		jugar();
 	}
 

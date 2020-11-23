@@ -98,17 +98,15 @@ public class Gui extends JFrame {
 //		
 
 		for (int i = 0; i < 9; i++) {
-			Entidad infectado = new InfectadoAlpha();
-			JLabel probando = infectado.getGrafico();
-			contentPane.add(probando);
-			infectado.accionar();
 
+			new InfectadoAlpha();			
 		}
 
-		for (int i = 0; i < 9; i++) {
-			JLabel probando = new Label_infectado_beta();
-			contentPane.add(probando);
-		}
+//		for (int i = 0; i < 9; i++) {
+//			JLabel probando = new Label_infectado_beta();
+//			contentPane.add(probando);
+//		}
+		
 
 		JButton botonJugar = new JButton("jugar");
 		botonJugar.addActionListener(new ActionListener() {
@@ -126,9 +124,11 @@ public class Gui extends JFrame {
 		botonJugar.setBounds(0, 0, 89, 23);
 		contentPane.add(botonJugar);
 
-		Jugador j = new Jugador(juego);
-		// JLabel jugador_prueba = new Label_jugador();
-		contentPane.add(j.getGrafico());
+
+		//Jugador j= new Jugador(juego);
+		//JLabel jugador_prueba = new Label_jugador();
+		//contentPane.add(j.getGrafico());
+
 
 //		JLabel disparo2_prueba = new Label_particulaV_Beta();
 //		contentPane.add(disparo2_prueba);
