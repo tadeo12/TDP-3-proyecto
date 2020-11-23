@@ -185,6 +185,9 @@ public class Gui extends JFrame {
            
            
         });
+		
+		new Jugador(juego);
+		
 		contentPane.repaint();
 		
 	}
