@@ -26,7 +26,7 @@ public class Juego implements Runnable {
 
 	private Juego() {
 		juego = this;
-		moviendoIzquierda = true;
+		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
 		entidades = new LinkedList<Entidad>();
@@ -38,8 +38,9 @@ public class Juego implements Runnable {
 	}
 
 	public static Juego getJuego() {
-		if (juego == null)
+		if (juego == null) {
 			juego = new Juego();
+		}
 		return juego;
 	}
 
@@ -97,7 +98,6 @@ public class Juego implements Runnable {
 				detectarColisiones();
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
-				System.out.println("it de jugar");
 			}
 		} catch (IllegalArgumentException | InterruptedException e) {
 			e.printStackTrace();

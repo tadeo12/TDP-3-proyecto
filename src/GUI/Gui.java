@@ -4,6 +4,7 @@ import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -66,6 +67,8 @@ public class Gui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		this.setFocusable(true);
+		
 		juego = Juego.getJuego(); //<--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
 		juego.setGUI(this);
 
@@ -93,7 +96,9 @@ public class Gui extends JFrame {
 //		lblNewLabel_2.setBounds(391, 490, 146, 110);
 //		contentPane.add(lblNewLabel_2);
 //		
+		
 
+		 
 		
 		for (int i = 0; i < 9; i++) {
 			new InfectadoAlpha();			
@@ -114,6 +119,7 @@ public class Gui extends JFrame {
 				};
 				
 				t.start();
+				botonJugar.setVisible(false);
 			}
 		});
 		botonJugar.setBounds(0, 0, 89, 23);
@@ -142,11 +148,50 @@ public class Gui extends JFrame {
 		contentPane.add(FONDO);
 		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
-		contentPane.repaint();
 		
+		
+		this.addKeyListener(new KeyListener(){
+            public void keyTyped(KeyEvent e){
+                //Aqui no funcionara
+            }
+            
+            public void keyPressed(KeyEvent e) {
+            	System.out.println("je je");
+        		int codigoTecla = e.getKeyCode();
+        		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
+        			juego.setMoviendoIzquierda(true);
+        		}
+        		if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
+        			juego.setMoviendoDerecha(true);
+        		}
+        		if (codigoTecla == KeyEvent.VK_SPACE) {
+        			juego.setDisparando(true);
+        		}
+        	}
+
+        	public void keyReleased(KeyEvent e) {
+        		int codigoTecla = e.getKeyCode();
+        		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
+        			juego.setMoviendoIzquierda(false);
+        		}
+        		if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
+        			juego.setMoviendoDerecha(false);
+        		}
+        		if (codigoTecla == KeyEvent.VK_SPACE) {
+        			juego.setDisparando(false);
+        		}
+
+        	}
+           
+           
+        });
+		contentPane.repaint();
 		
 	}
 
+	
+	
+	
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
 		Image image = grafico.getImage();
 		if (image != null) {
