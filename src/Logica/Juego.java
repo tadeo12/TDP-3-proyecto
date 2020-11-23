@@ -33,7 +33,7 @@ public class Juego implements Runnable {
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
 		director = new Director();
-		nivelActual = director.construirSiguienteNivel();
+		
 
 	}
 
