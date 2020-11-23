@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -12,17 +13,7 @@ import javax.swing.border.EmptyBorder;
 
 import Entidades.Entidad;
 import Entidades.InfectadoAlpha;
-import Entidades.Jugador;
-import EntidadesGraficas.Entidad_grafica;
-import EntidadesGraficas.Label_infectado;
-import EntidadesGraficas.Label_infectado_alpha;
-import EntidadesGraficas.Label_infectado_beta;
-import EntidadesGraficas.Label_jugador;
-import EntidadesGraficas.Label_particulaV_Alpha;
-import EntidadesGraficas.Label_particulaV_Beta;
-import EntidadesGraficas.Label_proyectil;
-import EntidadesGraficas.Label_proyectil_normal;
-import EntidadesGraficas.Label_super_proyectil;
+
 import Logica.Juego;
 
 import javax.swing.JLabel;
@@ -31,11 +22,14 @@ import javax.swing.JProgressBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Gui extends JFrame {
 
 	private JPanel contentPane;
 	private Juego juego;
+	private JLabel FONDO;
 
 	/**
 	 * Launch the application.
@@ -66,7 +60,12 @@ public class Gui extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
+		FONDO = new JLabel("");
+		FONDO.setBackground(Color.DARK_GRAY);
+		
+		
+		
 		this.setFocusable(true);
 
 		juego = Juego.getJuego(); // <--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
@@ -99,36 +98,14 @@ public class Gui extends JFrame {
 
 		for (int i = 0; i < 9; i++) {
 
-			new InfectadoAlpha();			
+			new InfectadoAlpha();
 		}
-
-//		for (int i = 0; i < 9; i++) {
-//			JLabel probando = new Label_infectado_beta();
-//			contentPane.add(probando);
-//		}
 		
+	
 
-		JButton botonJugar = new JButton("jugar");
-		botonJugar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Thread t = new Thread() {
-					public void run() {
-						juego.run();
-					}
-				};
-
-				t.start();
-				botonJugar.setVisible(false);
-			}
-		});
-		botonJugar.setBounds(0, 0, 89, 23);
-		contentPane.add(botonJugar);
-
-
-		//Jugador j= new Jugador(juego);
-		//JLabel jugador_prueba = new Label_jugador();
-		//contentPane.add(j.getGrafico());
-
+		// Jugador j= new Jugador(juego);
+		// JLabel jugador_prueba = new Label_jugador();
+		// contentPane.add(j.getGrafico());
 
 //		JLabel disparo2_prueba = new Label_particulaV_Beta();
 //		contentPane.add(disparo2_prueba);
@@ -141,12 +118,6 @@ public class Gui extends JFrame {
 
 //		JLabel disparo_prueba = new Label_proyectil_normal();
 //		contentPane.add(disparo_prueba);
-
-		JLabel FONDO = new JLabel("");
-		FONDO.setBounds(0, 0, 914, 600);
-		contentPane.add(FONDO);
-		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
-
 
 		this.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
@@ -182,9 +153,40 @@ public class Gui extends JFrame {
 			}
 
 		});
+		
+		//		for (int i = 0; i < 9; i++) {
+		//			JLabel probando = new Label_infectado_beta();
+		//			contentPane.add(probando);
+		//		}
+		
+				JButton botonJugar = new JButton("jugar");
+				botonJugar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Thread t = new Thread() {
+							public void run() {
+								juego.run();
+							}
+						};
 
+						t.start();
+						contentPane.repaint();
+						botonJugar.setVisible(false);
+					}
+				});
+				botonJugar.setBounds(51, 113, 89, 23);
+				contentPane.add(botonJugar);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 931, 59);
+		contentPane.add(panel);
+
+		
+		FONDO.setBounds(0, 64, 931, 554);
+		contentPane.add(FONDO);
+		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
+		
+		this.repaint();
 		contentPane.repaint();
-
 	}
 
 	private void reDimensionar(JLabel label, ImageIcon grafico) {

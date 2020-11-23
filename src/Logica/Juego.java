@@ -34,12 +34,13 @@ public class Juego implements Runnable {
 		aAgregar = new LinkedList<Entidad>();
 		director = new Director();
 		
+		
 
 	}
 
 	public static Juego getJuego() {
 		if (juego == null) {
-			juego = new Juego();
+			juego = new Juego();			
 		}
 		return juego;
 	}
@@ -90,6 +91,7 @@ public class Juego implements Runnable {
 
 	public void jugar() {
 		try {
+			new Jugador();
 			while (true) {
 				for (Entidad e : entidades) {
 					e.accionar();
@@ -144,7 +146,7 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-		new Jugador(this);
+		
 		jugar();
 	}
 
