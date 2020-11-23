@@ -68,8 +68,8 @@ public class Gui extends JFrame {
 		contentPane.setLayout(null);
 
 		this.setFocusable(true);
-		
-		juego = Juego.getJuego(); //<--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
+
+		juego = Juego.getJuego(); // <--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
 		juego.setGUI(this);
 
 		// JLabel lblNewLabel = new JLabel("");
@@ -96,12 +96,9 @@ public class Gui extends JFrame {
 //		lblNewLabel_2.setBounds(391, 490, 146, 110);
 //		contentPane.add(lblNewLabel_2);
 //		
-		
 
-		 
-		
 		for (int i = 0; i < 9; i++) {
-			Entidad infectado = new InfectadoAlpha();			
+			Entidad infectado = new InfectadoAlpha();
 			JLabel probando = infectado.getGrafico();
 			contentPane.add(probando);
 			infectado.accionar();
@@ -112,16 +109,16 @@ public class Gui extends JFrame {
 			JLabel probando = new Label_infectado_beta();
 			contentPane.add(probando);
 		}
-		
+
 		JButton botonJugar = new JButton("jugar");
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Thread t =new Thread() {
+				Thread t = new Thread() {
 					public void run() {
 						juego.run();
 					}
 				};
-				
+
 				t.start();
 				botonJugar.setVisible(false);
 			}
@@ -129,73 +126,65 @@ public class Gui extends JFrame {
 		botonJugar.setBounds(0, 0, 89, 23);
 		contentPane.add(botonJugar);
 
-		Jugador j= new Jugador(juego);
-		//JLabel jugador_prueba = new Label_jugador();
+		Jugador j = new Jugador(juego);
+		// JLabel jugador_prueba = new Label_jugador();
 		contentPane.add(j.getGrafico());
 
-		JLabel disparo2_prueba = new Label_particulaV_Beta();
-		contentPane.add(disparo2_prueba);
-
-		JLabel disparo1_prueba = new Label_particulaV_Alpha();
-		contentPane.add(disparo1_prueba);
+//		JLabel disparo2_prueba = new Label_particulaV_Beta();
+//		contentPane.add(disparo2_prueba);
+//
+//		JLabel disparo1_prueba = new Label_particulaV_Alpha();
+//		contentPane.add(disparo1_prueba);
 
 //		JLabel disparo_boost_prueba = new Label_super_proyectil();
 //		contentPane.add(disparo_boost_prueba);
 
-		JLabel disparo_prueba = new Label_proyectil_normal();
-		contentPane.add(disparo_prueba);
-		
-		
-		
+//		JLabel disparo_prueba = new Label_proyectil_normal();
+//		contentPane.add(disparo_prueba);
+
 		JLabel FONDO = new JLabel("");
 		FONDO.setBounds(0, 0, 914, 600);
 		contentPane.add(FONDO);
 		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
-		
-		
-		this.addKeyListener(new KeyListener(){
-            public void keyTyped(KeyEvent e){
-                //Aqui no funcionara
-            }
-            
-            public void keyPressed(KeyEvent e) {
-            	System.out.println("je je");
-        		int codigoTecla = e.getKeyCode();
-        		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
-        			juego.setMoviendoIzquierda(true);
-        		}
-        		if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
-        			juego.setMoviendoDerecha(true);
-        		}
-        		if (codigoTecla == KeyEvent.VK_SPACE) {
-        			juego.setDisparando(true);
-        		}
-        	}
+		this.addKeyListener(new KeyListener() {
+			public void keyTyped(KeyEvent e) {
+				// Aqui no funcionara
+			}
 
-        	public void keyReleased(KeyEvent e) {
-        		int codigoTecla = e.getKeyCode();
-        		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
-        			juego.setMoviendoIzquierda(false);
-        		}
-        		if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
-        			juego.setMoviendoDerecha(false);
-        		}
-        		if (codigoTecla == KeyEvent.VK_SPACE) {
-        			juego.setDisparando(false);
-        		}
+			public void keyPressed(KeyEvent e) {
+				System.out.println("je je");
+				int codigoTecla = e.getKeyCode();
+				if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
+					juego.setMoviendoIzquierda(true);
+				}
+				if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
+					juego.setMoviendoDerecha(true);
+				}
+				if (codigoTecla == KeyEvent.VK_SPACE) {
+					juego.setDisparando(true);
+				}
+			}
 
-        	}
-           
-           
-        });
+			public void keyReleased(KeyEvent e) {
+				int codigoTecla = e.getKeyCode();
+				if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
+					juego.setMoviendoIzquierda(false);
+				}
+				if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
+					juego.setMoviendoDerecha(false);
+				}
+				if (codigoTecla == KeyEvent.VK_SPACE) {
+					juego.setDisparando(false);
+				}
+
+			}
+
+		});
 		contentPane.repaint();
-		
+
 	}
 
-	
-	
-	
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
 		Image image = grafico.getImage();
 		if (image != null) {
