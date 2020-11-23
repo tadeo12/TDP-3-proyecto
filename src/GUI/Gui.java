@@ -31,23 +31,7 @@ public class Gui extends JFrame {
 	private Juego juego;
 	private JLabel FONDO;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Gui frame = new Gui();
-					frame.setVisible(true);
-					frame.setResizable(false);
-//					frame.getJuego().run();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
