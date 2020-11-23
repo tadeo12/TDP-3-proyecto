@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
+import Entidades.Jugador;
 import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
 
@@ -143,6 +144,7 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
+		new Jugador(this);
 		jugar();
 	}
 

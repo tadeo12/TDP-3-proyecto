@@ -96,17 +96,13 @@ public class Gui extends JFrame {
 
 		
 		for (int i = 0; i < 9; i++) {
-			Entidad infectado = new InfectadoAlpha();			
-			JLabel probando = infectado.getGrafico();
-			contentPane.add(probando);
-			infectado.accionar();
-
+			new InfectadoAlpha();			
 		}
 
-		for (int i = 0; i < 9; i++) {
-			JLabel probando = new Label_infectado_beta();
-			contentPane.add(probando);
-		}
+//		for (int i = 0; i < 9; i++) {
+//			JLabel probando = new Label_infectado_beta();
+//			contentPane.add(probando);
+//		}
 		
 		JButton botonJugar = new JButton("jugar");
 		botonJugar.addActionListener(new ActionListener() {
@@ -123,21 +119,21 @@ public class Gui extends JFrame {
 		botonJugar.setBounds(0, 0, 89, 23);
 		contentPane.add(botonJugar);
 
-		Jugador j= new Jugador(juego);
+		//Jugador j= new Jugador(juego);
 		//JLabel jugador_prueba = new Label_jugador();
-		contentPane.add(j.getGrafico());
+		//contentPane.add(j.getGrafico());
 
-		JLabel disparo2_prueba = new Label_particulaV_Beta();
-		contentPane.add(disparo2_prueba);
-
-		JLabel disparo1_prueba = new Label_particulaV_Alpha();
-		contentPane.add(disparo1_prueba);
+//		JLabel disparo2_prueba = new Label_particulaV_Beta();
+//		contentPane.add(disparo2_prueba);
+//
+//		JLabel disparo1_prueba = new Label_particulaV_Alpha();
+//		contentPane.add(disparo1_prueba);
 
 //		JLabel disparo_boost_prueba = new Label_super_proyectil();
 //		contentPane.add(disparo_boost_prueba);
 
-		JLabel disparo_prueba = new Label_proyectil_normal();
-		contentPane.add(disparo_prueba);
+//		JLabel disparo_prueba = new Label_proyectil_normal();
+//		contentPane.add(disparo_prueba);
 		
 		
 		
