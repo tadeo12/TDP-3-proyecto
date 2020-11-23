@@ -95,7 +95,7 @@ public class Juego implements Runnable {
 					e.accionar();
 					Thread.sleep(1);
 				}
-				detectarColisiones();
+//				detectarColisiones();
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
 			}
