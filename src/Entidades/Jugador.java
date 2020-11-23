@@ -21,6 +21,7 @@ public class Jugador extends Entidad {
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
+		velocidad = 3;
 		carga_viral = 0;
 	}
 
