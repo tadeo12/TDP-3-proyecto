@@ -8,8 +8,7 @@ import Visitors.Visitor;
 public class InfectadoAlpha extends Infectado {
 
 	public InfectadoAlpha() {
-		super();
-		this.entidad_graf = new Label_infectado_alpha();
+		super(new Label_infectado_alpha());
 		velocidad = 100;		
 	}
 

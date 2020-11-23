@@ -26,11 +26,14 @@ import Logica.Juego;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JProgressBar;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Gui extends JFrame {
 
 	private JPanel contentPane;
-	private Juego VerticalShot;
+	private Juego juego;
 
 	/**
 	 * Launch the application.
@@ -42,6 +45,7 @@ public class Gui extends JFrame {
 					Gui frame = new Gui();
 					frame.setVisible(true);
 					frame.setResizable(false);
+					// frame.getJuego().Jugar();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,8 +65,8 @@ public class Gui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		VerticalShot = Juego.getJuego(); //<--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
-		VerticalShot.setGUI(this);
+		juego = Juego.getJuego(); //<--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
+		juego.setGUI(this);
 
 		// JLabel lblNewLabel = new JLabel("");
 		// lblNewLabel.setIcon(new
@@ -102,6 +106,19 @@ public class Gui extends JFrame {
 			JLabel probando = new Label_infectado_beta();
 			contentPane.add(probando);
 		}
+		
+		JButton botonJugar = new JButton("jugar");
+		botonJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Thread() {
+					public void run() {
+						juego.Jugar();
+					}
+				};	
+			}
+		});
+		botonJugar.setBounds(0, 0, 89, 23);
+		contentPane.add(botonJugar);
 
 		JLabel jugador_prueba = new Label_jugador();
 		contentPane.add(jugador_prueba);
@@ -126,6 +143,8 @@ public class Gui extends JFrame {
 		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
 		contentPane.repaint();
+		
+		
 	}
 
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
@@ -141,8 +160,12 @@ public class Gui extends JFrame {
 	public void gano() {
 
 	}
-	
+
 	public Container getMapa() {
 		return contentPane;
+	}
+
+	private Juego getJuego() {
+		return juego;
 	}
 }

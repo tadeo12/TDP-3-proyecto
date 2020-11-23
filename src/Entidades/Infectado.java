@@ -1,5 +1,7 @@
 package Entidades;
 
+import EntidadesGraficas.Entidad_grafica;
+import EntidadesGraficas.Label_infectado_alpha;
 import Movimientos.Vertical;
 import Movimientos.Vertical_loop;
 import Visitors.VisitorInfectado;
@@ -8,8 +10,9 @@ public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
 
-	public Infectado() {
+	public Infectado(Entidad_grafica eg) {
 		super();
+		this.entidad_graf=eg;
 		this.movimiento = new Vertical_loop(this, Vertical.ABAJO);
 		this.suelta_premio = false;
 		this.carga_viral = 100;

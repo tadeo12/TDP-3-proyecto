@@ -14,7 +14,6 @@ public abstract class Entidad extends Element {
 	protected Visitor visitor;
 
 	public Entidad() {
-		super();
 		this.juego = Juego.getJuego();
 		juego.agregarEntidad(this);
 	}

@@ -1,12 +1,13 @@
 package Entidades;
 
+import EntidadesGraficas.Label_infectado_beta;
 import Visitors.Visitor;
 
 public class InfectadoBeta extends Infectado {
 	
 
 	public InfectadoBeta() {
-		super();
+		super(new Label_infectado_beta());
 		this.carga_viral=carga_viral*2;
 	}
 

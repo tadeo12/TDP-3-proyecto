@@ -94,7 +94,6 @@ public class Juego {
 			detectarColisiones();
 			removerEntidadesEliminadas();
 			agregarEntidadesNuevas();
-			
 		}
 	}
 
