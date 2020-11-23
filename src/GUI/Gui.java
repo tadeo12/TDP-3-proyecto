@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import Entidades.Entidad;
 import Entidades.InfectadoAlpha;
+import Entidades.Jugador;
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_alpha;
@@ -22,7 +23,6 @@ import EntidadesGraficas.Label_proyectil;
 import EntidadesGraficas.Label_proyectil_normal;
 import EntidadesGraficas.Label_super_proyectil;
 import Logica.Juego;
-import Movimientos.EstrategiaMovimiento;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -46,7 +46,7 @@ public class Gui extends JFrame {
 					Gui frame = new Gui();
 					frame.setVisible(true);
 					frame.setResizable(false);
-					//frame.getJuego().run();
+//					frame.getJuego().run();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -96,39 +96,36 @@ public class Gui extends JFrame {
 
 		
 		for (int i = 0; i < 9; i++) {
-			Entidad infectado = new InfectadoAlpha();
+			Entidad infectado = new InfectadoAlpha();			
 			JLabel probando = infectado.getGrafico();
 			contentPane.add(probando);
-			
-			
 			infectado.accionar();
-			contentPane.repaint();
+
 		}
 
 		for (int i = 0; i < 9; i++) {
 			JLabel probando = new Label_infectado_beta();
 			contentPane.add(probando);
-			contentPane.repaint();
 		}
 		
-		 
 		JButton botonJugar = new JButton("jugar");
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				Thread t =new Thread() {
-//					public void run() {
+				Thread t =new Thread() {
+					public void run() {
 						juego.run();
 					}
-//				};
-//				
-//				t.start();
-//			}
+				};
+				
+				t.start();
+			}
 		});
 		botonJugar.setBounds(0, 0, 89, 23);
 		contentPane.add(botonJugar);
-	
-		JLabel jugador_prueba = new Label_jugador();
-		contentPane.add(jugador_prueba);
+
+		Jugador j= new Jugador(juego);
+		//JLabel jugador_prueba = new Label_jugador();
+		contentPane.add(j.getGrafico());
 
 		JLabel disparo2_prueba = new Label_particulaV_Beta();
 		contentPane.add(disparo2_prueba);

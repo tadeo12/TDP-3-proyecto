@@ -1,5 +1,6 @@
 package Entidades;
 
+import EntidadesGraficas.Label_jugador;
 import EstadosArma.ConArmaNormal;
 import EstadosArma.EstadoArma;
 import EstadosJugador.EstadoInicial;
@@ -16,6 +17,7 @@ public class Jugador extends Entidad {
 
 	public Jugador(Juego juego) {
 		super();
+		this.entidad_graf=new Label_jugador();
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
