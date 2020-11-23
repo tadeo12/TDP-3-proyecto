@@ -9,7 +9,7 @@ import Entidades.Entidad;
 import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
 
-public class Juego {
+public class Juego implements Runnable {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
@@ -24,21 +24,21 @@ public class Juego {
 	private Nivel nivelActual;
 
 	private Juego() {
-		juego = this; 
-		moviendoIzquierda = false;
+		juego = this;
+		moviendoIzquierda = true;
 		moviendoDerecha = false;
 		disparando = false;
 		entidades = new LinkedList<Entidad>();
-		aEliminar= new LinkedList<Entidad>();
-		aAgregar= new LinkedList<Entidad>();
+		aEliminar = new LinkedList<Entidad>();
+		aAgregar = new LinkedList<Entidad>();
 		director = new Director();
-		nivelActual=director.construirSiguienteNivel();
-		
+		nivelActual = director.construirSiguienteNivel();
+
 	}
-	
+
 	public static Juego getJuego() {
-		if(juego==null) 
-			juego= new Juego();
+		if (juego == null)
+			juego = new Juego();
 		return juego;
 	}
 
@@ -53,7 +53,7 @@ public class Juego {
 	public boolean disparando() {
 		return disparando;
 	}
-	
+
 	public void setMoviendoIzquierda(boolean mov) {
 		this.moviendoIzquierda = mov;
 	}
@@ -73,37 +73,43 @@ public class Juego {
 	public void eliminarEntidad(Entidad a_eliminar) {
 		aEliminar.add(a_eliminar);
 	}
-	
+
 	public void nivelCompleto() {
-		if(director.finJuego())
+		if (director.finJuego())
 			gui.gano();
 		else
-			nivelActual=director.construirSiguienteNivel();
-		
+			nivelActual = director.construirSiguienteNivel();
+
 	}
-	
+
 	public void setGUI(Gui gui) {
-		this.gui=gui;
+		this.gui = gui;
 	}
-	
-	public void Jugar() {
-		while(true) {
-			for(Entidad e: entidades) {
-				e.accionar();
+
+	public void jugar() {
+		try {
+			while (true) {
+				for (Entidad e : entidades) {
+					e.accionar();
+					Thread.sleep(1);
+				}
+				detectarColisiones();
+				removerEntidadesEliminadas();
+				agregarEntidadesNuevas();
+				System.out.println("it de jugar");
 			}
-			detectarColisiones();
-			removerEntidadesEliminadas();
-			agregarEntidadesNuevas();
+		} catch (IllegalArgumentException | InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
 	private void detectarColisiones() {
-		int cantEntidades=entidades.size();
-		for(int i=0;i<cantEntidades;i++) {
-			Entidad a=entidades.get(i);
-			for(int j=i+1;j<cantEntidades;j++) {
-				Entidad b=entidades.get(j);
-				if(colisionan(a,b)) {
+		int cantEntidades = entidades.size();
+		for (int i = 0; i < cantEntidades; i++) {
+			Entidad a = entidades.get(i);
+			for (int j = i + 1; j < cantEntidades; j++) {
+				Entidad b = entidades.get(j);
+				if (colisionan(a, b)) {
 					a.accept(b.getVisitor());
 					b.accept(a.getVisitor());
 				}
@@ -112,29 +118,32 @@ public class Juego {
 	}
 
 	private boolean colisionan(Entidad a, Entidad b) {
-		Rectangle A=a.getGrafico().getBounds();
-		Rectangle B=b.getGrafico().getBounds();
+		Rectangle A = a.getGrafico().getBounds();
+		Rectangle B = b.getGrafico().getBounds();
 		return A.intersects(B);
 	}
 
 	private void removerEntidadesEliminadas() {
-		for(Entidad e: aEliminar) {
+		for (Entidad e : aEliminar) {
 			entidades.remove(e);
 		}
-		aEliminar= new LinkedList<Entidad>();
+		aEliminar = new LinkedList<Entidad>();
 	}
-	
+
 	private void agregarEntidadesNuevas() {
-		for(Entidad e: aAgregar) {
+		for (Entidad e : aAgregar) {
 			entidades.add(e);
 		}
-		aAgregar= new LinkedList<Entidad>();
+		aAgregar = new LinkedList<Entidad>();
 	}
-	
-	public Container getMapa(){
+
+	public Container getMapa() {
 		return gui.getMapa();
 	}
-	
-	
+
+	@Override
+	public void run() {
+		jugar();
+	}
 
 }

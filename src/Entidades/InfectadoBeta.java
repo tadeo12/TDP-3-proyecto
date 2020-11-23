@@ -9,6 +9,7 @@ public class InfectadoBeta extends Infectado {
 	public InfectadoBeta() {
 		super(new Label_infectado_beta());
 		this.carga_viral=carga_viral*2;
+		
 	}
 
 	@Override

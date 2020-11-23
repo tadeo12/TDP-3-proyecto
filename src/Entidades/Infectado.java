@@ -13,6 +13,7 @@ public abstract class Infectado extends Entidad {
 	public Infectado(Entidad_grafica eg) {
 		super();
 		this.entidad_graf=eg;
+		velocidad = 1;		
 		this.movimiento = new Vertical_loop(this, Vertical.ABAJO);
 		this.suelta_premio = false;
 		this.carga_viral = 100;

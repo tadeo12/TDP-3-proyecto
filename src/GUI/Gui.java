@@ -45,7 +45,7 @@ public class Gui extends JFrame {
 					Gui frame = new Gui();
 					frame.setVisible(true);
 					frame.setResizable(false);
-					// frame.getJuego().Jugar();
+					//frame.getJuego().run();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -110,12 +110,14 @@ public class Gui extends JFrame {
 		JButton botonJugar = new JButton("jugar");
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Thread() {
-					public void run() {
-						juego.Jugar();
+//				Thread t =new Thread() {
+//					public void run() {
+						juego.run();
 					}
-				};	
-			}
+//				};
+//				
+//				t.start();
+//			}
 		});
 		botonJugar.setBounds(0, 0, 89, 23);
 		contentPane.add(botonJugar);

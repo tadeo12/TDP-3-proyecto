@@ -9,7 +9,6 @@ public class InfectadoAlpha extends Infectado {
 
 	public InfectadoAlpha() {
 		super(new Label_infectado_alpha());
-		velocidad = 100;		
 	}
 
 	@Override
