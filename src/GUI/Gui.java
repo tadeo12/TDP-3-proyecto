@@ -37,23 +37,7 @@ public class Gui extends JFrame {
 	private JPanel contentPane;
 	private Juego juego;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Gui frame = new Gui();
-					frame.setVisible(true);
-					frame.setResizable(false);
-//					frame.getJuego().run();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -148,7 +132,6 @@ public class Gui extends JFrame {
 		contentPane.add(FONDO);
 		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
-		
 		
 		this.addKeyListener(new KeyListener(){
             public void keyTyped(KeyEvent e){
