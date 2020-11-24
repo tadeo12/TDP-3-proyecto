@@ -5,7 +5,7 @@ import java.awt.Point;
 
 import java.util.Random;
 
-
+import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_beta;
 import Movimientos.Horizontal;
 import Movimientos.Horizontal_remove;
@@ -45,11 +45,12 @@ public class InfectadoBeta extends Infectado {
 	public void desinfectar() {
 		desinfectado = false;
 		int direccion = random.nextInt(2);
+		Label_infectado li = (Label_infectado) this.getGrafico();
 		if (direccion == 1) {
-			seVa(1);
+			li.seVa(1);
 			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
 		} else {
-			seVa(0);
+			li.seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
 		}
 	}

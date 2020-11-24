@@ -2,6 +2,8 @@ package Entidades;
 
 
 import java.awt.Point;
+
+import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_alpha;
 import EntidadesGraficas.Label_infectado_beta;
 
@@ -48,11 +50,12 @@ public class InfectadoAlpha extends Infectado {
 		desinfectado = false;
 		System.out.println("desinfectando");
 		int direccion = random.nextInt(2);
+		Label_infectado li = (Label_infectado) this.getGrafico();
 		if (direccion == 1) {
-			seVa(1);
+			li.seVa(1);
 			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
 		} else {
-			seVa(0);
+			li.seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
 		}
 	}

@@ -34,6 +34,6 @@ public class Director {
 	}
 	
 	public boolean finJuego() {
-		return nivelActual==infectadosPorNivel.length;
+		return nivelActual == ( infectadosPorNivel.length - 1 );
 	}
 }
