@@ -71,6 +71,7 @@ public class Juego implements Runnable {
 
 	public void eliminarEntidad(Entidad a_eliminar) {
 		aEliminar.add(a_eliminar);
+		getMapa().remove(a_eliminar.getGrafico());
 	}
 
 	public void nivelCompleto() {
