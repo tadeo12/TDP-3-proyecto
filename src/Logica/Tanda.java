@@ -23,4 +23,11 @@ public class Tanda {
 	public void eliminarInfectado(Infectado inf) {
 		infectados.remove(inf);
 	}
+
+	public void aparecer() {
+		for(Infectado i : infectados) {
+			i.aparecer();
+		}
+		
+	}
 }

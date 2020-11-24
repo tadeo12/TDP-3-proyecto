@@ -26,7 +26,7 @@ public class Menu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SplashScreen splash = new SplashScreen(3000);
+					SplashScreen splash = new SplashScreen(2000);
 					//splash.showSplash();
 					Menu frame = new Menu();
 					frame.setVisible(true);
