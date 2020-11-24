@@ -3,7 +3,11 @@ package Entidades;
 
 import java.awt.Point;
 import EntidadesGraficas.Label_infectado_alpha;
+import EntidadesGraficas.Label_infectado_beta;
+
 import java.util.Random;
+
+import javax.swing.ImageIcon;
 
 import Movimientos.Horizontal;
 import Movimientos.Horizontal_remove;
@@ -45,9 +49,13 @@ public class InfectadoAlpha extends Infectado {
 		dispara = false;
 		int direccion = ra.nextInt(2);
 		if (direccion == 1) {
+			seVa(1);
 			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
-		} else
+		} else {
+			seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
-
+		}
 	}
+
+	
 }

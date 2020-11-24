@@ -47,9 +47,12 @@ public class InfectadoBeta extends Infectado {
 		dispara = false;
 		int direccion = ra.nextInt(2);
 		if (direccion == 1) {
+			seVa(1);
 			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
-		} else
+		} else {
+			seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
-
+		}
 	}
+	
 }
