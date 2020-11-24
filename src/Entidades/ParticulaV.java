@@ -1,13 +1,10 @@
 package Entidades;
 
 import EntidadesGraficas.Entidad_grafica;
-import EntidadesGraficas.Label_infectado;
-import EntidadesGraficas.Label_particulaV;
-import EntidadesGraficas.Label_particulaV_Alpha;
-import EntidadesGraficas.Label_proyectil_normal;
 import Movimientos.Vertical;
 import Movimientos.Vertical_remove;
 import Visitors.Visitor;
+import Visitors.VisitorParticulaV;
 
 public abstract class ParticulaV extends Proyectil {
 
@@ -15,6 +12,7 @@ public abstract class ParticulaV extends Proyectil {
 		super();
 		this.entidad_graf = entidad_graf;
 		movimiento = new Vertical_remove(this, Vertical.ABAJO);
+		visitor = new VisitorParticulaV();
 	}
 
 	public void accept(Visitor visitor) {

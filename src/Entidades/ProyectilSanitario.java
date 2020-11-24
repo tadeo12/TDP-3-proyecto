@@ -3,6 +3,7 @@ package Entidades;
 import EntidadesGraficas.Entidad_grafica;
 import Movimientos.Vertical;
 import Movimientos.Vertical_remove;
+import Visitors.VisitorProyectilSanitario;
 
 public abstract class ProyectilSanitario extends Proyectil {
 
@@ -10,6 +11,7 @@ public abstract class ProyectilSanitario extends Proyectil {
 		super();
 		entidad_graf = e;
 		movimiento = new Vertical_remove(this, Vertical.ARRIBA);
+		visitor = new VisitorProyectilSanitario();
 	}
 
 }

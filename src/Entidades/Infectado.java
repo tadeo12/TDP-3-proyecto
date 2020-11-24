@@ -11,7 +11,8 @@ import Visitors.VisitorInfectado;
 public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
-	protected Random dispara;
+	protected Random random;
+	protected boolean dispara;
 
 	public Infectado(Entidad_grafica eg) {
 		super();
@@ -21,7 +22,8 @@ public abstract class Infectado extends Entidad {
 		this.suelta_premio = false;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
-		dispara = new Random();
+		random = new Random();
+		dispara = true;
 	}
 
 	public abstract void disminuirCargaViral(int desinfeccion);
@@ -34,8 +36,9 @@ public abstract class Infectado extends Entidad {
 
 	public void accionar() {
 		movimiento.mover();
-		if (dispara.nextInt(150) == 2) {
-			disparar();
-		}
+		if (dispara)
+			if (random.nextInt(150) == 2) {
+				disparar();
+			}
 	}
 }
