@@ -15,7 +15,7 @@ public abstract class BuilderNivel {
 	}
 	
 	public abstract void reset();
-	public abstract void construirInfectado(int tipoInfectado);
+	public abstract void construirInfectado(int tipoInfectado,boolean enEspera);
 	public abstract Nivel getNivel();
 	public abstract void siguienteTanda();
 	

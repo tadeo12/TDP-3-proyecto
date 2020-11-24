@@ -17,10 +17,11 @@ public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
 	protected Random random;
-	protected boolean dispara;
-	private String movLeft [], movRight [];
+	protected boolean desinfectado;
+	protected int tiempoEspera;
 
-	public Infectado(Entidad_grafica eg, int duracion) {
+
+	public Infectado(Entidad_grafica eg, int duracion, boolean enEspera) {
 		super();
 		this.entidad_graf = eg;
 		velocidad = 1;
@@ -28,26 +29,28 @@ public abstract class Infectado extends Entidad {
 		this.suelta_premio = false;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
+		tiempoEspera=duracion;
+		if(!enEspera)
+			aparecer();
 
+		random = new Random();
+		desinfectado = true;
+	}
+	
+	public void aparecer() {
 		Infectado inf = this;
 		Timer timer = new Timer();
+		System.out.println("apareciendo");
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
 				movimiento = new Vertical_loop(inf, Vertical.ABAJO);
+				timer.cancel();
 			};
 		};
-		timer.schedule(timer_task, 0, duracion);
 
-		random = new Random();
-		dispara = true;
-		
-		this.movLeft = new String[]{ "/RecursosGraficos_Infectados/seVaLeft 1.gif","/RecursosGraficos_Infectados/seVaLeft 2.gif","/RecursosGraficos_Infectados/seVaLeft 3.gif",
-				"/RecursosGraficos_Infectados/seVaLeft 4.gif","/RecursosGraficos_Infectados/seVaLeft 5.gif","/RecursosGraficos_Infectados/seVaLeft 6.gif","/RecursosGraficos_Infectados/seVaLeft 7.gif"};
-		
-		this.movRight = new String[]{ "/RecursosGraficos_Infectados/seVaRight 1.gif","/RecursosGraficos_Infectados/seVaRight 2.gif","/RecursosGraficos_Infectados/seVaRight 3.gif",
-				"/RecursosGraficos_Infectados/seVaRight 4.gif","/RecursosGraficos_Infectados/seVaRight 5.gif","/RecursosGraficos_Infectados/seVaRight 6.gif","/RecursosGraficos_Infectados/seVaRight 7.gif"};
-	
+		timer.schedule(timer_task, tiempoEspera, 1);
+
 	}
 
 	public abstract void disminuirCargaViral(int desinfeccion);
@@ -58,30 +61,17 @@ public abstract class Infectado extends Entidad {
 		return this.carga_viral;
 	}
 
+	public void eliminar() {
+		juego.eliminarInfectado(this);
+	}
+	
 	public void accionar() {
 		if (movimiento != null)
 			movimiento.mover();
-		if (dispara && random.nextInt(150) == 7) {
+		
+		if (desinfectado && random.nextInt(150) == 2) {
 			disparar();
 		}
 	}
 	
-	public void seVa(int lado) {
-			
-			ImageIcon imagen = null;
-			Random rand = new Random();
-			int i = rand.nextInt(7);
-			
-				if(lado == 1 ) {//se va para la der
-					imagen = new ImageIcon(this.getClass().getResource(this.movRight[i]));
-				}
-				else {//se va para la izq
-					imagen = new ImageIcon(this.getClass().getResource(this.movLeft[i]));
-				}
-				
-				this.getGrafico().setIcon(imagen);
-				this.getGrafico().setBounds(this.getGrafico().getX(), this.getGrafico().getY(), 100, 75);
-				this.getGrafico().repaint();
-			
-		}
 }

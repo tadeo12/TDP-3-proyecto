@@ -20,15 +20,15 @@ public class FactoryAlpha extends Factory {
 	}
 	
 	@Override
-	public Infectado crearInfectado() {
+	public Infectado crearInfectado(boolean enEspera) {
 		Point p=posicion();
-		Infectado inf= new InfectadoAlpha(p,tiempo);
+		Infectado inf= new InfectadoAlpha(p,tiempo,enEspera);
 		tiempo=tiempo+10000;
 		return inf;
 	}
 
 	private Point posicion() {
-		return new Point(r.nextInt(mapa.getWidth()),-100);
+		return new Point(r.nextInt(mapa.getWidth()-60),-100);
 	}
 
 }

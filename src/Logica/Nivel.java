@@ -28,8 +28,10 @@ public class Nivel {
 		Tanda tanda=tandas.get(tandaActual);
 		tanda.eliminarInfectado(i);
 		if(tanda.vacia()) {
-			if(tandaActual<tandas.size())
+			if(tandaActual+1<tandas.size()){
 				tandaActual++;
+				tandas.get(tandaActual).aparecer();
+			}
 			else
 				juego.nivelCompleto();
 		}
