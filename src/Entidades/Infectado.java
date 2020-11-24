@@ -13,7 +13,8 @@ import Visitors.VisitorInfectado;
 public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
-	protected Random dispara;
+	protected Random random;
+	protected boolean dispara;
 
 	public Infectado(Entidad_grafica eg, int duracion) {
 		super();
@@ -23,7 +24,8 @@ public abstract class Infectado extends Entidad {
 		this.suelta_premio = false;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
-		Infectado inf=this;
+
+		Infectado inf = this;
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 			@Override
@@ -32,7 +34,9 @@ public abstract class Infectado extends Entidad {
 			};
 		};
 		timer.schedule(timer_task, 0, duracion);
-		dispara = new Random();
+
+		random = new Random();
+		dispara = true;
 	}
 
 	public abstract void disminuirCargaViral(int desinfeccion);
@@ -44,9 +48,9 @@ public abstract class Infectado extends Entidad {
 	}
 
 	public void accionar() {
-		if(movimiento!=null)
+		if (movimiento != null)
 			movimiento.mover();
-		if (dispara.nextInt(150) == 2) {
+		if (dispara && random.nextInt(150) == 2) {
 			disparar();
 		}
 	}

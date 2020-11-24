@@ -1,5 +1,6 @@
 package Visitors;
 
+import Entidades.Entidad;
 import Entidades.InfectadoAlpha;
 import Entidades.InfectadoBeta;
 import Entidades.Jugador;
@@ -10,6 +11,7 @@ import Entidades.ProyectilNormal;
 import Entidades.SuperProyectil;
 
 public abstract class Visitor {
+	Entidad entidad;
 
 	public void visit(InfectadoAlpha infectado) {}
 
@@ -34,5 +36,8 @@ public abstract class Visitor {
 	
 	public void visit(ProyectilNormal proyectil) {}
 
+	public void setEntidad(Entidad entidad) {
+		this.entidad = entidad;
+	}
 
 }
