@@ -3,11 +3,10 @@ package Movimientos;
 import Entidades.Entidad;
 import EntidadesGraficas.Entidad_grafica;
 
-public class Vertical extends EstrategiaMovimiento {
-	public static final int ABAJO = 1;
-	public static final int ARRIBA = -1;
+public class Vertical_remove extends Vertical {
 
-	public Vertical(Entidad entidad, int direccion) {
+
+	public Vertical_remove(Entidad entidad, int direccion) {
 		super(entidad, direccion);
 	}
 
@@ -17,13 +16,12 @@ public class Vertical extends EstrategiaMovimiento {
 		int siguientePosY = g.getY() + this.direccion * entidad.getVelocidad();
 
 		if (siguientePosY > limiteY) {
-			g.setLocation(g.getX(), limiteY);
+			entidad.eliminar();
 		}else 
 			if (siguientePosY < 0) {
-				g.setLocation(g.getX(), 0);
+				entidad.eliminar();
 			}else
 				g.setLocation(g.getX(), siguientePosY);
 		
 	}
-
 }

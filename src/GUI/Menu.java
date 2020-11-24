@@ -42,6 +42,7 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 932, 647);
 		contentPane = new JPanel();
@@ -49,6 +50,7 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		/*JButton btnNewButton_2 = new JButton("");
 		btnNewButton_2.setBorder(new LineBorder(new Color(102, 255, 102)));
@@ -97,7 +99,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(45, 207, 397, 124);
+		btnNewButton_1.setBounds(45, 218, 397, 93);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("");
@@ -114,7 +116,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(45, 347, 397, 124);
+		btnNewButton.setBounds(45, 347, 397, 93);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");

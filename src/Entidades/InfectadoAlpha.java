@@ -24,4 +24,9 @@ public class InfectadoAlpha extends Infectado {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
+	@Override
+	public Proyectil disparar() {
+		return new ParticulaV_Alpha(this.getGrafico());
+	}
 }

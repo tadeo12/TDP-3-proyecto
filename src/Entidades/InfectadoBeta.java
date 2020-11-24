@@ -13,6 +13,11 @@ public class InfectadoBeta extends Infectado {
 	}
 
 	@Override
+	public Proyectil disparar() {
+		return new ParticulaV_Beta(this.getGrafico());
+	}
+	
+	@Override
 	public void disminuirCargaViral(int desinfeccion) {
 		if (carga_viral - desinfeccion <= 0) {
 			suelta_premio = true;

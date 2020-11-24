@@ -7,7 +7,6 @@ import java.util.List;
 
 import Entidades.Entidad;
 import Entidades.Jugador;
-import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
 
 public class Juego implements Runnable {
@@ -33,13 +32,11 @@ public class Juego implements Runnable {
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
 		director = new Director();
-		
-
 	}
 
 	public static Juego getJuego() {
 		if (juego == null) {
-			juego = new Juego();
+			juego = new Juego();			
 		}
 		return juego;
 	}
@@ -74,6 +71,7 @@ public class Juego implements Runnable {
 
 	public void eliminarEntidad(Entidad a_eliminar) {
 		aEliminar.add(a_eliminar);
+		getMapa().remove(a_eliminar.getGrafico());
 	}
 
 	public void nivelCompleto() {
@@ -90,11 +88,13 @@ public class Juego implements Runnable {
 
 	public void jugar() {
 		try {
+			aAgregar.add(new Jugador());
 			while (true) {
 				for (Entidad e : entidades) {
 					e.accionar();
-					Thread.sleep(1);
+					
 				}
+				Thread.sleep(15);
 //				detectarColisiones();
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
@@ -144,7 +144,7 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-		new Jugador(this);
+		
 		jugar();
 	}
 

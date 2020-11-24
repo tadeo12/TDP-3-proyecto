@@ -15,7 +15,7 @@ public abstract class Entidad extends Element {
 
 	public Entidad() {
 		this.juego = Juego.getJuego();
-		juego.agregarEntidad(this);
+		this.juego.agregarEntidad(this);
 	}
 
 	public void accionar() {

@@ -5,7 +5,6 @@ import EstadosArma.ConArmaNormal;
 import EstadosArma.EstadoArma;
 import EstadosJugador.EstadoInicial;
 import EstadosJugador.EstadoJugador;
-import Logica.Juego;
 import Movimientos.Horizontal;
 import Visitors.Visitor;
 import Visitors.VisitorJugador;
@@ -15,9 +14,9 @@ public class Jugador extends Entidad {
 	protected EstadoJugador estado_jugador;
 	protected int carga_viral;
 
-	public Jugador(Juego juego) {
+	public Jugador() {
 		super();
-		this.entidad_graf=new Label_jugador();
+		this.entidad_graf = new Label_jugador();
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
@@ -50,7 +49,7 @@ public class Jugador extends Entidad {
 			this.movimiento.mover();
 		}
 		if (juego.disparando()) {
-			System.out.println("disparo");
+			//System.out.println("disparo");
 			juego.agregarEntidad(estado_arma.disparar());
 		}
 	}

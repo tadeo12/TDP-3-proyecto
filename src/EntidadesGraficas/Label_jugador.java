@@ -1,10 +1,6 @@
 package EntidadesGraficas;
 
-import java.awt.Container;
-
 import javax.swing.ImageIcon;
-
-import Logica.Juego;
 
 public class Label_jugador extends Entidad_grafica {
 
