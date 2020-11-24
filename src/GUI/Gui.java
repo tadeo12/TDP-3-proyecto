@@ -44,12 +44,12 @@ public class Gui extends JFrame {
 		juego = Juego.getJuego();
 		juego.setGUI(this);
 
-		for (int i = 0; i < 3; i++) {
-			new InfectadoAlpha();
-		}
-		for (int i = 0; i < 3; i++) {
-			new InfectadoBeta();
-		}
+//		for (int i = 0; i < 3; i++) {
+//			new InfectadoAlpha();
+//		}
+//		for (int i = 0; i < 3; i++) {
+//			new InfectadoBeta();
+//		}
 
 		this.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {

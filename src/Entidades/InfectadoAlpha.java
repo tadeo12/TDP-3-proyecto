@@ -1,23 +1,33 @@
 package Entidades;
 
+
+import java.awt.Point;
 import EntidadesGraficas.Label_infectado_alpha;
-import Movimientos.Vertical;
-import Movimientos.Vertical_loop;
+import java.util.Random;
+
+import Movimientos.Horizontal;
+import Movimientos.Horizontal_remove;
+
 import Visitors.Visitor;
 
 public class InfectadoAlpha extends Infectado {
 
-	public InfectadoAlpha() {
-		super(new Label_infectado_alpha());
+
+	public InfectadoAlpha(Point p,int tiempoQuieto) {
+		super(new Label_infectado_alpha(p),tiempoQuieto);
+		visitor.setEntidad(this);
 	}
 
 	@Override
 	public void disminuirCargaViral(int desinfeccion) {
-		if (carga_viral - desinfeccion <= 0) {
-			suelta_premio = true;
-			carga_viral = 0;
-		} else {
-			carga_viral -= desinfeccion;
+		if (dispara) {
+			if (carga_viral - desinfeccion <= 0) {
+				suelta_premio = true;
+				carga_viral = 0;
+				desinfectado();
+			} else {
+				carga_viral -= desinfeccion;
+			}
 		}
 	}
 
@@ -28,5 +38,16 @@ public class InfectadoAlpha extends Infectado {
 	@Override
 	public Proyectil disparar() {
 		return new ParticulaV_Alpha(this.getGrafico());
+	}
+
+	public void desinfectado() {
+		Random ra = new Random();
+		dispara = false;
+		int direccion = ra.nextInt(2);
+		if (direccion == 1) {
+			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
+		} else
+			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
+
 	}
 }

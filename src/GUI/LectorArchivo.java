@@ -11,7 +11,7 @@ public class LectorArchivo {
 
 	private String rutaArchivo = "Datos/generadorInfectados.txt";
 
-	private int cantTiposInfectados = 3;
+	private int cantTiposInfectados = 2;
 	private int cantTandas = 6;
 
 	public int[][] obtenerMatrizInfectado() {

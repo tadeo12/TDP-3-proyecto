@@ -31,7 +31,7 @@ public class Juego implements Runnable {
 		entidades = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
-		director = new Director();
+		
 	}
 
 	public static Juego getJuego() {
@@ -92,12 +92,13 @@ public class Juego implements Runnable {
 			while (true) {
 				for (Entidad e : entidades) {
 					e.accionar();
-					
+
 				}
 				Thread.sleep(15);
-//				detectarColisiones();
+				
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
+				detectarColisiones();
 			}
 		} catch (IllegalArgumentException | InterruptedException e) {
 			e.printStackTrace();
@@ -144,7 +145,8 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-		
+		director = new Director();
+		nivelActual=director.construirSiguienteNivel();
 		jugar();
 	}
 

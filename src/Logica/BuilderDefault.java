@@ -11,7 +11,6 @@ public class BuilderDefault extends BuilderNivel {
 		super();
 		misFabricas.add(new FactoryAlpha());
 		misFabricas.add(new FactoryBeta());
-		misFabricas.add(new FactoryBoss());
 		nivelesCreados=0;
 	}
 	
@@ -24,7 +23,8 @@ public class BuilderDefault extends BuilderNivel {
 
 	@Override
 	public void construirInfectado(int tipoInfectado) {
-		Infectado inf= misFabricas.get(tipoInfectado).crearInfectado();
+		System.out.println("tipoinf "+tipoInfectado);
+		misFabricas.get(tipoInfectado).crearInfectado();
 
 	}
 

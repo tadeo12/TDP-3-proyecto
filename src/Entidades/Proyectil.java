@@ -9,4 +9,7 @@ public abstract class Proyectil extends Entidad {
 		super();
 	}
 
+	public int getDamage() {
+		return this.damage;
+	}
 }
