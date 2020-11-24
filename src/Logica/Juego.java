@@ -91,13 +91,13 @@ public class Juego implements Runnable {
 			while (true) {
 				for (Entidad e : entidades) {
 					e.accionar();
-					//Thread.sleep(1);
+					Thread.sleep(1);
 				}
 //				detectarColisiones();
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
 			}
-		} catch (IllegalArgumentException /*| InterruptedException*/ e) {
+		} catch (IllegalArgumentException | InterruptedException e) {
 			e.printStackTrace();
 		}
 	}

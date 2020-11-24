@@ -30,7 +30,7 @@ public abstract class Infectado extends Entidad {
 
 	public void accionar() {
 		movimiento.mover();
-		//disparar();
+		disparar();
 	}
 	
 }
