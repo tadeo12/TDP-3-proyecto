@@ -1,13 +1,15 @@
 package Entidades;
 
+import java.awt.Point;
+
 import EntidadesGraficas.Label_infectado_beta;
 import Visitors.Visitor;
 
 public class InfectadoBeta extends Infectado {
 	
 
-	public InfectadoBeta() {
-		super(new Label_infectado_beta());
+	public InfectadoBeta(Point p,int tiempoQuieto) {
+		super(new Label_infectado_beta(p),tiempoQuieto);
 		this.carga_viral=carga_viral*2;
 		
 	}
