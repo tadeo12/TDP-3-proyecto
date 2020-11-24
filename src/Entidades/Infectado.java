@@ -22,9 +22,7 @@ public abstract class Infectado extends Entidad {
 
 	public abstract void disminuirCargaViral(int desinfeccion);
 
-	public Proyectil disparar() {
-		return new ParticulaV();
-	}
+	public abstract Proyectil disparar();
 
 	public int getCargaViral() {
 		return this.carga_viral;
@@ -32,6 +30,7 @@ public abstract class Infectado extends Entidad {
 
 	public void accionar() {
 		movimiento.mover();
+		//disparar();
 	}
 	
 }

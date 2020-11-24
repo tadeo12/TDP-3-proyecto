@@ -1,8 +1,7 @@
 package GUI;
 
-import java.awt.Color;
 import java.awt.Container;
-import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -11,27 +10,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Entidades.Entidad;
 import Entidades.InfectadoAlpha;
-
+import Entidades.InfectadoBeta;
 import Logica.Juego;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JProgressBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class Gui extends JFrame {
 
 	private JPanel contentPane;
 	private Juego juego;
-	private JLabel FONDO;
-
-	
+	// private JLabel FONDO;
 
 	/**
 	 * Create the frame.
@@ -39,73 +32,27 @@ public class Gui extends JFrame {
 	public Gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 932, 647);
-		contentPane = new JPanel();
+		contentPane = new FondoPanel();
 		contentPane.setBounds(100, 100, 932, 647);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setLocationRelativeTo(null);
 		contentPane.setLayout(null);
-		
-		FONDO = new JLabel("");
-		FONDO.setBackground(Color.DARK_GRAY);
-		
-		
-		
+
 		this.setFocusable(true);
 
-		juego = Juego.getJuego(); // <--CLARAMENTE HAY ALGO MAL QUE NO ANDA BIEN
+		juego = Juego.getJuego();
 		juego.setGUI(this);
 
-		// JLabel lblNewLabel = new JLabel("");
-		// lblNewLabel.setIcon(new
-		// ImageIcon("C:\\Users\\laval\\Downloads\\Webp.net-gifmaker (22).gif"));
-		// lblNewLabel.setBounds(370, 398, 51, 71);
-		// contentPane.add(lblNewLabel);
-		// this.reDimensionar(lblNewLabel,new
-		// ImageIcon(Gui.class.getResource("/Recursos_Graficos/Webp.net-gifmaker
-		// (22).gif")));
-
-//		JLabel INFECTADO = new JLabel("");
-//		INFECTADO.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficos_Infectados/infectado_beta.gif")));
-//		INFECTADO.setBounds(325, 0, 137, 123);
-//		contentPane.add(INFECTADO);
-//
-//		JLabel lblNewLabel_3 = new JLabel("");
-//		lblNewLabel_3.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficos_Infectados/infectado_alfa.gif")));
-//		lblNewLabel_3.setBounds(682, 13, 198, 164);
-//		contentPane.add(lblNewLabel_3);
-//		
-//		JLabel lblNewLabel_2 = new JLabel("");
-//		lblNewLabel_2.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficos_Jugador/mov_right.gif")));
-//		lblNewLabel_2.setBounds(391, 490, 146, 110);
-//		contentPane.add(lblNewLabel_2);
-//		
-
-		for (int i = 0; i < 9; i++) {
-
+		for (int i = 0; i < 3; i++) {
 			new InfectadoAlpha();
 		}
-		
-	
-
-		// Jugador j= new Jugador(juego);
-		// JLabel jugador_prueba = new Label_jugador();
-		// contentPane.add(j.getGrafico());
-
-//		JLabel disparo2_prueba = new Label_particulaV_Beta();
-//		contentPane.add(disparo2_prueba);
-//
-//		JLabel disparo1_prueba = new Label_particulaV_Alpha();
-//		contentPane.add(disparo1_prueba);
-
-//		JLabel disparo_boost_prueba = new Label_super_proyectil();
-//		contentPane.add(disparo_boost_prueba);
-
-//		JLabel disparo_prueba = new Label_proyectil_normal();
-//		contentPane.add(disparo_prueba);
+		for (int i = 0; i < 3; i++) {
+			new InfectadoBeta();
+		}
 
 		this.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
-				// Aqui no funcionara
 			}
 
 			public void keyPressed(KeyEvent e) {
@@ -137,38 +84,34 @@ public class Gui extends JFrame {
 			}
 
 		});
-		
-		//		for (int i = 0; i < 9; i++) {
-		//			JLabel probando = new Label_infectado_beta();
-		//			contentPane.add(probando);
-		//		}
-		
-				JButton botonJugar = new JButton("jugar");
-				botonJugar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						Thread t = new Thread() {
-							public void run() {
-								juego.run();
-							}
-						};
 
-						t.start();
-						contentPane.repaint();
-						botonJugar.setVisible(false);
+		JButton botonJugar = new JButton("jugar");
+		botonJugar.setBounds(390, 11, 57, 23);
+		botonJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Thread t = new Thread() {
+					public void run() {
+						juego.run();
 					}
-				});
-				botonJugar.setBounds(51, 113, 89, 23);
-				contentPane.add(botonJugar);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 931, 59);
-		contentPane.add(panel);
+				};
+				t.start();
+				botonJugar.setVisible(false);
+			}
+		});
 
-		
-		FONDO.setBounds(0, 64, 931, 554);
-		contentPane.add(FONDO);
-		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
-		
+//		FONDO = new JLabel("");
+//		FONDO.setBounds(-11, 0, 937, 622);
+//		//contentPane.add(FONDO);
+//		ImageIcon imagen = new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png"));
+//		
+//		this.reDimensionar(FONDO, imagen);
+
+		// this.setContentPane(new FondoPanel());
+
+		contentPane.add(botonJugar);
+
+//		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
+
 		this.repaint();
 		contentPane.repaint();
 	}
@@ -194,4 +137,20 @@ public class Gui extends JFrame {
 	private Juego getJuego() {
 		return juego;
 	}
+
+}
+
+/**
+ *
+ */
+class FondoPanel extends JPanel {
+	private Image imagen;
+
+	public void paint(Graphics g) {
+		imagen = new ImageIcon(getClass().getResource("/RecursosGraficosNiveles/FONDO-LVL3.png")).getImage();
+		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+		setOpaque(false);
+		super.paint(g);
+	}
+
 }

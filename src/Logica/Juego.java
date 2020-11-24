@@ -7,7 +7,6 @@ import java.util.List;
 
 import Entidades.Entidad;
 import Entidades.Jugador;
-import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
 
 public class Juego implements Runnable {
@@ -33,9 +32,6 @@ public class Juego implements Runnable {
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
 		director = new Director();
-		
-		
-
 	}
 
 	public static Juego getJuego() {
@@ -91,17 +87,17 @@ public class Juego implements Runnable {
 
 	public void jugar() {
 		try {
-			new Jugador();
+			aAgregar.add(new Jugador());
 			while (true) {
 				for (Entidad e : entidades) {
 					e.accionar();
-					Thread.sleep(1);
+					//Thread.sleep(1);
 				}
 //				detectarColisiones();
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
 			}
-		} catch (IllegalArgumentException | InterruptedException e) {
+		} catch (IllegalArgumentException /*| InterruptedException*/ e) {
 			e.printStackTrace();
 		}
 	}

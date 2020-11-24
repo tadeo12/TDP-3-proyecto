@@ -16,12 +16,13 @@ public class Vertical extends EstrategiaMovimiento {
 		Entidad_grafica g = entidad.getGrafico();
 		int siguientePosY = g.getY() + this.direccion * entidad.getVelocidad();
 
-		if (siguientePosY > limiteY)
+		if (siguientePosY > limiteY) {
 			g.setLocation(g.getX(), limiteY);
-		else 
-			if (siguientePosY < 0)
+		}else 
+			if (siguientePosY < 0) {
+				entidad.eliminar();
 				g.setLocation(g.getX(), 0);
-			else
+			}else
 				g.setLocation(g.getX(), siguientePosY);
 		
 	}
