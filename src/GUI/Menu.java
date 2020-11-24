@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
+
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
@@ -26,6 +27,8 @@ public class Menu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					SplashScreen splash = new SplashScreen(3000);
+					splash.showSplash();
 					Menu frame = new Menu();
 					frame.setVisible(true);
 				} catch (Exception e) {
