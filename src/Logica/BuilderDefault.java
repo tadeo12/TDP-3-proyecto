@@ -23,6 +23,7 @@ public class BuilderDefault extends BuilderNivel {
 
 	@Override
 	public void construirInfectado(int tipoInfectado) {
+		System.out.println("tipoinf "+tipoInfectado);
 		misFabricas.get(tipoInfectado).crearInfectado();
 
 	}

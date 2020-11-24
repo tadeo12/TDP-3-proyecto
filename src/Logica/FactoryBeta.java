@@ -13,7 +13,7 @@ public class FactoryBeta extends Factory {
 	private int tiempo;
 
 	public FactoryBeta() {
-		tiempo=0;
+		tiempo=1;
 		mapa=Juego.getJuego().getMapa();
 		r=new Random();
 	}
@@ -29,7 +29,7 @@ public class FactoryBeta extends Factory {
 	}
 
 	private Point posicion() {
-		return new Point(r.nextInt(mapa.getWidth()+mapa.getX()),-100);
+		return new Point(r.nextInt(mapa.getWidth()),-100);
 	}
 
 }

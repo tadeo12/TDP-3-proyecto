@@ -14,7 +14,7 @@ public class FactoryAlpha extends Factory {
 	private int tiempo;
 	
 	public FactoryAlpha() {
-		tiempo=0;
+		tiempo=1;
 		mapa=Juego.getJuego().getMapa();
 		r=new Random();
 	}
@@ -22,13 +22,13 @@ public class FactoryAlpha extends Factory {
 	@Override
 	public Infectado crearInfectado() {
 		Point p=posicion();
-		Infectado inf= new InfectadoBeta(p,tiempo);
+		Infectado inf= new InfectadoAlpha(p,tiempo);
 		tiempo=tiempo+10000;
 		return inf;
 	}
 
 	private Point posicion() {
-		return new Point(r.nextInt(mapa.getWidth()+mapa.getX()),-100);
+		return new Point(r.nextInt(mapa.getWidth()),-100);
 	}
 
 }
