@@ -19,12 +19,14 @@ public class Director {
 
 	public Nivel construirSiguienteNivel() {
 		int cantInfectados;
+		boolean primerTanda=true;
 		for (int n = 0; n < tandasPorNivel; n++) {
 			for (int j = 0; j < infectadosPorNivel[0].length; j++) {
 				cantInfectados = infectadosPorNivel[nivelActual * tandasPorNivel][j];
 				for (int i = 0; i < cantInfectados; i++)
-					builder.construirInfectado(j);
+					builder.construirInfectado(j,!primerTanda);
 			}
+			primerTanda=false;
 			builder.siguienteTanda();
 		}
 		nivelActual++;

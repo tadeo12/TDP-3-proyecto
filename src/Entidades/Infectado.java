@@ -14,9 +14,10 @@ public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
 	protected Random random;
-	protected boolean dispara;
+	protected boolean desinfectado;
+	protected int tiempoEspera;
 
-	public Infectado(Entidad_grafica eg, int duracion) {
+	public Infectado(Entidad_grafica eg, int duracion, boolean enEspera) {
 		super();
 		this.entidad_graf = eg;
 		velocidad = 1;
@@ -24,19 +25,26 @@ public abstract class Infectado extends Entidad {
 		this.suelta_premio = false;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
+		tiempoEspera=duracion;
+		if(!enEspera)
+			aparecer();
 
+		random = new Random();
+		desinfectado = true;
+	}
+	
+	public void aparecer() {
 		Infectado inf = this;
 		Timer timer = new Timer();
+		System.out.println("apareciendo");
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
 				movimiento = new Vertical_loop(inf, Vertical.ABAJO);
+				timer.cancel();
 			};
 		};
-		timer.schedule(timer_task, 0, duracion);
-
-		random = new Random();
-		dispara = true;
+		timer.schedule(timer_task, tiempoEspera, 1);
 	}
 
 	public abstract void disminuirCargaViral(int desinfeccion);
@@ -47,10 +55,14 @@ public abstract class Infectado extends Entidad {
 		return this.carga_viral;
 	}
 
+	public void eliminar() {
+		juego.eliminarInfectado(this);
+	}
+	
 	public void accionar() {
 		if (movimiento != null)
 			movimiento.mover();
-		if (dispara && random.nextInt(150) == 2) {
+		if (desinfectado && random.nextInt(150) == 2) {
 			disparar();
 		}
 	}

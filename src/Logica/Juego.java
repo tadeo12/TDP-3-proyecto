@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Entidades.Entidad;
+import Entidades.Infectado;
 import Entidades.Jugador;
 import GUI.Gui;
 
@@ -75,6 +76,7 @@ public class Juego implements Runnable {
 	}
 
 	public void nivelCompleto() {
+		System.out.println("nivel completo");
 		if (director.finJuego())
 			gui.gano();
 		else
@@ -148,6 +150,13 @@ public class Juego implements Runnable {
 		director = new Director();
 		nivelActual=director.construirSiguienteNivel();
 		jugar();
+	}
+
+	public void eliminarInfectado(Infectado infectado) {
+		nivelActual.eliminarInfectado(infectado);
+		eliminarEntidad(infectado);
+		
+		
 	}
 
 }

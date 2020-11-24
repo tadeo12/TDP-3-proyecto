@@ -13,18 +13,18 @@ import Visitors.Visitor;
 public class InfectadoAlpha extends Infectado {
 
 
-	public InfectadoAlpha(Point p,int tiempoQuieto) {
-		super(new Label_infectado_alpha(p),tiempoQuieto);
+	public InfectadoAlpha(Point p,int tiempoQuieto, boolean enEspera) {
+		super(new Label_infectado_alpha(p),tiempoQuieto,enEspera);
 		visitor.setEntidad(this);
 	}
 
 	@Override
 	public void disminuirCargaViral(int desinfeccion) {
-		if (dispara) {
+		if (desinfectado) {
 			if (carga_viral - desinfeccion <= 0) {
 				suelta_premio = true;
 				carga_viral = 0;
-				desinfectado();
+				desinfectar();
 			} else {
 				carga_viral -= desinfeccion;
 			}
@@ -40,10 +40,10 @@ public class InfectadoAlpha extends Infectado {
 		return new ParticulaV_Alpha(this.getGrafico());
 	}
 
-	public void desinfectado() {
-		Random ra = new Random();
-		dispara = false;
-		int direccion = ra.nextInt(2);
+	public void desinfectar() {
+		desinfectado = false;
+		System.out.println("desinfectando");
+		int direccion = random.nextInt(2);
 		if (direccion == 1) {
 			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
 		} else
