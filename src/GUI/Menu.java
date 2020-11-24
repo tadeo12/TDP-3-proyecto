@@ -15,7 +15,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
-
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
@@ -28,7 +27,7 @@ public class Menu extends JFrame {
 			public void run() {
 				try {
 					SplashScreen splash = new SplashScreen(3000);
-					splash.showSplash();
+					//splash.showSplash();
 					Menu frame = new Menu();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -87,7 +86,7 @@ public class Menu extends JFrame {
 		 */
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBorder(new LineBorder(new Color(102, 255, 102)));
+		btnNewButton_1.setBorder(new LineBorder(Color.BLACK));
 		btnNewButton_1.setBackground(Color.BLACK);
 		btnNewButton_1.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/BOTON JUGAR normal.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -99,11 +98,11 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(45, 218, 397, 93);
+		btnNewButton_1.setBounds(45, 301, 397, 93);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setBorder(new LineBorder(new Color(102, 255, 102)));
+		btnNewButton.setBorder(new LineBorder(Color.BLACK));
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBackground(Color.BLACK);//
 		btnNewButton.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/BOTON JUGAR JARCOR.png")));
@@ -116,7 +115,7 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(45, 347, 397, 93);
+		btnNewButton.setBounds(45, 407, 397, 93);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
