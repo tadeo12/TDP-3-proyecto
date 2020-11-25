@@ -23,11 +23,11 @@ public class Menu extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		SplashScreen splash = new SplashScreen(2000);
+		splash.showSplash();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SplashScreen splash = new SplashScreen(2000);
-					//splash.showSplash();
 					Menu frame = new Menu();
 					frame.setVisible(true);
 				} catch (Exception e) {
