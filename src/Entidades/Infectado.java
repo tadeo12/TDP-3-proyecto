@@ -29,7 +29,7 @@ public abstract class Infectado extends Entidad {
 		this.entidad_graf = eg;
 		velocidad = 1;
 		this.movimiento = null;
-		this.suelta_premio = false;
+		this.suelta_premio = random.nextInt(10)==5;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
 		tiempoEspera=duracion;
@@ -88,7 +88,10 @@ public abstract class Infectado extends Entidad {
 			li.seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
 		}
-		velocidad=3; 
+		velocidad=3;
+		if(suelta_premio) {
+			
+		}
 	}
 	
 }
