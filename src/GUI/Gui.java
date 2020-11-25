@@ -73,6 +73,7 @@ public class Gui extends JFrame {
 				int codigoTecla = e.getKeyCode();
 				if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
 					juego.setMoviendoIzquierda(false);
+					
 				}
 				if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
 					juego.setMoviendoDerecha(false);
