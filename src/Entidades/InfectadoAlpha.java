@@ -46,19 +46,5 @@ public class InfectadoAlpha extends Infectado {
 		return new ParticulaV_Alpha(this.getGrafico());
 	}
 
-	public void desinfectar() {
-		desinfectado = false;
-		System.out.println("desinfectando");
-		int direccion = random.nextInt(2);
-		Label_infectado li = (Label_infectado) this.getGrafico();
-		if (direccion == 1) {
-			li.seVa(1);
-			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
-		} else {
-			li.seVa(0);
-			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
-		}
-	}
-
 	
 }

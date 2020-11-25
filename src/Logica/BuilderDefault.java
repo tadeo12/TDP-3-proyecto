@@ -24,9 +24,9 @@ public class BuilderDefault extends BuilderNivel {
 
 	@Override
 	public void construirInfectado(int tipoInfectado,boolean enEspera) {
-		System.out.println("tipoinf "+tipoInfectado);
-		misFabricas.get(tipoInfectado).crearInfectado(enEspera);
-
+		//System.out.println("tipoinf "+tipoInfectado);
+		Infectado inf=misFabricas.get(tipoInfectado).crearInfectado(enEspera);
+		tandaActual.agregarInfectado(inf);
 	}
 
 	@Override
@@ -39,6 +39,9 @@ public class BuilderDefault extends BuilderNivel {
 
 	@Override
 	public void siguienteTanda() {
+		for(Factory f: misFabricas) {
+			f.reiniciar();
+		}
 		nivel.agregarTanda(tandaActual);
 		tandaActual= new Tanda();
 		

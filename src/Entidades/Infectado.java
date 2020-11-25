@@ -7,8 +7,11 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 
 import EntidadesGraficas.Entidad_grafica;
+import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_alpha;
 import EntidadesGraficas.Label_infectado_beta;
+import Movimientos.Horizontal;
+import Movimientos.Horizontal_remove;
 import Movimientos.Vertical;
 import Movimientos.Vertical_loop;
 import Visitors.VisitorInfectado;
@@ -40,7 +43,7 @@ public abstract class Infectado extends Entidad {
 	public void aparecer() {
 		Infectado inf = this;
 		Timer timer = new Timer();
-		System.out.println("apareciendo");
+		//System.out.println("apareciendo");
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
@@ -71,6 +74,19 @@ public abstract class Infectado extends Entidad {
 		
 		if (desinfectado && random.nextInt(150) == 2) {
 			disparar();
+		}
+	}
+	
+	public void desinfectar() {
+		desinfectado = false;
+		int direccion = random.nextInt(2);
+		Label_infectado li = (Label_infectado) this.getGrafico();
+		if (direccion == 1) {
+			li.seVa(1);
+			movimiento = new Horizontal_remove(this, Horizontal.DERECHA);
+		} else {
+			li.seVa(0);
+			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
 		}
 	}
 	
