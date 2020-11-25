@@ -19,8 +19,7 @@ public abstract class Label_infectado extends Entidad_grafica {
 		
 		this.movRight = new String[]{ "/RecursosGraficos_Infectados/seVaRight 1.gif","/RecursosGraficos_Infectados/seVaRight 2.gif","/RecursosGraficos_Infectados/seVaRight 3.gif",
 				"/RecursosGraficos_Infectados/seVaRight 4.gif","/RecursosGraficos_Infectados/seVaRight 5.gif","/RecursosGraficos_Infectados/seVaRight 6.gif","/RecursosGraficos_Infectados/seVaRight 7.gif"};
-	
-		
+			
 	}
 	
 	public void seVa(int lado) {

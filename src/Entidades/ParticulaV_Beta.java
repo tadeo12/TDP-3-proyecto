@@ -8,7 +8,9 @@ public class ParticulaV_Beta extends ParticulaV{
 
 	public ParticulaV_Beta(Entidad_grafica entidad_infectado) {
 		super(new Label_particulaV_Beta(entidad_infectado));
-		velocidad = 5;		
+		velocidad = 5;	
+		damage = 5;
+		visitor.setEntidad(this);
 	
 	}
 

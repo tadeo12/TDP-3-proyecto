@@ -11,7 +11,7 @@ import Entidades.ProyectilNormal;
 import Entidades.SuperProyectil;
 
 public abstract class Visitor {
-	Entidad entidad;
+	protected Entidad entidad;
 
 	public void visit(InfectadoAlpha infectado) {}
 

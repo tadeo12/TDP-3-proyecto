@@ -13,6 +13,7 @@ public abstract class ParticulaV extends Proyectil {
 		this.entidad_graf = entidad_graf;
 		movimiento = new Vertical_remove(this, Vertical.ABAJO);
 		visitor = new VisitorParticulaV();
+		
 	}
 
 	public void accept(Visitor visitor) {

@@ -88,7 +88,6 @@ public abstract class Infectado extends Entidad {
 			li.seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
 		}
-		velocidad=3; 
 	}
 	
 }
