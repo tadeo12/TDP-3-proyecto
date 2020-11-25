@@ -10,6 +10,7 @@ import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_alpha;
 import EntidadesGraficas.Label_infectado_beta;
+import Logica.GeneradorDePremio;
 import Movimientos.Horizontal;
 import Movimientos.Horizontal_remove;
 import Movimientos.Vertical;
@@ -29,7 +30,7 @@ public abstract class Infectado extends Entidad {
 		this.entidad_graf = eg;
 		velocidad = 1;
 		this.movimiento = null;
-		this.suelta_premio = false;
+		this.suelta_premio = random.nextInt(10)==5;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
 		tiempoEspera=duracion;
@@ -87,6 +88,11 @@ public abstract class Infectado extends Entidad {
 		} else {
 			li.seVa(0);
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
+		}
+
+		velocidad=3;
+		if(suelta_premio) {
+			GeneradorDePremio.generar(entidad_graf.getLocation());
 		}
 	}
 	

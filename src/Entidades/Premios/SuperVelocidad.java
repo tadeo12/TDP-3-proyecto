@@ -1,4 +1,4 @@
-package Entidades;
+package Entidades.Premios;
 
 import Visitors.Visitor;
 

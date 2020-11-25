@@ -23,9 +23,11 @@ public abstract class Visitor {
 
 
 	public void visit(PremioTemporal premio) {}
+	
+	public void visit(PremioTemporal premio) {}
 
 
-	public void visit(ObjetoPrecioso objeto) {}
+	public void visit(Curacion objeto) {}
 
 	
 	public  void visit(ParticulaV particula) {}
