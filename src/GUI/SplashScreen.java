@@ -31,24 +31,35 @@ public class SplashScreen extends JWindow{
 		add(lblNewLabel);
 		
 		repaint();
+		
+		setVisible(true);
+		System.out.print(2);
+
+	}
+
 	
-		this.setVisible(true);
+	public void showSplashScreen() throws InterruptedException {
 		
-		try {
-			Thread.sleep(duration);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
 		
-		dispose();
+		long start = System.currentTimeMillis();
+		
+        try {
+        	
+                Thread.sleep(3000);
+                
+       
+         } catch( InterruptedException ex) {
+        	 ex.printStackTrace();
+        	 ex.getMessage();
+         }
+    
+        long stop = System.currentTimeMillis();
 
-	}
-
-	// A simple little method to show a title screen in the center
-	// of the screen for the amount of time given in the constructor
-	public void showSplash() {
+        System.out.println(" Time taken : " + (stop - start));
 		
+        dispose();
 	}
+	
 
 
 }

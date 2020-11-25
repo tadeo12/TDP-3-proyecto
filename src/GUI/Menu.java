@@ -27,11 +27,16 @@ public class Menu extends JFrame {
 			public void run() {
 				try {
 					SplashScreen splash = new SplashScreen(2000);
-					//splash.showSplash();
+					
+	                splash.showSplashScreen();
+					
 					Menu frame = new Menu();
+					
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
+					e.getMessage();
 				}
 			}
 		});
