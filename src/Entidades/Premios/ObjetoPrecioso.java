@@ -1,11 +1,11 @@
-package Entidades;
+package Entidades.Premios;
 
 import Logica.Juego;
 import Visitors.Visitor;
 
 public class ObjetoPrecioso extends Premio {
 
-	public ObjetoPrecioso(Juego juego) {
+	public ObjetoPrecioso() {
 		super();
 	}
 

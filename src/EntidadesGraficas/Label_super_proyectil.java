@@ -1,18 +1,20 @@
 package EntidadesGraficas;
 
+import java.awt.Point;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 
 public class Label_super_proyectil extends Label_proyectil{
 	
-	public Label_super_proyectil() {
+	public Label_super_proyectil(Entidad_grafica entidad_jugador) {
 		super();
 		this.setSize(50,100);;
 		ImageIcon imagen =new ImageIcon(Label_super_proyectil.class.getResource("/RecursosGraficos_Jugador/disparo_boost.gif"));
 		this.setIcon(imagen);
 		reDimensionar(this,imagen);
-		this.setLocation(400, 410);
+		Point p = entidad_jugador.getLocation();
+		this.setLocation((int)p.getX(),(int)p.getY()-30);
 		
 	}
 

@@ -15,7 +15,7 @@ public class Juego implements Runnable {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 	private static Juego juego;
-	
+
 	private boolean jugando;
 
 	private Gui gui;
@@ -34,12 +34,12 @@ public class Juego implements Runnable {
 		entidades = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
-		
+
 	}
 
 	public static Juego getJuego() {
 		if (juego == null) {
-			juego = new Juego();			
+			juego = new Juego();
 		}
 		return juego;
 	}
@@ -82,9 +82,8 @@ public class Juego implements Runnable {
 		System.out.println("nivel completo");
 		if (director.finJuego()) {
 			gui.gano();
-			jugando=false;
-		}
-		else
+			jugando = false;
+		} else
 			nivelActual = director.construirSiguienteNivel();
 
 	}
@@ -96,18 +95,22 @@ public class Juego implements Runnable {
 	public void jugar() {
 		try {
 			director = new Director();
-			nivelActual=director.construirSiguienteNivel();
+			nivelActual = director.construirSiguienteNivel();
+			
 			aAgregar.add(new Jugador());
-			jugando=true;
+			jugando = true;
 			while (jugando) {
 				for (Entidad e : entidades) {
 					e.accionar();
 
 				}
 				Thread.sleep(15);
-				
+
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
+				for (Entidad e : entidades) {
+					e.setColision(false);
+				}
 				detectarColisiones();
 			}
 		} catch (IllegalArgumentException | InterruptedException e) {
@@ -122,17 +125,21 @@ public class Juego implements Runnable {
 			for (int j = i + 1; j < cantEntidades; j++) {
 				Entidad b = entidades.get(j);
 				if (colisionan(a, b)) {
+//					entidades.get(i).setColision(true);
+//					entidades.get(j).setColision(true);
 					a.accept(b.getVisitor());
 					b.accept(a.getVisitor());
+					
 				}
 			}
 		}
+
 	}
 
 	private boolean colisionan(Entidad a, Entidad b) {
 		Rectangle A = a.getGrafico().getBounds();
 		Rectangle B = b.getGrafico().getBounds();
-		return A.intersects(B);
+		return !a.getColision() && A.intersects(B);
 	}
 
 	private void removerEntidadesEliminadas() {
@@ -155,15 +162,14 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-		
+
 		jugar();
 	}
 
 	public void eliminarInfectado(Infectado infectado) {
 		nivelActual.eliminarInfectado(infectado);
 		eliminarEntidad(infectado);
-		
-		
+
 	}
 
 }

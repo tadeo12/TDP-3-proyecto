@@ -1,4 +1,4 @@
-package Entidades;
+package Entidades.Premios;
 
 public abstract class PremioTemporal extends Premio {
 	protected int duracion;
