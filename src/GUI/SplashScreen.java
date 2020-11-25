@@ -19,7 +19,7 @@ public class SplashScreen extends JWindow{
 		duration = d;
 		setBounds(100, 100, 932, 647);
 		
-		//this.setLocationRelativeTo(null);   
+		this.setLocationRelativeTo(null);   
         this.setAlwaysOnTop(true);          // Lo mantenemos siempre al frente al ejecutar
         
         Image img = Toolkit.getDefaultToolkit().getImage(SplashScreen.class.getResource("/RecursosGraficos_Extras/SPLASH SCREEN.png"));
