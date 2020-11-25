@@ -1,11 +1,15 @@
 package Entidades.Premios;
 
+import java.awt.Point;
+
+import EntidadesGraficas.Label_super_proyectil;
 import Visitors.Visitor;
 
 public class SuperArma extends PremioTemporal {
 
-	public SuperArma() {
+	public SuperArma(Point p) {
 		super();
+		entidad_graf = new Label_super_proyectil(p);
 		duracion = 30;
 	}
 

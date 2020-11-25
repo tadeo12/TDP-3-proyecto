@@ -1,13 +1,15 @@
 package Entidades;
 
+import java.awt.Point;
+
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_super_proyectil;
 import Visitors.Visitor;
 
 public class SuperProyectil extends ProyectilSanitario {
 
-	public SuperProyectil(Entidad_grafica entidad_jugador) {
-		super(new Label_super_proyectil(entidad_jugador));
+	public SuperProyectil(Point p) {
+		super(new Label_super_proyectil(p));
 		visitor.setEntidad(this);
 		damage = 10;
 		velocidad = 4;

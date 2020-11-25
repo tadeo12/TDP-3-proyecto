@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Entidades.Jugador;
-import Entidades.SuperArma;
+import Entidades.Premios.SuperArma;
 import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
 //TEMPORAL
