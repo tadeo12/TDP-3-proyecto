@@ -6,8 +6,6 @@ import java.util.Random;
 import Entidades.*;
 
 public class GeneradorDePremio {
-	private String[] premios= {"superArma","superVelocidad" ,"inmunidad","bajoCero","curacion"};
-	
 	
 	public static void generar(Point p) {
 		Random r= new Random();
@@ -15,13 +13,13 @@ public class GeneradorDePremio {
 		switch(indice) {
 			case 0: new SuperArma(p);
 				break;
-			case 1: new superVelocidad(p);
+			case 1: new SuperVelocidad(p);
 				break;
-			case 2: new inmunidad(p);
+			case 2: new Inmunidad(p);
 				break;
-			case 3: new bajoCero(p);
+			case 3: new BajoCero(p);
 				break;
-			case 4: new curacion(p);
+			case 4: new Curacion(p);
 				break;
 				
 			

@@ -1,4 +1,4 @@
-package Entidades;
+ package Entidades;
 
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_super_proyectil;

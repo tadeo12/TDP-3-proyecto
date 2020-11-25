@@ -30,14 +30,13 @@ public abstract class Infectado extends Entidad {
 		this.entidad_graf = eg;
 		velocidad = 1;
 		this.movimiento = null;
+		random = new Random();
 		this.suelta_premio = random.nextInt(10)==5;
 		this.carga_viral = 100;
 		visitor = new VisitorInfectado();
 		tiempoEspera=duracion;
 		if(!enEspera)
 			aparecer();
-
-		random = new Random();
 		desinfectado = true;
 	}
 	
@@ -92,7 +91,7 @@ public abstract class Infectado extends Entidad {
 
 		velocidad=3;
 		if(suelta_premio) {
-			GeneradorDePremio.generar(entidad_graf.getLocation());
+			//GeneradorDePremio.generar(entidad_graf.getLocation());
 		}
 	}
 	
