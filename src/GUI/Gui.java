@@ -56,7 +56,7 @@ public class Gui extends JFrame {
 			}
 
 			public void keyPressed(KeyEvent e) {
-				//System.out.println("je je");
+				// System.out.println("je je");
 				int codigoTecla = e.getKeyCode();
 				if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
 					juego.setMoviendoIzquierda(true);
@@ -85,19 +85,12 @@ public class Gui extends JFrame {
 
 		});
 
-		JButton botonJugar = new JButton("jugar");
-		botonJugar.setBounds(390, 11, 57, 23);
-		botonJugar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Thread t = new Thread() {
-					public void run() {
-						juego.run();
-					}
-				};
-				t.start();
-				botonJugar.setVisible(false);
+		Thread t = new Thread() {
+			public void run() {
+				juego.run();
 			}
-		});
+		};
+		t.start();
 
 //		FONDO = new JLabel("");
 //		FONDO.setBounds(-11, 0, 937, 622);
@@ -108,7 +101,6 @@ public class Gui extends JFrame {
 
 		// this.setContentPane(new FondoPanel());
 
-		contentPane.add(botonJugar);
 
 //		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
@@ -127,7 +119,7 @@ public class Gui extends JFrame {
 	}
 
 	public void gano() {
-
+		System.out.println("gano");
 	}
 
 	public Container getMapa() {
@@ -136,21 +128,6 @@ public class Gui extends JFrame {
 
 	private Juego getJuego() {
 		return juego;
-	}
-
-}
-
-/**
- *
- */
-class FondoPanel extends JPanel {
-	private Image imagen;
-
-	public void paint(Graphics g) {
-		imagen = new ImageIcon(getClass().getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")).getImage();
-		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-		setOpaque(false);
-		super.paint(g);
 	}
 
 }

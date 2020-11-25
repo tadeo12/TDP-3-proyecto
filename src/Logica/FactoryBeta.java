@@ -19,17 +19,21 @@ public class FactoryBeta extends Factory {
 	}
 	
 	@Override
-	public Infectado crearInfectado(boolean enEspera) {
-		mapa=Juego.getJuego().getMapa();
-		r=new Random();
-		Point p = posicion();
+	public Infectado crearInfectado(boolean enEspera) { 
+ 		Point p = posicion();
 		Infectado inf= new InfectadoBeta(p,tiempo, enEspera);
-		tiempo=tiempo+10000;
+		tiempo=tiempo+2000 ;
 		return inf;
 	}
 
 	private Point posicion() {
 		return new Point(r.nextInt(mapa.getWidth()-60),-100);
+	}
+
+	@Override
+	protected void reiniciar() {
+		tiempo=1;
+		
 	}
 
 }

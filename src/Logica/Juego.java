@@ -15,6 +15,8 @@ public class Juego implements Runnable {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 	private static Juego juego;
+	
+	private boolean jugando;
 
 	private Gui gui;
 	private List<Entidad> entidades;
@@ -77,8 +79,10 @@ public class Juego implements Runnable {
 
 	public void nivelCompleto() {
 		System.out.println("nivel completo");
-		if (director.finJuego())
+		if (director.finJuego()) {
 			gui.gano();
+			jugando=false;
+		}
 		else
 			nivelActual = director.construirSiguienteNivel();
 
@@ -90,8 +94,11 @@ public class Juego implements Runnable {
 
 	public void jugar() {
 		try {
+			director = new Director();
+			nivelActual=director.construirSiguienteNivel();
 			aAgregar.add(new Jugador());
-			while (true) {
+			jugando=true;
+			while (jugando) {
 				for (Entidad e : entidades) {
 					e.accionar();
 
@@ -147,8 +154,7 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-		director = new Director();
-		nivelActual=director.construirSiguienteNivel();
+		
 		jugar();
 	}
 
