@@ -12,12 +12,11 @@ public abstract class Entidad extends Element {
 	protected EstrategiaMovimiento movimiento;
 	protected Juego juego;
 	protected Visitor visitor;
-	protected boolean colisionando;
 
-	public Entidad() {
+	public Entidad(Entidad_grafica entidad_graf) {
 		this.juego = Juego.getJuego();
 		this.juego.agregarEntidad(this);
-		colisionando = false;
+		this.entidad_graf = entidad_graf;
 	}
 
 	public void accionar() {
@@ -45,17 +44,9 @@ public abstract class Entidad extends Element {
 	public Entidad_grafica getGrafico() {
 		return entidad_graf;
 	}
-	
+
 	public Visitor getVisitor() {
 		return visitor;
-	}
-	
-	public void setColision(boolean estado) {
-		colisionando = estado;
-	}
-	
-	public boolean getColision() {
-		return colisionando;
 	}
 
 	public Juego getJuego() {

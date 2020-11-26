@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Entidades.Jugador;
-import Entidades.SuperVelocidad;
+import Entidades.Premios.SuperVelocidad;
 import EstadosJugador.EstadoJugador;
 import EstadosJugador.SuperVeloz;
 //TEMPORAL

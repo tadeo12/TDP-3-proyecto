@@ -1,15 +1,15 @@
 package Entidades.Premios;
 
-import Logica.Juego;
+import java.awt.Point;
+
+import EntidadesGraficas.Entidad_grafica;
 import Visitors.Visitor;
 
-public class ObjetoPrecioso extends Premio {
+public abstract class ObjetoPrecioso extends Premio {
 
-	public ObjetoPrecioso() {
-		super();
+	public ObjetoPrecioso(Entidad_grafica entidad_graf) {
+		super(entidad_graf);
 	}
 
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
-	}
+	public abstract void accept(Visitor visitor);
 }

@@ -13,10 +13,10 @@ public class Horizontal_remove extends Horizontal {
 	public void mover() {
 		Entidad_grafica g = this.entidad.getGrafico();
 		int siguientePosX = g.getX() + this.direccion * entidad.getVelocidad();
-		if (siguientePosX > limiteX)
+		if (siguientePosX > limiteX+100 )
 			entidad.eliminar();
 		else {
-			if (siguientePosX < 0)
+			if (siguientePosX < -100)
 				entidad.eliminar();
 			else
 				g.setLocation(siguientePosX, g.getY());

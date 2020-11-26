@@ -7,9 +7,8 @@ import Visitors.VisitorProyectilSanitario;
 
 public abstract class ProyectilSanitario extends Proyectil {
 
-	public ProyectilSanitario(Entidad_grafica e) {
-		super();
-		entidad_graf = e;
+	public ProyectilSanitario(Entidad_grafica entidad_graf) {
+		super(entidad_graf);
 		movimiento = new Vertical_remove(this, Vertical.ARRIBA);
 		visitor = new VisitorProyectilSanitario();
 	}

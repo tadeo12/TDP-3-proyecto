@@ -4,24 +4,28 @@ import java.awt.Point;
 import java.util.Random;
 
 import Entidades.*;
+import Entidades.Premios.BajoCero;
+import Entidades.Premios.Curacion;
+import Entidades.Premios.Inmunidad;
+import Entidades.Premios.SuperArma;
+import Entidades.Premios.SuperVelocidad;
 
 public class GeneradorDePremio {
-	private String[] premios= {"superArma","superVelocidad" ,"inmunidad","bajoCero","curacion"};
-	
 	
 	public static void generar(Point p) {
 		Random r= new Random();
-		int indice=r.nextInt(5);
+		//int indice=r.nextInt(5);
+		int indice = 1;
 		switch(indice) {
 			case 0: new SuperArma(p);
 				break;
-			case 1: new superVelocidad(p);
+			case 1: new SuperVelocidad(p);
 				break;
-			case 2: new inmunidad(p);
+			case 2: new Inmunidad(p);
 				break;
-			case 3: new bajoCero(p);
+			case 3: new BajoCero(p);
 				break;
-			case 4: new curacion(p);
+			case 4: new Curacion(p);
 				break;
 				
 			
