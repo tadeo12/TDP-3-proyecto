@@ -18,7 +18,7 @@ public class Jugador extends Entidad {
 	public Jugador() {
 		super(new Label_jugador());
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
-		estado_arma = new ConSuperArma(this);
+		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
 		velocidad = 3;
 		carga_viral = 0;

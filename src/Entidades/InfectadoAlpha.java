@@ -27,7 +27,6 @@ public class InfectadoAlpha extends Infectado {
 	public void disminuirCargaViral(int desinfeccion) {
 		if (desinfectado) {
 			if (carga_viral - desinfeccion <= 0) {
-				suelta_premio = true;
 				carga_viral = 0;
 				desinfectar();
 			} else {

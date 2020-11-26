@@ -4,14 +4,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Entidades.Jugador;
-import Entidades.Premios.SuperArma;
+import Entidades.Premios.PremioTemporal;
 import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
 //TEMPORAL
 public class VisitorSuperArma extends VisitorPremioTemporal {
 	private int duracion;
 
-	public VisitorSuperArma(SuperArma premioTemp) {
+	public VisitorSuperArma(PremioTemporal premioTemp) {
 		super(premioTemp);
 		duracion = premioTemp.getDuracion();
 	}
@@ -28,9 +28,10 @@ public class VisitorSuperArma extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoArma(estado_actual);
+				this.cancel();
 			};
 		};
-		timer.schedule(timer_task, 0, this.duracion);
+		timer.schedule(timer_task, this.duracion*1000, 1);
 	}
 
 }

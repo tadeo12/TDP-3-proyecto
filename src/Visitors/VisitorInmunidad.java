@@ -4,13 +4,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Entidades.Jugador;
-import Entidades.Premios.Inmunidad;
+import Entidades.Premios.PremioTemporal;
 import EstadosJugador.EstadoJugador;
 import EstadosJugador.Inmune;
 
 public class VisitorInmunidad extends VisitorPremioTemporal {
 
-	public VisitorInmunidad(Inmunidad inmu) {
+	public VisitorInmunidad(PremioTemporal inmu) {
 		super(inmu);
 		duracion = inmu.getDuracion();
 		
