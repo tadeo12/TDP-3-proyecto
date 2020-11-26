@@ -14,10 +14,10 @@ public class Juego implements Runnable {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
+	private boolean nivelCompletado;
 	private static Juego juego;
 
 	private boolean jugando;
-
 	private Gui gui;
 	private List<Entidad> entidades;
 	private List<Entidad> aEliminar;
@@ -31,6 +31,7 @@ public class Juego implements Runnable {
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
+		nivelCompletado = false;
 		entidades = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
@@ -83,15 +84,27 @@ public class Juego implements Runnable {
 		if (director.finJuego()) {
 			gui.gano();
 			jugando = false;
-		} else
+		} else {
 			nivelActual = director.construirSiguienteNivel();
-
+		}
 	}
 
 	public void setGUI(Gui gui) {
 		this.gui = gui;
 	}
 
+	public int getNivel() {
+		return this.nivelActual.getValor();
+	}
+	
+	public boolean getNivelCompletado() {
+		return this.nivelCompletado;
+	}
+	
+	public void setNivelCompletado(boolean nivelCompleto) {
+		this.nivelCompletado = nivelCompleto;
+	}
+	
 	public void jugar() {
 		try {
 			director = new Director();

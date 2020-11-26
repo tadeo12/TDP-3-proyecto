@@ -22,9 +22,9 @@ import java.awt.event.ActionEvent;
 
 public class Gui extends JFrame {
 
-	private JPanel contentPane;
+	private FondoPanel contentPane;
 	private Juego juego;
-	// private JLabel FONDO;
+	//private JLabel FONDO;
 
 	/**
 	 * Create the frame.
@@ -43,6 +43,7 @@ public class Gui extends JFrame {
 
 		juego = Juego.getJuego();
 		juego.setGUI(this);
+		//contentPane.setFondoNivel(juego.getNivel());
 
 //		for (int i = 0; i < 3; i++) {
 //			new InfectadoAlpha();
@@ -86,13 +87,23 @@ public class Gui extends JFrame {
 
 		});
 
+		/*contentPane.pantallaNivel(1);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}*/
+		
 		Thread t = new Thread() {
 			public void run() {
 				juego.run();
 			}
 		};
+		
+		
 		t.start();
-
+		
 //		FONDO = new JLabel("");
 //		FONDO.setBounds(-11, 0, 937, 622);
 //		//contentPane.add(FONDO);
