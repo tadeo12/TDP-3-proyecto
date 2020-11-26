@@ -12,7 +12,7 @@ public class SuperVelocidad extends PremioTemporal {
 
 	public SuperVelocidad(Point p) {
 		super(new Label_super_velocidad(p));
-		duracion = 60;
+		duracion = 9;
 		visitor = new VisitorSuperVelocidad(this);
 	}
 	

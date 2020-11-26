@@ -6,7 +6,7 @@ public class SuperVeloz extends ConPowerUp {
 
 	public SuperVeloz(Jugador jugador) {
 		super(jugador);
-		jugador.setVelocidad(jugador.getVelocidad() * 2);
+		velocidad=10  ; 
 	}
 
 }
