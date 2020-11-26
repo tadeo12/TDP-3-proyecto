@@ -7,7 +7,7 @@ public class Inmune extends ConPowerUp {
 
 	public Inmune(Jugador jugador) {
 		super(jugador);
-		jugador.setVisitor(new VisitorJugadorInmune());
+		jugador.setVisitor(new VisitorJugadorInmune(jugador));
 	}
 
 }

@@ -10,7 +10,7 @@ public abstract class ProyectilSanitario extends Proyectil {
 	public ProyectilSanitario(Entidad_grafica entidad_graf) {
 		super(entidad_graf);
 		movimiento = new Vertical_remove(this, Vertical.ARRIBA);
-		visitor = new VisitorProyectilSanitario();
+		visitor = new VisitorProyectilSanitario(this);
 	}
 
 }

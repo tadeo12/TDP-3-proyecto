@@ -4,25 +4,24 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Entidades.Jugador;
-import Entidades.Premios.SuperVelocidad;
+import Entidades.Premios.Inmunidad;
 import EstadosJugador.EstadoJugador;
-import EstadosJugador.SuperVeloz;
+import EstadosJugador.Inmune;
 
-//TEMPORAL
-public class VisitorSuperVelocidad extends VisitorPremioTemporal {
+public class VisitorInmunidad extends VisitorPremioTemporal {
 
-	public VisitorSuperVelocidad(SuperVelocidad premioTemp) {
-		super(premioTemp);
-		duracion = premioTemp.getDuracion();
+	public VisitorInmunidad(Inmunidad inmu) {
+		super(inmu);
+		duracion = inmu.getDuracion();
+		
 	}
-
-	@Override
+	
 	public void visit(Jugador jug) {
-		EstadoJugador estado_actual = jug.getEstadoJugador();
-		jug.setEstadoJugador(new SuperVeloz(jug));
-
-		Timer timer = new Timer();
 		entidad.eliminar();
+		EstadoJugador estado_actual = jug.getEstadoJugador();
+		jug.setEstadoJugador(new Inmune(jug));
+		Timer timer = new Timer();
+
 		TimerTask timer_task = new TimerTask() {
 
 			@Override

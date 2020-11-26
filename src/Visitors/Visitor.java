@@ -17,6 +17,10 @@ import Entidades.Premios.SuperVelocidad;
 public abstract class Visitor {
 	protected Entidad entidad;
 
+	public Visitor(Entidad entidad) {
+		this.entidad = entidad;
+	}
+
 	public void visit(InfectadoAlpha infectado) {
 	}
 
@@ -32,12 +36,11 @@ public abstract class Visitor {
 	public void visit(Curacion objeto) {
 	}
 
-
 	public void visit(BajoCero objeto) {
 	}
 
-	public void visit(SuperVelocidad premio) {}
-	
+	public void visit(SuperVelocidad premio) {
+	}
 
 	public void visit(Inmunidad objeto) {
 	}
@@ -49,10 +52,6 @@ public abstract class Visitor {
 	}
 
 	public void visit(ProyectilNormal proyectil) {
-	}
-
-	public void setEntidad(Entidad entidad) {
-		this.entidad = entidad;
 	}
 
 }

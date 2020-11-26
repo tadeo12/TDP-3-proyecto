@@ -15,7 +15,7 @@ public class GeneradorDePremio {
 	public static void generar(Point p) {
 		Random r= new Random();
 		//int indice=r.nextInt(5);
-		int indice = 1;
+		int indice = 2;
 		switch(indice) {
 			case 0: new SuperArma(p);
 				break;

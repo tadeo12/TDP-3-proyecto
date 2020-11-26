@@ -7,5 +7,6 @@ public abstract class EstadoJugador {
 	
 	public EstadoJugador(Jugador jugador) {
 		this.jugador = jugador;
+		jugador.setVelocidad(3);
 	}
 }

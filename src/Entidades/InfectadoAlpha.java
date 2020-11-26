@@ -21,7 +21,6 @@ public class InfectadoAlpha extends Infectado {
 
 	public InfectadoAlpha(Point p,int tiempoQuieto, boolean enEspera) {
 		super(new Label_infectado_alpha(p),tiempoQuieto,enEspera);
-		visitor.setEntidad(this);
  	}
 
 	@Override

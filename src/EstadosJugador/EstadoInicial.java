@@ -7,7 +7,7 @@ public class EstadoInicial extends EstadoJugador {
 
 	public EstadoInicial(Jugador jugador) {
 		super(jugador);
-		jugador.setVisitor(new VisitorJugador());
+		jugador.setVisitor(new VisitorJugador(jugador));
 	}
 
 }
