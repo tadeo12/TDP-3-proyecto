@@ -20,7 +20,6 @@ public class Jugador extends Entidad {
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
-		velocidad = 3;
 		carga_viral = 0;
 	}
 
@@ -71,6 +70,7 @@ public class Jugador extends Entidad {
 
 	public void setEstadoJugador(EstadoJugador estado_jugador) {
 		this.estado_jugador = estado_jugador;
+		System.out.println("cambiando estado: "+estado_jugador);
 	}
 
 	public void setEstadoArma(EstadoArma estado_arma) {
@@ -83,5 +83,11 @@ public class Jugador extends Entidad {
 
 	public EstadoJugador getEstadoJugador() {
 		return estado_jugador;
+	}
+	
+	@Override
+	public int getVelocidad() {
+		System.out.println(estado_jugador.getVelocidad());
+		return estado_jugador.getVelocidad();
 	}
 }

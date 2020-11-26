@@ -22,16 +22,18 @@ public class VisitorSuperVelocidad extends VisitorPremioTemporal {
 		EstadoJugador estado_actual = jug.getEstadoJugador();
 		jug.setEstadoJugador(new SuperVeloz(jug));
 
-		Timer timer = new Timer();
 		entidad.eliminar();
+		
+		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
 			public void run() {
-				jug.setEstadoJugador(estado_actual);
+				jug.setEstadoJugador(estado_actual); 
+				this.cancel();
 			};
 		};
-		timer.schedule(timer_task, 0, this.duracion);
+		timer.schedule(timer_task,  this.duracion*1000,1);
 	}
 
 }

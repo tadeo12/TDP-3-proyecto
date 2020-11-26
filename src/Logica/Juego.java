@@ -22,6 +22,7 @@ public class Juego implements Runnable {
 	private List<Entidad> entidades;
 	private List<Entidad> aEliminar;
 	private List<Entidad> aAgregar;
+	private Jugador jugador;
 
 	private Director director;
 	private Nivel nivelActual;
@@ -87,10 +88,22 @@ public class Juego implements Runnable {
 			gui.gano();
 			jugando = false;
 		} else {
-			nivelActual = director.construirSiguienteNivel();
-			this.valorNivel ++;
-			this.gui.cambioNivel( this.valorNivel );
+			siguienteNivel();
 		}
+	}
+
+	private void siguienteNivel() {
+		for (Entidad e : entidades) {
+			if(e!=jugador) {
+				gui.getMapa().remove(e.getGrafico());
+			}
+		}
+		entidades=new LinkedList<Entidad>();
+		entidades.add(jugador); 
+		nivelActual = director.construirSiguienteNivel();
+		this.valorNivel ++;
+		this.gui.cambioNivel( this.valorNivel );
+		
 	}
 
 	public void setGUI(Gui gui) {
@@ -115,7 +128,7 @@ public class Juego implements Runnable {
 			this.gui.cambioNivel( this.valorNivel );
 
 			nivelActual = director.construirSiguienteNivel();
-			new Jugador();
+			jugador=new Jugador();
 			jugando = true;
 			while (jugando) {
 				for (Entidad e : entidades) {
