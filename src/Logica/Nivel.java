@@ -24,6 +24,10 @@ public class Nivel {
 		tandas.add(t);
 	}
 	
+	public void setValor(int nivel) {
+		this.valor = nivel;
+	}
+	
 	public void eliminarInfectado(Infectado i) {
 		Tanda tanda=tandas.get(tandaActual);
 		tanda.eliminarInfectado(i);

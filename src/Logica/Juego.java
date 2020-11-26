@@ -25,8 +25,10 @@ public class Juego implements Runnable {
 
 	private Director director;
 	private Nivel nivelActual;
+	private int valorNivel;
 
 	private Juego() {
+		valorNivel = 0;
 		juego = this;
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
@@ -86,6 +88,8 @@ public class Juego implements Runnable {
 			jugando = false;
 		} else {
 			nivelActual = director.construirSiguienteNivel();
+			this.valorNivel ++;
+			this.gui.cambioNivel( this.valorNivel );
 		}
 	}
 
@@ -108,6 +112,8 @@ public class Juego implements Runnable {
 	public void jugar() {
 		try {
 			director = new Director();
+			this.gui.cambioNivel( this.valorNivel );
+
 			nivelActual = director.construirSiguienteNivel();
 			new Jugador();
 			jugando = true;
@@ -175,6 +181,15 @@ public class Juego implements Runnable {
 		nivelActual.eliminarInfectado(infectado);
 		eliminarEntidad(infectado);
 
+	}
+	
+	public void pausa() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

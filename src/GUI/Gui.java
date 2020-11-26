@@ -31,9 +31,9 @@ public class Gui extends JFrame {
 	 */
 	public Gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 932, 647);
+		setBounds(100, 100, 950, 647);
 		contentPane = new FondoPanel();
-		contentPane.setBounds(100, 100, 932, 647);
+		contentPane.setBounds(100, 100, 950, 647);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
@@ -86,23 +86,18 @@ public class Gui extends JFrame {
 			}
 
 		});
-
-		/*contentPane.pantallaNivel(1);
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
 		
 		Thread t = new Thread() {
 			public void run() {
+				
 				juego.run();
 			}
 		};
 		
 		
 		t.start();
+		
+		
 		
 //		FONDO = new JLabel("");
 //		FONDO.setBounds(-11, 0, 937, 622);
@@ -142,4 +137,11 @@ public class Gui extends JFrame {
 		return juego;
 	}
 
+	public void cambioNivel(int nivel) {
+		contentPane.setFondoNivel(nivel);
+		contentPane.pantallaNivel(nivel);
+		juego.pausa();
+		contentPane.setFondoNivel(nivel);
+		contentPane.repaint();
+	}	
 }
