@@ -9,8 +9,7 @@ import Visitors.VisitorParticulaV;
 public abstract class ParticulaV extends Proyectil {
 
 	public ParticulaV(Entidad_grafica entidad_graf) {
-		super();
-		this.entidad_graf = entidad_graf;
+		super(entidad_graf);
 		movimiento = new Vertical_remove(this, Vertical.ABAJO);
 		visitor = new VisitorParticulaV();
 		

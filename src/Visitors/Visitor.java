@@ -7,6 +7,7 @@ import Entidades.Jugador;
 import Entidades.ParticulaV;
 import Entidades.ProyectilNormal;
 import Entidades.SuperProyectil;
+
 import Entidades.Premios.BajoCero;
 import Entidades.Premios.Curacion;
 import Entidades.Premios.Inmunidad;
@@ -31,16 +32,17 @@ public abstract class Visitor {
 	public void visit(Curacion objeto) {
 	}
 
+
 	public void visit(BajoCero objeto) {
 	}
+
+	public void visit(SuperVelocidad premio) {}
+	
 
 	public void visit(Inmunidad objeto) {
 	}
 
 	public void visit(ParticulaV particula) {
-	}
-
-	public void visit(SuperVelocidad proyectil) {
 	}
 
 	public void visit(SuperProyectil proyectil) {

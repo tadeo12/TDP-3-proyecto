@@ -8,8 +8,7 @@ import Visitors.Visitor;
 public class Curacion extends ObjetoPrecioso {
 
 	public Curacion(Point p) {
-		super();
-		entidad_graf = new Label_curacion(p);
+		super(new Label_curacion(p));
 	}
 
 	public void accept(Visitor visitor) {

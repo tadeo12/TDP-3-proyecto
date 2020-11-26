@@ -25,9 +25,8 @@ public abstract class Infectado extends Entidad {
 	protected int tiempoEspera;
 
 
-	public Infectado(Entidad_grafica eg, int duracion, boolean enEspera) {
-		super();
-		this.entidad_graf = eg;
+	public Infectado(Entidad_grafica entidad_graf, int duracion, boolean enEspera) {
+		super(entidad_graf);
 		velocidad = 1;
 		this.movimiento = null;
 		random = new Random();
@@ -38,7 +37,6 @@ public abstract class Infectado extends Entidad {
 		if(!enEspera)
 			aparecer();
 
-		
 		desinfectado = true;
 	}
 	

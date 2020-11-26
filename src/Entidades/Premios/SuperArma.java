@@ -8,8 +8,8 @@ import Visitors.Visitor;
 public class SuperArma extends PremioTemporal {
 
 	public SuperArma(Point p) {
-		super();
-		entidad_graf = new Label_super_proyectil(p);
+		super(new Label_super_proyectil(p));
+
 		duracion = 30;
 	}
 

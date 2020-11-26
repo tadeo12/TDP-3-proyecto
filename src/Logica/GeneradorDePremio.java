@@ -11,8 +11,6 @@ import Entidades.Premios.SuperArma;
 import Entidades.Premios.SuperVelocidad;
 
 public class GeneradorDePremio {
-	private String[] premios= {"superArma","superVelocidad" ,"inmunidad","bajoCero","curacion"};
-	
 	
 	public static void generar(Point p) {
 		Random r= new Random();

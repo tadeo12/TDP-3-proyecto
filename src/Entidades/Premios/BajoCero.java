@@ -8,8 +8,7 @@ import Visitors.Visitor;
 public class BajoCero extends PremioTemporal {
 
 	public BajoCero(Point p) {
-		super();
-		entidad_graf = new Label_bajo_cero(p);
+		super(new Label_bajo_cero(p));
 		duracion = 40;
 	}
 

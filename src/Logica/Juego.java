@@ -96,8 +96,7 @@ public class Juego implements Runnable {
 		try {
 			director = new Director();
 			nivelActual = director.construirSiguienteNivel();
-			
-			aAgregar.add(new Jugador());
+			new Jugador();
 			jugando = true;
 			while (jugando) {
 				for (Entidad e : entidades) {
@@ -108,9 +107,6 @@ public class Juego implements Runnable {
 
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
-				for (Entidad e : entidades) {
-					e.setColision(false);
-				}
 				detectarColisiones();
 			}
 		} catch (IllegalArgumentException | InterruptedException e) {
@@ -124,22 +120,18 @@ public class Juego implements Runnable {
 			Entidad a = entidades.get(i);
 			for (int j = i + 1; j < cantEntidades; j++) {
 				Entidad b = entidades.get(j);
-				if (colisionan(a, b)) {
-//					entidades.get(i).setColision(true);
-//					entidades.get(j).setColision(true);
+				if (colisionan(a, b) ) {
 					a.accept(b.getVisitor());
 					b.accept(a.getVisitor());
-					
 				}
 			}
 		}
-
 	}
 
 	private boolean colisionan(Entidad a, Entidad b) {
 		Rectangle A = a.getGrafico().getBounds();
 		Rectangle B = b.getGrafico().getBounds();
-		return !a.getColision() && A.intersects(B);
+		return A.intersects(B);
 	}
 
 	private void removerEntidadesEliminadas() {
