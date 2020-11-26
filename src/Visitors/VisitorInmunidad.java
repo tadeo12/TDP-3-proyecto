@@ -27,9 +27,10 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoJugador(estado_actual);
+				this.cancel();
 			};
 		};
-		timer.schedule(timer_task, 0, this.duracion);
+		timer.schedule(timer_task, this.duracion, 1);
 	}
 
 }
