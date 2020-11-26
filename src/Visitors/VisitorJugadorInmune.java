@@ -9,6 +9,10 @@ import Entidades.SuperProyectil;
 
 public class VisitorJugadorInmune extends VisitorJugador{
 	
+	public VisitorJugadorInmune(Jugador entidad) {
+		super(entidad);
+	}
+	
 	public void visit(InfectadoAlpha inf) {
 		
 	}

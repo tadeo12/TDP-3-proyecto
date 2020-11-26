@@ -1,11 +1,15 @@
 package Visitors;
 
 import Entidades.*;
+import Entidades.Premios.Inmunidad;
 
-public class VisitorObjetoPrecioso {
+public class VisitorObjetoPrecioso extends Visitor {
 
-	public void visit(Jugador j) {
-		
+	public VisitorObjetoPrecioso(Entidad entidad) {
+		super(entidad);
 	}
+
+
+	
 	
 }

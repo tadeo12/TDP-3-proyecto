@@ -10,7 +10,6 @@ public class SuperProyectil extends ProyectilSanitario {
 
 	public SuperProyectil(Point p) {
 		super(new Label_super_proyectil(p));
-		visitor.setEntidad(this);
 		damage = 10;
 		velocidad = 4;
 	}

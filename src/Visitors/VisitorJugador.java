@@ -9,6 +9,9 @@ import Entidades.SuperProyectil;
 
 public class VisitorJugador extends Visitor {
 
+	public VisitorJugador(Jugador entidad) {
+		super (entidad);
+	}
 	public void visit(Jugador j) {
 
 	}

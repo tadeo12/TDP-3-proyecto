@@ -12,8 +12,7 @@ public class ConSuperArma extends EstadoArma {
 	}
 
 	@Override
-	public Proyectil disparar() {
-		
+	public Proyectil disparar() {		
 		return new SuperProyectil(jugador.getGrafico().getLocation());
 	}
 

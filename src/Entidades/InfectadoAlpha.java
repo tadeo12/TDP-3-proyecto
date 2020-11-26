@@ -21,14 +21,12 @@ public class InfectadoAlpha extends Infectado {
 
 	public InfectadoAlpha(Point p,int tiempoQuieto, boolean enEspera) {
 		super(new Label_infectado_alpha(p),tiempoQuieto,enEspera);
-		visitor.setEntidad(this);
  	}
 
 	@Override
 	public void disminuirCargaViral(int desinfeccion) {
 		if (desinfectado) {
 			if (carga_viral - desinfeccion <= 0) {
-				suelta_premio = true;
 				carga_viral = 0;
 				desinfectar();
 			} else {

@@ -16,7 +16,6 @@ public class InfectadoBeta extends Infectado {
 	public InfectadoBeta(Point p,int tiempoQuieto, boolean enEspera) {
 		super(new Label_infectado_beta(p),tiempoQuieto,enEspera);
 		this.carga_viral=carga_viral*2;
-		visitor.setEntidad(this);
 
 	}
 
@@ -29,7 +28,6 @@ public class InfectadoBeta extends Infectado {
 	public void disminuirCargaViral(int desinfeccion) {
 		if (desinfectado) {
 			if (carga_viral - desinfeccion <= 0) {
-				suelta_premio = true;
 				carga_viral = 0;
 				desinfectar();
 			} else {
