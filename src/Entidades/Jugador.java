@@ -56,7 +56,7 @@ public class Jugador extends Entidad {
 		}
 		if (juego.disparando()) {
 			// System.out.println("disparo");
-			juego.agregarEntidad(estado_arma.disparar());
+			estado_arma.disparar();
 		}
 	}
 
