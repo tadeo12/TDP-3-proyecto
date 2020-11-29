@@ -9,6 +9,7 @@ import Entidades.Entidad;
 import Entidades.Infectado;
 import Entidades.Jugador;
 import GUI.Gui;
+import Visitors.Visitor;
 
 public class Juego implements Runnable {
 	private boolean moviendoIzquierda;
