@@ -6,7 +6,7 @@ import java.util.TimerTask;
 import Entidades.Jugador;
 import Entidades.Premios.PremioTemporal;
 import EstadosJugador.EstadoJugador;
-import EstadosJugador.Inmune;
+import EstadosJugador.EstadoInmune;
 
 public class VisitorInmunidad extends VisitorPremioTemporal {
 
@@ -17,11 +17,11 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 	}
 	
 	public void visit(Jugador jug) {
-		entidad.eliminar();
 		EstadoJugador estado_actual = jug.getEstadoJugador();
-		jug.setEstadoJugador(new Inmune(jug));
+		jug.setEstadoJugador(new EstadoInmune(jug));
+		entidad.eliminar();
+		
 		Timer timer = new Timer();
-
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
@@ -30,7 +30,7 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 				this.cancel();
 			};
 		};
-		timer.schedule(timer_task, this.duracion, 1);
+		timer.schedule(timer_task, this.duracion*1000, 1);
 	}
 
 }
