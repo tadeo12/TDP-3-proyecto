@@ -15,7 +15,6 @@ public abstract class EstrategiaMovimiento {
 		Container mapa = entidad.getJuego().getMapa();
 		limiteX = (int) mapa.getWidth() - (int) entidad.getGrafico().getWidth();
 		limiteY = (int) mapa.getHeight() - (int) entidad.getGrafico().getHeight();
-		System.out.println("limiteY"+limiteY);
 	}
 
 	public abstract void mover();
