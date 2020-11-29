@@ -207,4 +207,9 @@ public class Juego implements Runnable {
 		gui.perdio();
 	}
 
+	public void actualizarCargaJugador() {
+		gui.actualizarBarraViral(jugador.getCargaViral());
+		
+	}
+
 }

@@ -26,16 +26,18 @@ public class Jugador extends Entidad {
 	}
 
 	public void setCargaViral(int carga) {
+		if(carga>100)
+			carga=100;
+		if(carga<0)
+			carga=0;
 		this.carga_viral = carga;
+		juego.actualizarCargaJugador();
 	}
 
 	public int getCargaViral() {
 		return carga_viral;
 	}
 
-	public int recuperarVida() {
-		return carga_viral = 0;
-	}
 
 	public void incrementarCargaViral(int carga) {
 		estado_jugador.incrementarCargaViral(carga);
@@ -44,6 +46,8 @@ public class Jugador extends Entidad {
 			juego.eliminarEntidad(this);
 			juego.perdio();
 		}
+		
+		juego.actualizarCargaJugador();
 	}
 
 	public void accionar() {

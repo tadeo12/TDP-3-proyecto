@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 import Entidades.InfectadoAlpha;
 import Entidades.InfectadoBeta;
@@ -19,11 +20,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Gui extends JFrame {
 
-	private FondoPanel contentPane;
+	private FondoPanel panelJuego;
 	private Juego juego;
+	private Thread hiloJuego;
+	private JLabel cargaViral;
 	//private JLabel FONDO;
 
 	/**
@@ -31,32 +35,60 @@ public class Gui extends JFrame {
 	 */
 	public Gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 949, 647);
-		contentPane = new FondoPanel();
-		contentPane.setBounds(100, 100, 950, 647);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setBounds(100, 100, 949, 700);
+		JPanel contentPane=new JPanel();
+		contentPane.setLayout(null);
+		
+		panelJuego = new FondoPanel();
+		panelJuego.setBounds(0, 60, 933, 601);
+		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
+		panelJuego.setLayout(null);
+		contentPane.add(panelJuego);
+
+		
+		
+		JPanel barraSuperior= new JPanel();
+		barraSuperior.setBounds(0, 0, 933, 60);
+		contentPane.add(barraSuperior);
+		barraSuperior.setLayout(null);
+		
+		cargaViral = new JLabel();
+		cargaViral.setBackground(new Color(51, 91, 17));
+		cargaViral.setBounds(10, 11, 0, 38);
+		cargaViral.setOpaque(true);
+		cargaViral.setBorder(new LineBorder(Color.BLACK,2));
+		barraSuperior.add(cargaViral);
+		
+		JLabel cargaViralMaxima = new JLabel();
+		cargaViralMaxima.setBackground(new Color(242, 78,133));
+		cargaViralMaxima.setBounds(10, 11, 500, 38);
+		cargaViralMaxima.setOpaque(true);
+		cargaViralMaxima.setBorder(new LineBorder(Color.BLACK,2));
+		barraSuperior.add(cargaViralMaxima);
+		
+		
+		
+		this.setFocusable(true);
+		
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
-		contentPane.setLayout(null);
-
-		this.setFocusable(true);
-
+		
 		juego = Juego.getJuego();
 		juego.setGUI(this);
 
 		this.addKeyListener(new OyenteTeclado(juego)); 
 		
-		Thread t = new Thread() {
+		hiloJuego= new Thread() {
 			public void run() {				
 				juego.run();
 			}
 		};	
 		
-		t.start();
+		hiloJuego.start();
 		
 
 		this.repaint();
-		contentPane.repaint();
+		panelJuego.repaint();
 	}
 
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
@@ -74,22 +106,29 @@ public class Gui extends JFrame {
 	}
 	
 	public void perdio() {
-		contentPane.gameOver();
+		panelJuego.gameOver();
+		//hiloJuego.interrupt();
 	}
 
 	public Container getMapa() {
-		return contentPane;
+		return panelJuego;
 	}
 
 	private Juego getJuego() {
 		return juego;
 	}
+	
 
 	public void cambioNivel(int nivel) {
-		contentPane.setFondoNivel(nivel);
-		contentPane.pantallaNivel(nivel);
+		panelJuego.setFondoNivel(nivel);
+		panelJuego.pantallaNivel(nivel);
 		juego.pausa();
-		contentPane.setFondoNivel(nivel);
-		contentPane.repaint();
+		panelJuego.setFondoNivel(nivel);
+		panelJuego.repaint();
+	}
+
+	public void actualizarBarraViral(int infeccion) {
+		cargaViral.setSize(infeccion*5,cargaViral.getHeight());
+		
 	}	
 }
