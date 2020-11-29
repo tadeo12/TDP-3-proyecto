@@ -134,10 +134,8 @@ public class Juego implements Runnable {
 			while (jugando) {
 				for (Entidad e : entidades) {
 					e.accionar();
-
 				}
-				Thread.sleep(15);
-
+				Thread.sleep(10);
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
 				detectarColisiones();
@@ -187,7 +185,6 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-
 		jugar();
 	}
 
@@ -201,9 +198,13 @@ public class Juego implements Runnable {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
+	}
+
+	public void perdio() {
+		gui.perdio();
 	}
 
 }

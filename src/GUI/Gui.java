@@ -31,7 +31,7 @@ public class Gui extends JFrame {
 	 */
 	public Gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 950, 647);
+		setBounds(100, 100, 949, 647);
 		contentPane = new FondoPanel();
 		contentPane.setBounds(100, 100, 950, 647);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -43,49 +43,8 @@ public class Gui extends JFrame {
 
 		juego = Juego.getJuego();
 		juego.setGUI(this);
-		//contentPane.setFondoNivel(juego.getNivel());
 
-//		for (int i = 0; i < 3; i++) {
-//			new InfectadoAlpha();
-//		}
-//		for (int i = 0; i < 3; i++) {
-//			new InfectadoBeta();
-//		}
-
-		this.addKeyListener(new KeyListener() {
-			public void keyTyped(KeyEvent e) {
-			}
-
-			public void keyPressed(KeyEvent e) {
-				// System.out.println("je je");
-				int codigoTecla = e.getKeyCode();
-				if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
-					juego.setMoviendoIzquierda(true);
-				}
-				if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
-					juego.setMoviendoDerecha(true);
-				}
-				if (codigoTecla == KeyEvent.VK_SPACE) {
-					juego.setDisparando(true);
-				}
-			}
-
-			public void keyReleased(KeyEvent e) {
-				int codigoTecla = e.getKeyCode();
-				if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
-					juego.setMoviendoIzquierda(false);
-					
-				}
-				if (codigoTecla == KeyEvent.VK_RIGHT || codigoTecla == KeyEvent.VK_D) {
-					juego.setMoviendoDerecha(false);
-				}
-				if (codigoTecla == KeyEvent.VK_SPACE) {
-					juego.setDisparando(false);
-				}
-
-			}
-
-		});
+		this.addKeyListener(new OyenteTeclado(juego)); 
 		
 		Thread t = new Thread() {
 			public void run() {				
@@ -95,19 +54,6 @@ public class Gui extends JFrame {
 		
 		t.start();
 		
-		
-		
-//		FONDO = new JLabel("");
-//		FONDO.setBounds(-11, 0, 937, 622);
-//		//contentPane.add(FONDO);
-//		ImageIcon imagen = new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png"));
-//		
-//		this.reDimensionar(FONDO, imagen);
-
-		// this.setContentPane(new FondoPanel());
-
-
-//		this.reDimensionar(FONDO, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL1.png")));
 
 		this.repaint();
 		contentPane.repaint();
@@ -125,6 +71,10 @@ public class Gui extends JFrame {
 
 	public void gano() {
 		System.out.println("gano");
+	}
+	
+	public void perdio() {
+		contentPane.gameOver();
 	}
 
 	public Container getMapa() {

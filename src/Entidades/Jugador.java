@@ -38,8 +38,8 @@ public class Jugador extends Entidad {
 	public void incrementarCargaViral(int carga) {
 		if (carga + carga_viral >= 100) {
 			juego.eliminarEntidad(this);
-			// reiniciar el nivel
-			System.out.println("murio");
+			juego.perdio();
+			
 		} else
 			carga_viral += carga;
 //		System.out.println("Carga viral: "+carga_viral);
