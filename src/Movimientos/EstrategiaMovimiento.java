@@ -12,9 +12,9 @@ public abstract class EstrategiaMovimiento {
 	public EstrategiaMovimiento(Entidad entidad, int direccion) {
 		this.direccion = direccion;
 		this.entidad = entidad;
-		Container mapa=entidad.getJuego().getMapa();
-		limiteX = (int) mapa.getWidth()+mapa.getX() - (int) entidad.getGrafico().getWidth();
-		limiteY = (int) mapa.getHeight()+mapa.getY() - (int) entidad.getGrafico().getHeight();
+		Container mapa = entidad.getJuego().getMapa();
+		limiteX = (int) mapa.getWidth() + mapa.getX() - (int) entidad.getGrafico().getWidth();
+		limiteY = (int) mapa.getHeight() + mapa.getY() - (int) entidad.getGrafico().getHeight();
 	}
 
 	public abstract void mover();

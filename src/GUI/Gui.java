@@ -88,12 +88,10 @@ public class Gui extends JFrame {
 		});
 		
 		Thread t = new Thread() {
-			public void run() {
-				
+			public void run() {				
 				juego.run();
 			}
-		};
-		
+		};	
 		
 		t.start();
 		
