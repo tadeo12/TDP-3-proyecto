@@ -38,11 +38,11 @@ public class Jugador extends Entidad {
 	public void incrementarCargaViral(int carga) {
 		if (carga + carga_viral >= 100) {
 			juego.eliminarEntidad(this);
-			//reiniciar el nivel
+			// reiniciar el nivel
 			System.out.println("murio");
 		} else
 			carga_viral += carga;
-		System.out.println("Carga viral: "+carga_viral);
+//		System.out.println("Carga viral: "+carga_viral);
 	}
 
 	public void accionar() {
@@ -55,8 +55,8 @@ public class Jugador extends Entidad {
 			this.movimiento.mover();
 		}
 		if (juego.disparando()) {
-			// System.out.println("disparo");
-			estado_arma.disparar();
+
+			this.estado_arma.disparar();
 		}
 	}
 
@@ -70,7 +70,7 @@ public class Jugador extends Entidad {
 
 	public void setEstadoJugador(EstadoJugador estado_jugador) {
 		this.estado_jugador = estado_jugador;
-		System.out.println("cambiando estado: "+estado_jugador);
+		System.out.println("cambiando estado: " + estado_jugador);
 	}
 
 	public void setEstadoArma(EstadoArma estado_arma) {
@@ -84,10 +84,10 @@ public class Jugador extends Entidad {
 	public EstadoJugador getEstadoJugador() {
 		return estado_jugador;
 	}
-	
+
 	@Override
 	public int getVelocidad() {
-		System.out.println(estado_jugador.getVelocidad());
+		// System.out.println(estado_jugador.getVelocidad());
 		return estado_jugador.getVelocidad();
 	}
 }
