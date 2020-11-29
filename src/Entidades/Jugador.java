@@ -2,13 +2,11 @@ package Entidades;
 
 import EntidadesGraficas.Label_jugador;
 import EstadosArma.ConArmaNormal;
-import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
 import EstadosJugador.EstadoInicial;
 import EstadosJugador.EstadoJugador;
 import Movimientos.Horizontal;
 import Visitors.Visitor;
-import Visitors.VisitorJugador;
 
 public class Jugador extends Entidad {
 	protected EstadoArma estado_arma;
@@ -27,6 +25,10 @@ public class Jugador extends Entidad {
 		this.visitor = visitor;
 	}
 
+	public void setCargaViral(int carga) {
+		this.carga_viral = carga;
+	}
+
 	public int getCargaViral() {
 		return carga_viral;
 	}
@@ -36,13 +38,13 @@ public class Jugador extends Entidad {
 	}
 
 	public void incrementarCargaViral(int carga) {
-		if (carga + carga_viral >= 100) {
+		estado_jugador.incrementarCargaViral(carga);
+
+		if (carga_viral >= 100) {
 			juego.eliminarEntidad(this);
 			// reiniciar el nivel
 			System.out.println("murio");
-		} else
-			carga_viral += carga;
-//		System.out.println("Carga viral: "+carga_viral);
+		}
 	}
 
 	public void accionar() {
