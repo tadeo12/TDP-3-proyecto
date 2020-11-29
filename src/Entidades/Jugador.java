@@ -57,6 +57,7 @@ public class Jugador extends Entidad {
 			this.movimiento.mover();
 		}
 		if (juego.disparando()) {
+
 			this.estado_arma.disparar();
 		}
 	}
