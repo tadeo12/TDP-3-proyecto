@@ -12,7 +12,7 @@ public class VisitorParticulaV extends Visitor {
 		Proyectil p = (Proyectil) entidad;
 		j.incrementarCargaViral(p.getDamage());
 		p.eliminar();
-		System.out.println("carga "+j.getCargaViral());
+		//System.out.println("carga "+j.getCargaViral());
 	}
 
 }

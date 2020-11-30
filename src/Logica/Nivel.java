@@ -48,4 +48,13 @@ public class Nivel {
 		return this.valor;
 	}
 	
+	public int getNumeroTanda() {
+		return this.tandaActual;
+	}
+
+	public Tanda getTanda() {
+		return tandas.get(tandaActual);
+	}
+	
+	
 }

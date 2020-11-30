@@ -30,4 +30,8 @@ public class Tanda {
 		}
 		
 	}
+	
+	public List<Infectado> getInfectados(){
+		return infectados;
+	}
 }

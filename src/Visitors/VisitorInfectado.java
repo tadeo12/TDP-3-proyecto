@@ -8,7 +8,8 @@ public class VisitorInfectado extends Visitor {
 		super(entidad);
 	}
 	public void visit(Jugador j) {
-
+		Infectado infectado=(Infectado) this.entidad;
+		j.incrementarCargaViral(infectado.getDamage());
 	}
 
 	public void visit(InfectadoAlpha inf) {

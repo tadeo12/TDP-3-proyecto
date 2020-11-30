@@ -32,8 +32,9 @@ public class Director {
 			primerTanda=false;
 			builder.siguienteTanda(); 
 		}
-		nivelActual++;
-		return builder.getNivel();
+		Nivel retorno=builder.getNivel();
+		retorno.setValor(nivelActual++);
+		return retorno;
 	}
 	
 	public boolean finJuego() {	
