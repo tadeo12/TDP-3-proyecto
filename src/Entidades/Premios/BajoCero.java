@@ -10,7 +10,7 @@ public class BajoCero extends PremioTemporal {
 
 	public BajoCero(Point p) {
 		super(new Label_bajo_cero(p));
-		duracion = 40;
+		duracion = 10000;
 		visitor = new VisitorBajoCero(this);
 	}
 

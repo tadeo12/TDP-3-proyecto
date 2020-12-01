@@ -23,7 +23,8 @@ public abstract class Infectado extends Entidad {
 	protected Random random;
 	protected boolean desinfectado;
 	protected int tiempoEspera;
-
+	protected int damage;
+	private boolean quieto;
 
 	public Infectado(Entidad_grafica entidad_graf, int duracion, boolean enEspera) {
 		super(entidad_graf);
@@ -32,18 +33,19 @@ public abstract class Infectado extends Entidad {
 		random = new Random();
 		this.suelta_premio = random.nextInt(3) == 1;
 		this.carga_viral = 100;
-		
-		tiempoEspera=duracion;
-		if(!enEspera)
+		damage = 1;
+		tiempoEspera = duracion;
+		if (!enEspera)
 			aparecer();
 		desinfectado = true;
 		visitor = new VisitorInfectado(this);
+		quieto = false;
 	}
-	
+
 	public void aparecer() {
 		Infectado inf = this;
 		Timer timer = new Timer();
-		//System.out.println("apareciendo");
+		// System.out.println("apareciendo");
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
@@ -67,16 +69,18 @@ public abstract class Infectado extends Entidad {
 	public void eliminar() {
 		juego.eliminarInfectado(this);
 	}
-	
+
 	public void accionar() {
-		if (movimiento != null)
-			movimiento.mover();
-		
-		if (desinfectado && random.nextInt(150) == 2) {
-			disparar();
+		if (!quieto) {
+			if (movimiento != null)
+				movimiento.mover();
+
+			if (desinfectado && random.nextInt(150) == 2) {
+				disparar();
+			}
 		}
 	}
-	
+
 	public void desinfectar() {
 		desinfectado = false;
 		int direccion = random.nextInt(2);
@@ -89,10 +93,18 @@ public abstract class Infectado extends Entidad {
 			movimiento = new Horizontal_remove(this, Horizontal.IZQUIERDA);
 		}
 
-		velocidad=3;
-		if(suelta_premio) {
+		velocidad = 3;
+		if (suelta_premio) {
 			GeneradorDePremio.generar(entidad_graf.getLocation());
 		}
 	}
-	
+
+	public int getDamage() {
+		return damage;
+	}
+
+	public void setQuieto(boolean estado) {
+		quieto = estado;
+	}
+
 }

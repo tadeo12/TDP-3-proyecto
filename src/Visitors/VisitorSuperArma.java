@@ -31,7 +31,7 @@ public class VisitorSuperArma extends VisitorPremioTemporal {
 				this.cancel();
 			};
 		};
-		timer.schedule(timer_task, this.duracion * 1000, 1);
+		timer.schedule(timer_task, this.duracion , 1);
 	}
 
 }

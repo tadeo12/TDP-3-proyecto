@@ -8,7 +8,7 @@ public class Label_inmunidad extends Label_premio_temporal {
 
 	public Label_inmunidad(Point p) {
 		super();
-		ImageIcon imagen = new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/boost.gif"));
+		ImageIcon imagen = new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/inmunidad.gif"));
 		this.setIcon(imagen);
 		reDimensionar(this, imagen);
 		this.setLocation(p);

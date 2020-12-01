@@ -27,10 +27,8 @@ public class Juego implements Runnable {
 
 	private Director director;
 	private Nivel nivelActual;
-	private int valorNivel;
 
 	private Juego() {
-		valorNivel = 0;
 		juego = this;
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
@@ -102,8 +100,7 @@ public class Juego implements Runnable {
 		entidades=new LinkedList<Entidad>();
 		entidades.add(jugador); 
 		nivelActual = director.construirSiguienteNivel();
-		this.valorNivel ++;
-		this.gui.cambioNivel( this.valorNivel );
+		this.gui.cambioNivel( nivelActual.getValor()+1 );
 		
 	}
 
@@ -126,7 +123,7 @@ public class Juego implements Runnable {
 	public void jugar() {
 		try {
 			director = new Director();
-			this.gui.cambioNivel( this.valorNivel );
+			this.gui.cambioNivel(1);
 
 			nivelActual = director.construirSiguienteNivel();
 			jugador=new Jugador();
@@ -139,10 +136,17 @@ public class Juego implements Runnable {
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
 				detectarColisiones();
+				actualizarDatosJuego();
 			}
 		} catch (IllegalArgumentException | InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void actualizarDatosJuego() {
+		gui.actualizarBarraViral(jugador.getCargaViral());
+		gui.actualizarNivelTanda(nivelActual.getValor()+1, nivelActual.getNumeroTanda()+1);
+		
 	}
 
 	private void detectarColisiones() {
@@ -207,9 +211,11 @@ public class Juego implements Runnable {
 		gui.perdio();
 	}
 
-	public void actualizarCargaJugador() {
-		gui.actualizarBarraViral(jugador.getCargaViral());
+	public List<Infectado> getInfectados() {
 		
+		return nivelActual.getTanda().getInfectados();
 	}
+
+	
 
 }

@@ -11,7 +11,7 @@ public class Inmunidad extends PremioTemporal {
 
 	public Inmunidad(Point p) {
 		super(new Label_inmunidad(p));
-		duracion = 40;
+		duracion = 20000;
 		visitor = new VisitorInmunidad(this);
 	}
 
