@@ -12,6 +12,7 @@ public class BajoCero extends PremioTemporal {
 		super(new Label_bajo_cero(p));
 		duracion = 10000;
 		visitor = new VisitorBajoCero(this);
+		velocidad=6;
 	}
 
 	@Override

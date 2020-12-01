@@ -13,6 +13,7 @@ public class Inmunidad extends PremioTemporal {
 		super(new Label_inmunidad(p));
 		duracion = 20000;
 		visitor = new VisitorInmunidad(this);
+		velocidad=5;
 	}
 
 	@Override
