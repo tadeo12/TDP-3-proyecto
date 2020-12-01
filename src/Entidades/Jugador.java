@@ -14,6 +14,7 @@ public class Jugador extends Entidad {
 	protected EstadoArma estado_arma;
 	protected EstadoJugador estado_jugador;
 	protected int carga_viral;
+	protected int tiros;
 	
 	protected LinkedList<Object> listaEstados;
 
@@ -23,6 +24,8 @@ public class Jugador extends Entidad {
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
 		carga_viral = 0;
+		
+		tiros=0;
 	}
 
 	public void setVisitor(Visitor visitor) {
@@ -61,8 +64,11 @@ public class Jugador extends Entidad {
 			this.movimiento.mover();
 		}
 		if (juego.disparando()) {
-
-			this.estado_arma.disparar();
+			tiros++;
+			if(tiros==5) {
+				this.estado_arma.disparar();
+				tiros=0;
+			}
 		}
 	}
 
@@ -76,7 +82,7 @@ public class Jugador extends Entidad {
 
 	public void setEstadoJugador(EstadoJugador estado_jugador) {
 		this.estado_jugador = estado_jugador;
-		System.out.println("cambiando estado: " + estado_jugador);
+		//System.out.println("cambiando estado: " + estado_jugador);
 	}
 
 	public void setEstadoArma(EstadoArma estado_arma) {

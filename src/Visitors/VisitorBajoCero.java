@@ -14,6 +14,7 @@ public class VisitorBajoCero extends VisitorPremioTemporal{
 
 	public VisitorBajoCero(PremioTemporal entidad) {
 		super (entidad);
+		this.duracion=entidad.getDuracion();
 	}
 	
 	
@@ -22,16 +23,16 @@ public class VisitorBajoCero extends VisitorPremioTemporal{
 		List<Infectado> infectados=jug.getJuego().getInfectados();
 		for(Infectado i: infectados) {
 			i.setQuieto(true);
-			System.out.println("visitor bajo cero");
 		}
 		entidad.eliminar();
-		System.out.println("visitor bajo cero");
+		//System.out.println("visitor bajo cero");
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
 			public void run() {
-				List<Infectado> infectados=jug.getJuego().getInfectados();	
+				List<Infectado> infectados=jug.getJuego().getInfectados();
+				//System.out.println("termino bajo cero");
 				for(Infectado i: infectados) {
 					i.setQuieto(false);
 				}

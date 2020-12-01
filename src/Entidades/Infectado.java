@@ -29,23 +29,24 @@ public abstract class Infectado extends Entidad {
 	public Infectado(Entidad_grafica entidad_graf, int duracion, boolean enEspera) {
 		super(entidad_graf);
 		velocidad = 1;
-		this.movimiento = null;
+		movimiento = null;
 		random = new Random();
-		this.suelta_premio = random.nextInt(3) == 1;
-		this.carga_viral = 100;
+		suelta_premio = random.nextInt(3) == 1;
+		carga_viral = 100;
 		damage = 1;
+		desinfectado = false;
+		quieto = false;
+		
 		tiempoEspera = duracion;
 		if (!enEspera)
 			aparecer();
-		desinfectado = true;
+		
 		visitor = new VisitorInfectado(this);
-		quieto = false;
 	}
 
 	public void aparecer() {
 		Infectado inf = this;
 		Timer timer = new Timer();
-		// System.out.println("apareciendo");
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
@@ -71,18 +72,19 @@ public abstract class Infectado extends Entidad {
 	}
 
 	public void accionar() {
-		if (!quieto) {
+		if (!quieto || desinfectado)  {
 			if (movimiento != null)
 				movimiento.mover();
 
-			if (desinfectado && random.nextInt(150) == 2) {
+			if (!desinfectado && random.nextInt(100) == 1) {
 				disparar();
+				//System.out.println("disparo");
 			}
 		}
 	}
 
 	public void desinfectar() {
-		desinfectado = false;
+		desinfectado = true;
 		int direccion = random.nextInt(2);
 		Label_infectado li = (Label_infectado) this.getGrafico();
 		if (direccion == 1) {

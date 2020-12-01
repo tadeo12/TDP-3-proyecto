@@ -25,7 +25,7 @@ public class InfectadoAlpha extends Infectado {
 
 	@Override
 	public void disminuirCargaViral(int desinfeccion) {
-		if (desinfectado) {
+		if (!desinfectado) {
 			if (carga_viral - desinfeccion <= 0) {
 				carga_viral = 0;
 				desinfectar();
