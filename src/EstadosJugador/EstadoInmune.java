@@ -1,7 +1,6 @@
 package EstadosJugador;
 
 import Entidades.Jugador;
-import Visitors.VisitorJugadorInmune;
 
 public class EstadoInmune extends ConPowerUp {
 
