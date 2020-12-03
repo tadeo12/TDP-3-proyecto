@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -32,12 +33,6 @@ public class Gui extends JFrame {
 	private JLabel cargaViral, cargaViralMaxima, nivelTanda;
 	private JLabel[] estados;
 
-	
-	//private JLabel FONDO;
-
-	/**
-	 * Create the frame.
-	 */
 	public Gui() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 949, 700);
@@ -59,13 +54,28 @@ public class Gui extends JFrame {
 		barraSuperior.setBackground(new Color(139, 208, 169));
 		
 		JPanel panelMejoras= new JPanel();
+		
+		panelMejoras.setBounds(615, 0, 308, 60);
+		panelMejoras.setBackground(new Color(139, 208, 169));
 		panelMejoras.setLayout(new GridLayout(1,4));
+		panelMejoras.setVisible(true);
 		estados= new JLabel[4];
 		for(int i=0;i< 4 ;i++) {
 			estados[i]= new JLabel();
+			estados[i].setSize(308/4,60);
 			panelMejoras.add(estados[i]);
-			estados[i].setVisible(false);
+			//estados[i].setEnabled(false);
+			
 		}
+		estados[0].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/bajoCero.png")));
+		estados[1].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/inmunidad.gif")));
+		estados[2].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Jugador/disparo_boost.gif")));
+		estados[3].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/velocidad.png")));
+		for(int i=0;i< 4 ;i++) {
+			redimensionar(estados[i],(ImageIcon) estados[i].getIcon());
+		}
+		
+		barraSuperior.add(panelMejoras);
 		
 		
 		cargaViral = new JLabel();
@@ -112,14 +122,13 @@ public class Gui extends JFrame {
 		panelJuego.repaint();
 	}
 
-	private void reDimensionar(JLabel label, ImageIcon grafico) {
-		Image image = grafico.getImage();
-		if (image != null) {
-			Image newing = image.getScaledInstance(label.getWidth(), label.getHeight(), java.awt.Image.SCALE_SMOOTH);
-			grafico.setImage(newing);
-			label.setIcon(grafico);
-			label.repaint();
+	public void redimensionar(JLabel label, ImageIcon grafico) {
+		if (grafico.getImage() != null) {
+			grafico.setImage(
+					grafico.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
+
 		}
+	
 	}
 
 	public void gano() {
