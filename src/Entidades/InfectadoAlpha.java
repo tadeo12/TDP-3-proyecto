@@ -17,20 +17,26 @@ import Movimientos.Horizontal_remove;
 import Visitors.Visitor;
 
 public class InfectadoAlpha extends Infectado {
-
+	
+	protected boolean loco;
 
 	public InfectadoAlpha(Point p,int tiempoQuieto, boolean enEspera) {
 		super(new Label_infectado_alpha(p),tiempoQuieto,enEspera);
+		loco=false;
  	}
 
 	@Override
 	public void disminuirCargaViral(int desinfeccion) {
-		if (desinfectado) {
+		if (!desinfectado) {
 			if (carga_viral - desinfeccion <= 0) {
 				carga_viral = 0;
 				desinfectar();
 			} else {
 				carga_viral -= desinfeccion;
+				if(carga_viral<20 && !loco) {
+					loco=true;
+					velocidad=velocidad*2;
+				}
 			}
 		}
 	}

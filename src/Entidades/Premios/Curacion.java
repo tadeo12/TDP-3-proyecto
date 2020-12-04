@@ -12,6 +12,7 @@ public class Curacion extends ObjetoPrecioso {
 	public Curacion(Point p) {
 		super(new Label_curacion(p));
 		visitor = new VisitorCuracion(this);
+		velocidad=2;
 	}
 
 	public void accept(Visitor visitor) {

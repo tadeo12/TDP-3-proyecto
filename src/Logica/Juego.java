@@ -9,6 +9,7 @@ import Entidades.Entidad;
 import Entidades.Infectado;
 import Entidades.Jugador;
 import GUI.Gui;
+import Visitors.Visitor;
 
 public class Juego implements Runnable {
 	private boolean moviendoIzquierda;
@@ -26,10 +27,8 @@ public class Juego implements Runnable {
 
 	private Director director;
 	private Nivel nivelActual;
-	private int valorNivel;
 
 	private Juego() {
-		valorNivel = 0;
 		juego = this;
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
@@ -101,8 +100,7 @@ public class Juego implements Runnable {
 		entidades=new LinkedList<Entidad>();
 		entidades.add(jugador); 
 		nivelActual = director.construirSiguienteNivel();
-		this.valorNivel ++;
-		this.gui.cambioNivel( this.valorNivel );
+		this.gui.cambioNivel( nivelActual.getValor()+1 );
 		
 	}
 
@@ -125,7 +123,7 @@ public class Juego implements Runnable {
 	public void jugar() {
 		try {
 			director = new Director();
-			this.gui.cambioNivel( this.valorNivel );
+			this.gui.cambioNivel(1);
 
 			nivelActual = director.construirSiguienteNivel();
 			jugador=new Jugador();
@@ -133,17 +131,22 @@ public class Juego implements Runnable {
 			while (jugando) {
 				for (Entidad e : entidades) {
 					e.accionar();
-
 				}
-				Thread.sleep(15);
-
+				Thread.sleep(10);
 				removerEntidadesEliminadas();
 				agregarEntidadesNuevas();
 				detectarColisiones();
+				actualizarDatosJuego();
 			}
 		} catch (IllegalArgumentException | InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void actualizarDatosJuego() {
+		gui.actualizarBarraViral(jugador.getCargaViral());
+		gui.actualizarNivelTanda(nivelActual.getValor()+1, nivelActual.getNumeroTanda()+1);
+		
 	}
 
 	private void detectarColisiones() {
@@ -186,7 +189,6 @@ public class Juego implements Runnable {
 
 	@Override
 	public void run() {
-
 		jugar();
 	}
 
@@ -200,9 +202,20 @@ public class Juego implements Runnable {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
+
+	public void perdio() {
+		gui.perdio();
+	}
+
+	public List<Infectado> getInfectados() {
+		
+		return nivelActual.getTanda().getInfectados();
+	}
+
+	
 
 }

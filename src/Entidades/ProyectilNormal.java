@@ -10,7 +10,7 @@ public class ProyectilNormal extends ProyectilSanitario {
 	public ProyectilNormal(Entidad_grafica entidad_jugador) {
 		super(new Label_proyectil_normal(entidad_jugador));		
 		velocidad = 6;
-		damage = 2;
+		damage = 5;
 
 		
 	}

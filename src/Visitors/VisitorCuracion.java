@@ -12,7 +12,7 @@ public class VisitorCuracion extends VisitorObjetoPrecioso {
 
 	public void visit(Jugador jug) {
 		entidad.eliminar();
-		jug.recuperarVida();
+		jug.setCargaViral(0);
 	}
 
 }

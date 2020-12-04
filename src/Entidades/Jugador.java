@@ -1,19 +1,22 @@
 package Entidades;
 
+import java.util.LinkedList;
+
 import EntidadesGraficas.Label_jugador;
 import EstadosArma.ConArmaNormal;
-import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
 import EstadosJugador.EstadoInicial;
 import EstadosJugador.EstadoJugador;
 import Movimientos.Horizontal;
 import Visitors.Visitor;
-import Visitors.VisitorJugador;
 
 public class Jugador extends Entidad {
 	protected EstadoArma estado_arma;
 	protected EstadoJugador estado_jugador;
 	protected int carga_viral;
+	protected int tiros;
+	
+	protected LinkedList<Object> listaEstados;
 
 	public Jugador() {
 		super(new Label_jugador());
@@ -21,28 +24,34 @@ public class Jugador extends Entidad {
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
 		carga_viral = 0;
+		
+		tiros=0;
 	}
 
 	public void setVisitor(Visitor visitor) {
 		this.visitor = visitor;
 	}
 
+	public void setCargaViral(int carga) {
+		if(carga>100)
+			carga=100;
+		if(carga<0)
+			carga=0;
+		this.carga_viral = carga;
+	}
+
 	public int getCargaViral() {
 		return carga_viral;
 	}
 
-	public int recuperarVida() {
-		return carga_viral = 0;
-	}
 
 	public void incrementarCargaViral(int carga) {
-		if (carga + carga_viral >= 100) {
+		estado_jugador.incrementarCargaViral(carga);
+
+		if (carga_viral >= 100) {
 			juego.eliminarEntidad(this);
-			//reiniciar el nivel
-			System.out.println("murio");
-		} else
-			carga_viral += carga;
-		System.out.println("Carga viral: "+carga_viral);
+			juego.perdio();
+		}
 	}
 
 	public void accionar() {
@@ -55,8 +64,11 @@ public class Jugador extends Entidad {
 			this.movimiento.mover();
 		}
 		if (juego.disparando()) {
-			// System.out.println("disparo");
-			juego.agregarEntidad(estado_arma.disparar());
+			tiros++;
+			if(tiros==5) {
+				this.estado_arma.disparar();
+				tiros=0;
+			}
 		}
 	}
 
@@ -70,7 +82,7 @@ public class Jugador extends Entidad {
 
 	public void setEstadoJugador(EstadoJugador estado_jugador) {
 		this.estado_jugador = estado_jugador;
-		System.out.println("cambiando estado: "+estado_jugador);
+		//System.out.println("cambiando estado: " + estado_jugador);
 	}
 
 	public void setEstadoArma(EstadoArma estado_arma) {
@@ -84,10 +96,10 @@ public class Jugador extends Entidad {
 	public EstadoJugador getEstadoJugador() {
 		return estado_jugador;
 	}
-	
+
 	@Override
 	public int getVelocidad() {
-		System.out.println(estado_jugador.getVelocidad());
+		// System.out.println(estado_jugador.getVelocidad());
 		return estado_jugador.getVelocidad();
 	}
 }

@@ -15,7 +15,7 @@ public class Vertical_remove extends Vertical {
 		Entidad_grafica g = entidad.getGrafico();
 		int siguientePosY = g.getY() + this.direccion * entidad.getVelocidad();
 
-		if (siguientePosY > limiteY) {
+		if (siguientePosY > limiteY+100) {
 			entidad.eliminar();
 		}else 
 			if (siguientePosY < 0) {

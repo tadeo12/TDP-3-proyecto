@@ -10,8 +10,9 @@ public class SuperArma extends PremioTemporal {
 
 	public SuperArma(Point p) {
 		super(new Label_super_arma(p));
+		duracion = 15000;
 		visitor = new VisitorSuperArma(this);
-		duracion = 30;
+		velocidad=3;
 	}
 
 	public void accept(Visitor visitor) {
