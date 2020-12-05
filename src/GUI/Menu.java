@@ -26,7 +26,7 @@ public class Menu extends JFrame {
 	private JPanel contentPane;
 	private AudioPlayer ap;
 	private Thread audio;
-	JButton btnNewButton_2;//BOTON AUDIO
+	private JButton botonAudio;
 	
 	/**
 	 * Launch the application.
@@ -66,28 +66,28 @@ public class Menu extends JFrame {
 		
 		audioOn();
 		
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_2.setSelected(true);
-		btnNewButton_2.addActionListener(new ActionListener() {
+		botonAudio = new JButton("");
+		botonAudio.setBorder(new LineBorder(Color.BLACK));
+		botonAudio.setSelected(true);
+		botonAudio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setAudio(evt);
 			}
 		});
 		
 		
-		btnNewButton_2.setForeground(Color.BLACK);
-		btnNewButton_2.setBackground(Color.BLACK);
-		btnNewButton_2.setBounds(12, 539, 50, 50);
-		this.reDimensionar(btnNewButton_2, new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
-		contentPane.add(btnNewButton_2);
+		botonAudio.setForeground(Color.BLACK);
+		botonAudio.setBackground(Color.BLACK);
+		botonAudio.setBounds(12, 539, 50, 50);
+		this.reDimensionar(botonAudio, new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
+		contentPane.add(botonAudio);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_1.setBackground(new Color(0, 255, 0));
-		btnNewButton_1.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/normal.gif")));
-		//btnNewButton_1.setOpaque(true);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton botonJugarNormal = new JButton("");
+		botonJugarNormal.setBorder(new LineBorder(Color.BLACK));
+		botonJugarNormal.setBackground(new Color(0, 255, 0));
+		botonJugarNormal.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/normal.gif")));
+		//botonJugarNormal.setOpaque(true);
+		botonJugarNormal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				audioOff();
@@ -97,15 +97,15 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(45, 301, 397, 93);
-		contentPane.add(btnNewButton_1);
+		botonJugarNormal.setBounds(45, 301, 397, 93);
+		contentPane.add(botonJugarNormal);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBackground(new Color(0, 255, 0));//
-		btnNewButton.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/hardcore.gif")));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton botonJugarHardcore = new JButton("");
+		botonJugarHardcore.setBorder(new LineBorder(Color.BLACK));
+		botonJugarHardcore.setForeground(new Color(0, 0, 0));
+		botonJugarHardcore.setBackground(new Color(0, 255, 0));//
+		botonJugarHardcore.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/hardcore.gif")));
+		botonJugarHardcore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				audioOff();
@@ -115,8 +115,8 @@ public class Menu extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(45, 407, 397, 93);
-		contentPane.add(btnNewButton);
+		botonJugarHardcore.setBounds(45, 407, 397, 93);
+		contentPane.add(botonJugarHardcore);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/FONDO MENU.png")));
@@ -143,24 +143,24 @@ public class Menu extends JFrame {
 		ImageIcon im = null;
 		//
 		
-		if(!btnNewButton_2.isSelected()) {
+		if(!botonAudio.isSelected()) {
 			this.audioOn();
 			im = im2;
-			btnNewButton_2.setSelected(true);
+			botonAudio.setSelected(true);
 		}else {
 			im = im1;
-			btnNewButton_2.setSelected(false);
+			botonAudio.setSelected(false);
 			ap = null;
-			audio.stop();
+			audio.interrupt();
 			audio = null;
 		}
 		//
 		Image image = im.getImage();
 		if (image != null) {
-			Image newing = image.getScaledInstance(btnNewButton_2.getWidth(), btnNewButton_2.getHeight(), java.awt.Image.SCALE_SMOOTH);
+			Image newing = image.getScaledInstance(botonAudio.getWidth(), botonAudio.getHeight(), java.awt.Image.SCALE_SMOOTH);
 			im.setImage(newing);
-			btnNewButton_2.setIcon(im);
-			btnNewButton_2.repaint();
+			botonAudio.setIcon(im);
+			botonAudio.repaint();
 		}
 		
 	}
@@ -175,7 +175,7 @@ public class Menu extends JFrame {
 	private void audioOff() {
 		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-off.png")));
 		ap = null;
-		audio.stop();
+		audio.interrupt();
 		audio = null;
 	}
 	

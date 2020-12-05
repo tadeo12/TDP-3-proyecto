@@ -237,7 +237,7 @@ public class Gui extends JFrame {
 			im = im1;
 			btnNewButton.setSelected(false);
 			ap = null;
-			audio.stop();
+			audioOff();
 			audio = null;
 		}
 		//
@@ -259,7 +259,7 @@ public class Gui extends JFrame {
 
 	private void audioOff() {
 		ap = null;
-		audio.stop();
+		audio.interrupt();
 		audio = null;
 	}
 }
