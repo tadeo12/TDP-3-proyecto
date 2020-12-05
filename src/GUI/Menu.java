@@ -15,10 +15,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
+import Audio.AudioPlayer;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+import javazoom.jl.player.Player;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-
+	private AudioPlayer ap;
+	private Thread audio;
+	JButton btnNewButton_2;//BOTON AUDIO
+	
 	/**
 	 * Launch the application.
 	 */
@@ -55,47 +64,33 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		
-		/*JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setBorder(new LineBorder(new Color(102, 255, 102)));
+		audioOn();
+		
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setBorder(new LineBorder(Color.BLACK));
+		btnNewButton_2.setSelected(true);
 		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				//
-				ImageIcon im1 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_off.png"));
-				ImageIcon im2 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png"));
-				ImageIcon im = null;
-				//
-
-				if(btnNewButton_2.isSelected()) {
-					im = im2;
-					btnNewButton_2.setSelected(false);
-				}else {
-					im = im1;
-					btnNewButton_2.setSelected(true);
-				}
-				//
-				Image image = im.getImage();
-				if (image != null) {
-					Image newing = image.getScaledInstance(btnNewButton_2.getWidth(), btnNewButton_2.getHeight(), java.awt.Image.SCALE_SMOOTH);
-					im.setImage(newing);
-					btnNewButton_2.setIcon(im);
-					btnNewButton_2.repaint();
-				}
+			public void actionPerformed(ActionEvent evt) {
+				setAudio(evt);
 			}
 		});
+		
+		
 		btnNewButton_2.setForeground(Color.BLACK);
 		btnNewButton_2.setBackground(Color.BLACK);
-		btnNewButton_2.setBounds(38, 483, 82, 69);
+		btnNewButton_2.setBounds(12, 539, 50, 50);
 		this.reDimensionar(btnNewButton_2, new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
 		contentPane.add(btnNewButton_2);
-		 */
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_1.setBackground(Color.BLACK);
-		btnNewButton_1.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/BOTON JUGAR normal.png")));
+		btnNewButton_1.setBackground(new Color(0, 255, 0));
+		btnNewButton_1.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/normal.gif")));
+		//btnNewButton_1.setOpaque(true);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				audioOff();
 				Gui frame = new Gui();
 				frame.setVisible(true);
 				frame.setResizable(false);
@@ -108,11 +103,12 @@ public class Menu extends JFrame {
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBorder(new LineBorder(Color.BLACK));
 		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBackground(Color.BLACK);//
-		btnNewButton.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/BOTON JUGAR JARCOR.png")));
+		btnNewButton.setBackground(new Color(0, 255, 0));//
+		btnNewButton.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/hardcore.gif")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				audioOff();
 				Gui frame = new Gui();
 				frame.setVisible(true);
 				frame.setResizable(false);
@@ -138,6 +134,49 @@ public class Menu extends JFrame {
 			jb.setIcon(grafico);
 			jb.repaint();
 		}
+	}
+	
+	public void setAudio(ActionEvent evt) {
+		
+		ImageIcon im1 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_off.png"));
+		ImageIcon im2 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png"));
+		ImageIcon im = null;
+		//
+		
+		if(!btnNewButton_2.isSelected()) {
+			this.audioOn();
+			im = im2;
+			btnNewButton_2.setSelected(true);
+		}else {
+			im = im1;
+			btnNewButton_2.setSelected(false);
+			ap = null;
+			audio.stop();
+			audio = null;
+		}
+		//
+		Image image = im.getImage();
+		if (image != null) {
+			Image newing = image.getScaledInstance(btnNewButton_2.getWidth(), btnNewButton_2.getHeight(), java.awt.Image.SCALE_SMOOTH);
+			im.setImage(newing);
+			btnNewButton_2.setIcon(im);
+			btnNewButton_2.repaint();
+		}
+		
+	}
+	
+	private void audioOn() {
+		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-on.png")));
+		ap = new AudioPlayer("/RercursosMP3/menu_musica.mp3");
+		audio = new Thread(ap);
+		audio.start();
+	}
+
+	private void audioOff() {
+		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-off.png")));
+		ap = null;
+		audio.stop();
+		audio = null;
 	}
 	
 }
