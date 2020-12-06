@@ -65,24 +65,6 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-
-		audioOn();
-		
-		btnNewButton_2 = new JButton("");
-		btnNewButton_2.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_2.setSelected(false);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				setAudio(evt);
-			}
-		});
-		
-		
-		btnNewButton_2.setForeground(Color.BLACK);
-		btnNewButton_2.setBackground(Color.BLACK);
-		btnNewButton_2.setBounds(12, 539, 50, 50);
-		this.reDimensionar(btnNewButton_2, new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
-		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setBorder(new LineBorder(Color.BLACK));
@@ -92,7 +74,6 @@ public class Menu extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				audioOff();
 				Gui frame = new Gui();
 				frame.setVisible(true);
 				frame.setResizable(false);
@@ -110,7 +91,6 @@ public class Menu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				audioOff();
 				audio = null;
 				ap = null;
 				Gui frame = new Gui();
@@ -138,45 +118,6 @@ public class Menu extends JFrame {
 			jb.setIcon(grafico);
 			jb.repaint();
 		}
-	}
-	
-	public void setAudio(ActionEvent evt) {
-		
-		ImageIcon im1 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_off.png"));
-		ImageIcon im2 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png"));
-		ImageIcon im = null;
-		//
-		
-		if(!btnNewButton_2.isSelected()) {
-			this.audioOff();
-			im = im1;
-			btnNewButton_2.setSelected(true);
-		}else {
-			im = im2;
-			btnNewButton_2.setSelected(false);
-			audioOn();
-		}
-		//
-		Image image = im.getImage();
-		if (image != null) {
-			Image newing = image.getScaledInstance(btnNewButton_2.getWidth(), btnNewButton_2.getHeight(), java.awt.Image.SCALE_SMOOTH);
-			im.setImage(newing);
-			btnNewButton_2.setIcon(im);
-			btnNewButton_2.repaint();
-		}
-		
-	}
-	
-	private void audioOn() {
-		ap = new AudioPlayer("/RercursosMP3/menu_musica.mp3");
-		audio = new Thread(ap);
-		audio.start();
-	}
-
-	private void audioOff() {
-		audio.stop();
-		audio = null;
-		ap = null;
 	}
 	
 }
