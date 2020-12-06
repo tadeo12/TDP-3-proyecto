@@ -70,7 +70,7 @@ public class Menu extends JFrame {
 		
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_2.setSelected(true);
+		btnNewButton_2.setSelected(false);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setAudio(evt);
@@ -168,13 +168,13 @@ public class Menu extends JFrame {
 	}
 	
 	private void audioOn() {
-		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
+		ap = new AudioPlayer("/RercursosMP3/menu_musica.mp3");
 		audio = new Thread(ap);
 		audio.start();
 	}
 
 	private void audioOff() {
-		audio.interrupt();
+		audio.stop();
 		audio = null;
 		ap = null;
 	}

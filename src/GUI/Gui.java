@@ -108,7 +108,7 @@ public class Gui extends JFrame {
 		nivelTanda.setBounds(520, 0, 95, 60) ;
 		barraSuperior.add(nivelTanda);
 		
-		audioOn();
+		/*audioOn();
 		btnNewButton = new JButton("");
 		barraSuperior.add(btnNewButton);
 		btnNewButton.setBounds(871, 0, 50, 50);
@@ -121,7 +121,7 @@ public class Gui extends JFrame {
 			public void actionPerformed(ActionEvent evt) {
 				setAudio(evt);
 			}
-		});
+		});*/
 		
 		this.setFocusable(true);
 		
@@ -169,7 +169,10 @@ public class Gui extends JFrame {
 		hiloJuego = null;
 		this.juego = null;
 		this.panelJuego = null;
-		audioOff();
+		
+		/*if(audio != null)
+			audioOff();
+		*/
 		audio = null;
 		ap = null;
 		this.dispose();
@@ -177,8 +180,8 @@ public class Gui extends JFrame {
 		
 		go.setVisible(true);
 		
-		if(this.btnNewButton.isSelected())
-			audioOff();
+	//	if(this.btnNewButton.isSelected())
+	//		audioOff();
 		
 		
 		//panelJuego.gameOver();
@@ -224,7 +227,7 @@ public class Gui extends JFrame {
 		
 	}
 	
-	public void setAudio(ActionEvent evt) {
+/*	public void setAudio(ActionEvent evt) {
 		
 		ImageIcon im1 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_off.png"));
 		ImageIcon im2 = new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/sonido_on.png"));
@@ -249,9 +252,9 @@ public class Gui extends JFrame {
 			btnNewButton.repaint();
 		}
 		
-	}
+	}*/
 	
-	private void audioOn() {
+	/*private void audioOn() {
 		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
 		audio = new Thread(ap);
 		audio.start();
@@ -261,5 +264,5 @@ public class Gui extends JFrame {
 		audio.stop();
 		audio = null;
 		ap = null;
-	}
+	}*/
 }
