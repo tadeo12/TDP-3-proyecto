@@ -15,18 +15,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
-import Audio.AudioPlayer;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-import javazoom.jl.player.Player;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-	private AudioPlayer ap;
-	private Thread audio;
-	JButton btnNewButton_2;//BOTON AUDIO
+
 	
 	/**
 	 * Launch the application.
@@ -91,8 +88,7 @@ public class Menu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				audio = null;
-				ap = null;
+				
 				Gui frame = new Gui();
 				frame.setVisible(true);
 				frame.setResizable(false);

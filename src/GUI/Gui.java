@@ -7,18 +7,23 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import Audio.AudioPlayer;
+
 import Entidades.InfectadoAlpha;
 import Entidades.InfectadoBeta;
 import Logica.Juego;
 
 import javax.swing.JLabel;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -35,11 +40,7 @@ public class Gui extends JFrame {
 	private Thread hiloJuego;
 	private JLabel cargaViral, cargaViralMaxima, nivelTanda;
 	private JLabel[] estados;
-	private JButton botonAudio;
-	private int audioActual;
-	private String[] audioNiveles;
-	private Thread audio;
-	private AudioPlayer ap;
+	
 	
 	public Gui() {
 		
@@ -53,8 +54,6 @@ public class Gui extends JFrame {
 		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelJuego.setLayout(null);
 		contentPane.add(panelJuego);
-		
-		audioNiveles = new String[] {"/RercursosMP3/NivelesAudio/Nivel1.mp3","/RercursosMP3/NivelesAudio/Nivel2.mp3","/RercursosMP3/NivelesAudio/Nivel3.mp3"};
 		
 		
 		JPanel barraSuperior= new JPanel();
@@ -147,26 +146,14 @@ public class Gui extends JFrame {
 	}
 	
 	public void perdio() {
-		
-		System.out.println("PERDIO");
-
 		this.juego = null;
-		
 		hiloJuego = null;
 		this.juego = null;
 		this.panelJuego = null;
-		
-		/*if(audio != null)
-			audioOff();
-		*/
-		audio = null;
-		ap = null;
 		this.dispose();
 		GameOver go = new GameOver();
-		
 		go.setVisible(true);		
-		
-		//panelJuego.gameOver();
+
 	}
 
 	public Container getMapa() {
@@ -207,6 +194,19 @@ public class Gui extends JFrame {
 	}
 	public void actualizarBarraEstados(int estadoActualJugador, int estadoArma) {
 		
+	}
+	
+	public void sonidoDisparar() {
+		try {
+			Clip disparo = AudioSystem.getClip(); 
+			disparo.open(AudioSystem.getAudioInputStream(getClass().getResource("/RercursosMP3/DisparosJugador/disparo_normal.wav")));
+			disparo.start();
+			
+		}catch(LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+			e.printStackTrace();
+			e.getMessage();
+			System.out.println("error audio");
+		}
 	}
 	
 }

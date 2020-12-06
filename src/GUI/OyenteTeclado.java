@@ -31,7 +31,7 @@ public class OyenteTeclado implements KeyListener {
 		}
 		if (codigoTecla == KeyEvent.VK_SPACE) {
 			juego.setDisparando(true);
-			sonidoDisparar();
+			
 		}
 	}
 
@@ -50,17 +50,5 @@ public class OyenteTeclado implements KeyListener {
 
 	}
 
-	private void sonidoDisparar() {
-		try {
-			disparo = AudioSystem.getClip(); 
-			disparo.open(AudioSystem.getAudioInputStream(getClass().getResource("/RercursosMP3/DisparosJugador/disparo_normal.wav")));
-			disparo.start();
-			
-		}catch(LineUnavailableException | IOException | UnsupportedAudioFileException e) {
-			e.printStackTrace();
-			e.getMessage();
-			System.out.println("error audio");
-		}
-	}
-	
+
 }

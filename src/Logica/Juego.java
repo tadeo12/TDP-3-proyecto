@@ -210,6 +210,7 @@ public class Juego implements Runnable {
 
 	public void perdio() {
 		this.juego = null;
+		jugando=false;
 		gui.perdio();
 	}
 
@@ -217,7 +218,9 @@ public class Juego implements Runnable {
 		
 		return nivelActual.getTanda().getInfectados();
 	}
-
 	
+	public void seDisparo() {
+		gui.sonidoDisparar();
+	}
 
 }

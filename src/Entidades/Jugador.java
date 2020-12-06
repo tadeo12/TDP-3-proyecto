@@ -65,9 +65,10 @@ public class Jugador extends Entidad {
 		}
 		if (juego.disparando()) {
 			tiros++;
-			if(tiros==5) {
+			if(tiros==8) {
 				this.estado_arma.disparar();
 				tiros=0;
+				juego.seDisparo();
 			}
 		}
 	}
