@@ -42,10 +42,6 @@ public class Gui extends JFrame {
 	private AudioPlayer ap;
 	
 	public Gui() {
-
-		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
-		audio = new Thread(ap);
-		audio.start();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 949, 700);
@@ -112,7 +108,7 @@ public class Gui extends JFrame {
 		nivelTanda.setBounds(520, 0, 95, 60) ;
 		barraSuperior.add(nivelTanda);
 		
-		//audioOn();
+		audioOn();
 		btnNewButton = new JButton("");
 		barraSuperior.add(btnNewButton);
 		btnNewButton.setBounds(871, 0, 50, 50);
@@ -120,7 +116,7 @@ public class Gui extends JFrame {
 		btnNewButton.setFocusable(false);
 		btnNewButton.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
 		btnNewButton.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton.setSelected(true);
+		btnNewButton.setSelected(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setAudio(evt);
@@ -256,11 +252,14 @@ public class Gui extends JFrame {
 	}
 	
 	private void audioOn() {
-		//ap = new AudioPlayer(this.audioNiveles[audioActual]);
+		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
+		audio = new Thread(ap);
 		audio.start();
 	}
 
 	private void audioOff() {
 		audio.stop();
+		audio = null;
+		ap = null;
 	}
 }

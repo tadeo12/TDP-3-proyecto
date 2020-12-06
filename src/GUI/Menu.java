@@ -54,11 +54,7 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
-		
-		ap = new AudioPlayer("/RercursosMP3/menu_musica.mp3");
-		audio = new Thread(ap);
-		audio.start();
-		
+
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +66,7 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 
+		audioOn();
 		
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setBorder(new LineBorder(Color.BLACK));
@@ -171,13 +168,15 @@ public class Menu extends JFrame {
 	}
 	
 	private void audioOn() {
-		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-on.png")));
+		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
+		audio = new Thread(ap);
 		audio.start();
 	}
 
 	private void audioOff() {
-		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-off.png")));
-		audio.stop();
+		audio.interrupt();
+		audio = null;
+		ap = null;
 	}
 	
 }
