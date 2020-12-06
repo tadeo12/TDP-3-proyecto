@@ -1,6 +1,6 @@
 package GUI;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.Image;
 
@@ -16,11 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
 import Audio.AudioPlayer;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 
-import javazoom.jl.player.Player;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
@@ -54,6 +50,12 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
+		
+		ap = new AudioPlayer("/RercursosMP3/menu_musica.mp3");
+		audio = new Thread(ap);
+		audio.start();
+		
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 932, 647);
@@ -63,12 +65,11 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-		
-		audioOn();
+
 		
 		botonAudio = new JButton("");
 		botonAudio.setBorder(new LineBorder(Color.BLACK));
-		botonAudio.setSelected(true);
+		botonAudio.setSelected(false);
 		botonAudio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setAudio(evt);
@@ -109,6 +110,8 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				audioOff();
+				audio = null;
+				ap = null;
 				Gui frame = new Gui();
 				frame.setVisible(true);
 				frame.setResizable(false);
@@ -143,16 +146,16 @@ public class Menu extends JFrame {
 		ImageIcon im = null;
 		//
 		
-		if(!botonAudio.isSelected()) {
-			this.audioOn();
-			im = im2;
-			botonAudio.setSelected(true);
-		}else {
+
+		if(botonAudio.isSelected()) {
+			this.audioOff();
 			im = im1;
 			botonAudio.setSelected(false);
-			ap = null;
-			audio.interrupt();
-			audio = null;
+		}else {
+			im = im2;
+			botonAudio.setSelected(true);
+			audioOn();
+
 		}
 		//
 		Image image = im.getImage();
@@ -166,17 +169,12 @@ public class Menu extends JFrame {
 	}
 	
 	private void audioOn() {
-		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-on.png")));
-		ap = new AudioPlayer("/RercursosMP3/menu_musica.mp3");
-		audio = new Thread(ap);
 		audio.start();
 	}
 
 	private void audioOff() {
-		//jToggleButtonAudio.setIcon(new ImageIcon(getClass().getClassLoader().getResource("ar/edu/uns/cs/tdp/proyectoX/resources/images/tdp-audio-off.png")));
-		ap = null;
 		audio.interrupt();
-		audio = null;
+		
 	}
 	
 }

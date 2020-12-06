@@ -35,7 +35,7 @@ public class Gui extends JFrame {
 	private Thread hiloJuego;
 	private JLabel cargaViral, cargaViralMaxima, nivelTanda;
 	private JLabel[] estados;
-	private JButton btnNewButton;
+	private JButton botonAudio;
 	private int audioActual;
 	private String[] audioNiveles;
 	private Thread audio;
@@ -43,6 +43,9 @@ public class Gui extends JFrame {
 	
 	public Gui() {
 
+		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
+		audio = new Thread(ap);
+		audio.start();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 949, 700);
@@ -110,15 +113,15 @@ public class Gui extends JFrame {
 		barraSuperior.add(nivelTanda);
 		
 		//audioOn();
-		btnNewButton = new JButton("");
-		barraSuperior.add(btnNewButton);
-		btnNewButton.setBounds(871, 0, 50, 50);
-		btnNewButton.setOpaque(false);
-		btnNewButton.setFocusable(false);
-		btnNewButton.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
-		btnNewButton.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton.setSelected(true);
-		btnNewButton.addActionListener(new ActionListener() {
+		botonAudio = new JButton("");
+		barraSuperior.add(botonAudio);
+		botonAudio.setBounds(871, 0, 50, 50);
+		botonAudio.setOpaque(false);
+		botonAudio.setFocusable(false);
+		botonAudio.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficos_Extras/sonido_on.png")));
+		botonAudio.setBorder(new LineBorder(Color.BLACK));
+		botonAudio.setSelected(false);
+		botonAudio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				setAudio(evt);
 			}
@@ -170,15 +173,18 @@ public class Gui extends JFrame {
 		hiloJuego = null;
 		this.juego = null;
 		this.panelJuego = null;
-		
+		audioOff();
+		audio = null;
+		ap = null;
+		this.dispose();
 		GameOver go = new GameOver();
 		
 		go.setVisible(true);
 		
-		if(this.btnNewButton.isSelected())
+		if(this.botonAudio.isSelected())
 			audioOff();
 		
-		this.dispose();
+		
 		//panelJuego.gameOver();
 	}
 
@@ -192,15 +198,15 @@ public class Gui extends JFrame {
 	
 
 	public void cambioNivel(int nivel) {
-		
+		/*System.out.println("ni");
 		this.audioActual = nivel - 1 ;
 		
-		if(this.btnNewButton.isSelected()) {
+		if(this.botonAudio.isSelected()) {
 			if(audioActual > 0 ) {
 				audioOff();
 				audioOn();
 			}else audioOn();
-		}
+		}*/
 		panelJuego.setFondoNivel(nivel-1);
 		panelJuego.pantallaNivel(nivel-1);
 		juego.pausa();
@@ -229,37 +235,35 @@ public class Gui extends JFrame {
 		ImageIcon im = null;
 		//
 		
-		if(!btnNewButton.isSelected()) {
-			this.audioOn();
+		if(botonAudio.isSelected()) {
 			im = im2;
-			btnNewButton.setSelected(true);
+			botonAudio.setSelected(false);
+			audioOn();
+			
 		}else {
+			this.audioOff();
 			im = im1;
-			btnNewButton.setSelected(false);
-			ap = null;
-			audioOff();
-			audio = null;
+			botonAudio.setSelected(true);
 		}
 		//
 		Image image = im.getImage();
 		if (image != null) {
-			Image newing = image.getScaledInstance(btnNewButton.getWidth(), btnNewButton.getHeight(), java.awt.Image.SCALE_SMOOTH);
+			Image newing = image.getScaledInstance(botonAudio.getWidth(), botonAudio.getHeight(), java.awt.Image.SCALE_SMOOTH);
 			im.setImage(newing);
-			btnNewButton.setIcon(im);
-			btnNewButton.repaint();
+			botonAudio.setIcon(im);
+			botonAudio.repaint();
 		}
 		
 	}
 	
 	private void audioOn() {
-		ap = new AudioPlayer(this.audioNiveles[2]);
+		ap = new AudioPlayer("/RercursosMP3/NivelesAudio/Nivel1.mp3");
 		audio = new Thread(ap);
 		audio.start();
 	}
 
 	private void audioOff() {
-		ap = null;
 		audio.interrupt();
-		audio = null;
+
 	}
 }
