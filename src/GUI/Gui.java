@@ -154,7 +154,7 @@ public class Gui extends JFrame {
 		hiloJuego = null;
 		this.panelJuego = null;
 		this.dispose();
-		GameOver_Win go = new GameOver_Win(1);
+		GameOver_Win go = new GameOver_Win(0);
 		go.setVisible(true);
 
 	}
