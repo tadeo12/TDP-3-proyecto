@@ -52,6 +52,7 @@ public class Menu extends JFrame {
 	 */
 	public Menu() {
 
+		setIconImage(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/icon.png")).getImage());
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

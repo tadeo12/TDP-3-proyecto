@@ -1,7 +1,5 @@
 package Entidades;
 
-import java.util.LinkedList;
-
 import EntidadesGraficas.Label_jugador;
 import EstadosArma.ConArmaNormal;
 import EstadosArma.EstadoArma;
@@ -16,7 +14,6 @@ public class Jugador extends Entidad {
 	protected int carga_viral;
 	protected int tiros;
 	
-	protected LinkedList<Object> listaEstados;
 
 	public Jugador() {
 		super(new Label_jugador());
@@ -82,7 +79,6 @@ public class Jugador extends Entidad {
 
 	public void setEstadoJugador(EstadoJugador estado_jugador) {
 		this.estado_jugador = estado_jugador;
-		//System.out.println("cambiando estado: " + estado_jugador);
 	}
 
 	public void setEstadoArma(EstadoArma estado_arma) {
@@ -99,7 +95,6 @@ public class Jugador extends Entidad {
 
 	@Override
 	public int getVelocidad() {
-		// System.out.println(estado_jugador.getVelocidad());
 		return estado_jugador.getVelocidad();
 	}
 }

@@ -11,7 +11,6 @@ public class EstadoInmune extends ConPowerUp {
 
 	@Override
 	public void incrementarCargaViral(int carga) {
-		// TODO Auto-generated method stub
-		//no hacenada por que es inmune 
+		//no hace nada por que es inmune 
 	}
 }
