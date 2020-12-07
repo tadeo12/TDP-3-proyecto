@@ -2,6 +2,7 @@ package Entidades;
 
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_particulaV_Beta;
+import Movimientos.EstrategiaMovimiento;
 import Movimientos.Vertical;
 import Movimientos.VerticalRemoveRango;
 import Visitors.VisitorParticulaV;
