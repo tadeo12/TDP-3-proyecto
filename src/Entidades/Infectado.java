@@ -20,11 +20,12 @@ import Visitors.VisitorInfectado;
 public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
-	protected Random random;
 	protected boolean desinfectado;
 	protected int tiempoEspera;
 	protected int damage;
-	private boolean quieto;
+	protected boolean quieto;
+	
+	protected Random random;
 
 	public Infectado(Entidad_grafica entidad_graf, int duracion, boolean enEspera) {
 		super(entidad_graf);
