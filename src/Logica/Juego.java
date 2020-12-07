@@ -8,6 +8,7 @@ import java.util.List;
 import Entidades.Entidad;
 import Entidades.Infectado;
 import Entidades.Jugador;
+import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
 import Visitors.Visitor;
 
@@ -27,6 +28,9 @@ public class Juego implements Runnable {
 
 	private Director director;
 	private Nivel nivelActual;
+	private int dificultad;
+	
+	private List<Boolean> listaPowerUps;
 
 	private Juego() {
 		juego = this;
@@ -37,6 +41,11 @@ public class Juego implements Runnable {
 		entidades = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
+		dificultad=0;
+		listaPowerUps=new LinkedList<Boolean>();
+		for(int i=0;i<4;i++) {
+			listaPowerUps.add(false);
+		}
 
 	}
 
@@ -77,7 +86,8 @@ public class Juego implements Runnable {
 
 	public void eliminarEntidad(Entidad a_eliminar) {
 		aEliminar.add(a_eliminar);
-		getMapa().remove(a_eliminar.getGrafico());
+		Entidad_grafica ent=a_eliminar.getGrafico();
+		getMapa().remove(ent);
 		getMapa().repaint();
 	}
 
@@ -123,12 +133,11 @@ public class Juego implements Runnable {
 	
 	public void jugar() {
 		try {
-			director = new Director();
+			jugando = true;
+			director = new Director(dificultad);
 			this.gui.cambioNivel(1);
-
 			nivelActual = director.construirSiguienteNivel();
 			jugador=new Jugador();
-			jugando = true;
 			while (jugando) {
 				for (Entidad e : entidades) {
 					e.accionar();
@@ -147,7 +156,7 @@ public class Juego implements Runnable {
 	private void actualizarDatosJuego() {
 		gui.actualizarBarraViral(jugador.getCargaViral());
 		gui.actualizarNivelTanda(nivelActual.getValor()+1, nivelActual.getNumeroTanda()+1);
-		
+		gui.actualizarPowerUps(listaPowerUps);
 	}
 
 	private void detectarColisiones() {
@@ -188,7 +197,7 @@ public class Juego implements Runnable {
 		return gui.getMapa();
 	}
 
-	@Override
+	
 	public void run() {
 		jugar();
 	}
@@ -215,12 +224,25 @@ public class Juego implements Runnable {
 	}
 
 	public List<Infectado> getInfectados() {
-		
 		return nivelActual.getTanda().getInfectados();
 	}
 	
 	public void seDisparo() {
 		gui.sonidoDisparar();
+	}
+
+	public void setDificultad(int dificultad) {
+		if(dificultad>0)
+			this.dificultad=1;
+	}
+	
+	public boolean jugando() {
+		return jugando;
+	}
+	
+	public void setEstadoPremio(int i, boolean estado) {
+		listaPowerUps.remove(i);
+		listaPowerUps.add(i, estado);
 	}
 
 }

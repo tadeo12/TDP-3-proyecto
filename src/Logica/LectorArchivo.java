@@ -1,4 +1,4 @@
-package GUI;
+package Logica;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,18 +9,20 @@ import java.io.InputStreamReader;
 
 public class LectorArchivo {
 
-	private String rutaArchivo = "Datos/generadorInfectados.txt";
-
+	private String archivoNormal = "Datos/generacionNormal.txt";
+	private String archivoHardcore = "Datos/generacionHardcore.txt";
+	
 	private int cantTiposInfectados = 2;
 	private int cantTandas = 6;
 
-	public int[][] obtenerMatrizInfectado() {
+	public int[][] obtenerMatrizInfectado(int dificultad) {
 
 		int[][] toReturn = new int[cantTandas][cantTiposInfectados];
 
 		
 		try {
-			
+			String rutaArchivo= dificultad==0?archivoNormal:archivoHardcore;
+			System.out.println(rutaArchivo);
 			InputStream in = LectorArchivo.class.getClassLoader().getResourceAsStream(rutaArchivo);
             InputStreamReader inr = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(inr);

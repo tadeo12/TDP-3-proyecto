@@ -9,6 +9,7 @@ import Entidades.Jugador;
 import Entidades.Premios.PremioTemporal;
 import EstadosJugador.EstadoInmune;
 import EstadosJugador.EstadoJugador;
+import Logica.Juego;
 
 public class VisitorBajoCero extends VisitorPremioTemporal{
 
@@ -24,15 +25,18 @@ public class VisitorBajoCero extends VisitorPremioTemporal{
 		for(Infectado i: infectados) {
 			i.setQuieto(true);
 		}
+		PremioTemporal p=(PremioTemporal) entidad;
+		int valor=p.getValor();
 		entidad.eliminar();
-		//System.out.println("visitor bajo cero");
+		Juego.getJuego().setEstadoPremio(valor, true);
+		
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
 			public void run() {
 				List<Infectado> infectados=jug.getJuego().getInfectados();
-				//System.out.println("termino bajo cero");
+				Juego.getJuego().setEstadoPremio(valor, false);
 				for(Infectado i: infectados) {
 					i.setQuieto(false);
 				}

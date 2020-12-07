@@ -7,6 +7,7 @@ import Entidades.Jugador;
 import Entidades.Premios.PremioTemporal;
 import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
+import Logica.Juego;
 
 //TEMPORAL
 public class VisitorSuperArma extends VisitorPremioTemporal {
@@ -20,7 +21,10 @@ public class VisitorSuperArma extends VisitorPremioTemporal {
 	public void visit(Jugador jug) {
 		EstadoArma estado_actual = jug.getEstadoArma();
 		jug.setEstadoArma(new ConSuperArma(jug));
+		PremioTemporal p=(PremioTemporal) entidad;
+		int valor=p.getValor();
 		entidad.eliminar();
+		Juego.getJuego().setEstadoPremio(valor, true);
 
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
@@ -28,6 +32,7 @@ public class VisitorSuperArma extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoArma(estado_actual);
+				Juego.getJuego().setEstadoPremio(valor, false);
 				this.cancel();
 			};
 		};

@@ -50,7 +50,8 @@ public abstract class Infectado extends Entidad {
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
-				movimiento = new Vertical_loop(inf, Vertical.ABAJO);
+				if(juego.jugando())
+					movimiento = new Vertical_loop(inf, Vertical.ABAJO);
 				timer.cancel();
 			};
 		};

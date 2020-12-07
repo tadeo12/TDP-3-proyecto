@@ -8,12 +8,12 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
 
 import Entidades.InfectadoAlpha;
 import Entidades.InfectadoBeta;
@@ -31,8 +31,6 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 
-
-
 public class Gui extends JFrame {
 
 	private FondoPanel panelJuego;
@@ -40,92 +38,89 @@ public class Gui extends JFrame {
 	private Thread hiloJuego;
 	private JLabel cargaViral, cargaViralMaxima, nivelTanda;
 	private JLabel[] estados;
-	
-	
-	public Gui() {
-		
+
+	public Gui(int dificultad) {
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 949, 700);
-		JPanel contentPane=new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setLayout(null);
-		
+
 		panelJuego = new FondoPanel();
 		panelJuego.setBounds(0, 60, 933, 601);
 		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelJuego.setLayout(null);
 		contentPane.add(panelJuego);
-		
-		
-		JPanel barraSuperior= new JPanel();
+
+		JPanel barraSuperior = new JPanel();
 		barraSuperior.setBounds(0, 0, 933, 60);
 		contentPane.add(barraSuperior);
 		barraSuperior.setLayout(null);
 		barraSuperior.setBackground(Color.BLACK);
-		
-		JPanel panelMejoras= new JPanel();
-		
+
+		JPanel panelMejoras = new JPanel();
+
 		panelMejoras.setBounds(615, 0, 258, 60);
 		panelMejoras.setBackground(Color.BLACK);
-		panelMejoras.setLayout(new GridLayout(1,4));
+		panelMejoras.setLayout(new GridLayout(1, 4));
 		panelMejoras.setVisible(true);
-		estados= new JLabel[4];
-		for(int i=0;i< 4 ;i++) {
-			estados[i]= new JLabel();
-			estados[i].setSize( 50 , 50 ); //308/4,60);
+		estados = new JLabel[4];
+		for (int i = 0; i < 4; i++) {
+			estados[i] = new JLabel();
+			estados[i].setSize(50, 50); 
 			panelMejoras.add(estados[i]);
-			//estados[i].setEnabled(false);
-			
+			estados[i].setEnabled(false);
+
 		}
 		estados[0].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/bajoCero.png")));
 		estados[1].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/inmunidad.png")));
 		estados[2].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Jugador/disparo_boost.gif")));
 		estados[3].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/velocidad.png")));
-		for(int i=0;i< 4 ;i++) {
-			reDimensionar(estados[i],(ImageIcon) estados[i].getIcon());
+		for (int i = 0; i < 4; i++) {
+			reDimensionar(estados[i], (ImageIcon) estados[i].getIcon());
 		}
-		
+
 		barraSuperior.add(panelMejoras);
-		
-		
+
 		cargaViral = new JLabel();
 		cargaViral.setBackground(new Color(51, 91, 17));
 		cargaViral.setBounds(10, 11, 0, 38);
 		cargaViral.setOpaque(true);
-		cargaViral.setBorder(new LineBorder(Color.BLACK,2));
+		cargaViral.setBorder(new LineBorder(Color.BLACK, 2));
 		barraSuperior.add(cargaViral);
-		
+
 		cargaViralMaxima = new JLabel();
-		cargaViralMaxima.setBackground(new Color(242, 78,133));
+		cargaViralMaxima.setBackground(new Color(242, 78, 133));
 		cargaViralMaxima.setBounds(10, 11, 500, 38);
 		cargaViralMaxima.setOpaque(true);
-		cargaViralMaxima.setBorder(new LineBorder(Color.BLACK,2));
+		cargaViralMaxima.setBorder(new LineBorder(Color.BLACK, 2));
 		barraSuperior.add(cargaViralMaxima);
-		
+
 		nivelTanda = new JLabel("");
-		nivelTanda.setIcon( new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel1tanda1.png")));	
-		
-		nivelTanda.setBounds(520, 0, 95, 60) ;
+		nivelTanda
+				.setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel1tanda1.png")));
+
+		nivelTanda.setBounds(520, 0, 95, 60);
 		barraSuperior.add(nivelTanda);
-		
 
 		this.setFocusable(true);
-		
+
 		setContentPane(contentPane);
 		setLocationRelativeTo(null);
-		
+
 		juego = Juego.getJuego();
 		juego.setGUI(this);
+		juego.setDificultad(dificultad);
 
-		this.addKeyListener(new OyenteTeclado(juego)); 
-		
-		hiloJuego= new Thread() {
-			public void run() {				
+		this.addKeyListener(new OyenteTeclado(juego));
+
+		hiloJuego = new Thread() {
+			public void run() {
 				juego.run();
 			}
-		};	
-		
+		};
+
 		hiloJuego.start();
-		
 
 		this.repaint();
 		panelJuego.repaint();
@@ -133,26 +128,25 @@ public class Gui extends JFrame {
 
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
 		Image image = grafico.getImage();
-		if (image != null) {  
-			Image newimg = image.getScaledInstance(label.getWidth(), label.getHeight(),  java.awt.Image.SCALE_SMOOTH);
+		if (image != null) {
+			Image newimg = image.getScaledInstance(label.getWidth(), label.getHeight(), java.awt.Image.SCALE_SMOOTH);
 			grafico.setImage(newimg);
 			label.repaint();
 		}
 	}
-	
+
 	public void gano() {
 		System.out.println("gano");
 		this.juego = null;
 	}
-	
+
 	public void perdio() {
 		this.juego = null;
 		hiloJuego = null;
-		this.juego = null;
 		this.panelJuego = null;
 		this.dispose();
 		GameOver go = new GameOver();
-		go.setVisible(true);		
+		go.setVisible(true);
 
 	}
 
@@ -160,53 +154,45 @@ public class Gui extends JFrame {
 		return panelJuego;
 	}
 
-	private Juego getJuego() {
-		return juego;
-	}
-	
-
 	public void cambioNivel(int nivel) {
-		/*System.out.println("ni");
-		this.audioActual = nivel - 1 ;
 		
-		if(this.botonAudio.isSelected()) {
-			if(audioActual > 0 ) {
-				audioOff();
-				audioOn();
-			}else audioOn();
-		}*/
-		panelJuego.setFondoNivel(nivel-1);
-		panelJuego.pantallaNivel(nivel-1);
+		panelJuego.setFondoNivel(nivel - 1);
+		panelJuego.pantallaNivel(nivel - 1);
 		juego.pausa();
-		panelJuego.setFondoNivel(nivel-1);
+		panelJuego.setFondoNivel(nivel - 1);
 		panelJuego.repaint();
-		
+
 	}
 
 	public void actualizarBarraViral(int infeccion) {
-		cargaViral.setSize((cargaViralMaxima.getWidth()/100)*infeccion,cargaViral.getHeight());
-		
+		cargaViral.setSize((cargaViralMaxima.getWidth() / 100) * infeccion, cargaViral.getHeight());
+
 	}
 
 	public void actualizarNivelTanda(int nivel, int tanda) {
-		ImageIcon im = new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel"+nivel+"tanda"+tanda+".png"));
+		ImageIcon im = new ImageIcon(
+				getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel" + nivel + "tanda" + tanda + ".png"));
 		this.nivelTanda.setIcon(im);
 	}
-	public void actualizarBarraEstados(int estadoActualJugador, int estadoArma) {
-		
+
+	public void actualizarPowerUps(List<Boolean> mejoras) {
+		for (int i = 0; i < estados.length; i++) {
+			estados[i].setEnabled(mejoras.get(i));
+		}
 	}
-	
+
 	public void sonidoDisparar() {
 		try {
-			Clip disparo = AudioSystem.getClip(); 
-			disparo.open(AudioSystem.getAudioInputStream(getClass().getResource("/RercursosMP3/DisparosJugador/disparo_normal.wav")));
+			Clip disparo = AudioSystem.getClip();
+			disparo.open(AudioSystem
+					.getAudioInputStream(getClass().getResource("/RercursosMP3/DisparosJugador/disparo_normal.wav")));
 			disparo.start();
-			
-		}catch(LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+
+		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
 			e.printStackTrace();
 			e.getMessage();
 			System.out.println("error audio");
 		}
 	}
-	
+
 }

@@ -10,8 +10,9 @@ public class VisitorProyectilSanitario extends Visitor {
 	
 	public void visit(InfectadoAlpha i) {
 		ProyectilSanitario e = (ProyectilSanitario) entidad;
-		i.disminuirCargaViral(e.getDamage());
 		e.eliminar();
+		i.disminuirCargaViral(e.getDamage());
+		
 	}
 
 	public void visit(InfectadoBeta i) {

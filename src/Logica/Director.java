@@ -1,7 +1,5 @@
 package Logica;
 
-import GUI.LectorArchivo;
-
 public class Director {
 
 	private int infectadosPorNivel[][];
@@ -11,10 +9,10 @@ public class Director {
 	
 	private final int tandasPorNivel = 2;
 
-	public Director() {
+	public Director(int dificultad) {
 		nivelActual = 0;
 		LectorArchivo l = new LectorArchivo();
-		infectadosPorNivel = l.obtenerMatrizInfectado();
+		infectadosPorNivel = l.obtenerMatrizInfectado(dificultad);
 		builder= new BuilderDefault();
 		ultimoNivel=(infectadosPorNivel.length/tandasPorNivel); 
 	}

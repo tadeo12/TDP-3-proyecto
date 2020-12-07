@@ -15,6 +15,7 @@ public class SuperVelocidad extends PremioTemporal {
 		duracion = 9000;
 		visitor = new VisitorSuperVelocidad(this);
 		velocidad=4;
+		valor=3;
 	}
 	
 	public void accept(Visitor visitor) {

@@ -10,9 +10,8 @@ public class VisitorParticulaV extends Visitor {
 	
 	public void visit(Jugador j) {
 		Proyectil p = (Proyectil) entidad;
-		j.incrementarCargaViral(p.getDamage());
 		p.eliminar();
-		//System.out.println("carga "+j.getCargaViral());
+		j.incrementarCargaViral(p.getDamage()) ;
 	}
 
 }

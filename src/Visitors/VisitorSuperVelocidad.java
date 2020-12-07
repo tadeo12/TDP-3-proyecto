@@ -7,6 +7,7 @@ import Entidades.Jugador;
 import Entidades.Premios.PremioTemporal;
 import EstadosJugador.EstadoJugador;
 import EstadosJugador.EstadoSuperVeloz;
+import Logica.Juego;
 
 //TEMPORAL
 public class VisitorSuperVelocidad extends VisitorPremioTemporal {
@@ -20,14 +21,17 @@ public class VisitorSuperVelocidad extends VisitorPremioTemporal {
 	public void visit(Jugador jug) {
 		EstadoJugador estado_actual = jug.getEstadoJugador();
 		jug.setEstadoJugador(new EstadoSuperVeloz(jug));
+		PremioTemporal p=(PremioTemporal) entidad;
+		int valor=p.getValor();
 		entidad.eliminar();
-
+		Juego.getJuego().setEstadoPremio(valor, false);
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
 			public void run() {
 				jug.setEstadoJugador(estado_actual);
+				Juego.getJuego().setEstadoPremio(valor, true);
 				this.cancel();
 			};
 		};

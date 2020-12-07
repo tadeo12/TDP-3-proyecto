@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import Entidades.Jugador;
 import Entidades.Premios.PremioTemporal;
 import EstadosJugador.EstadoJugador;
+import Logica.Juego;
 import EstadosJugador.EstadoInmune;
 
 public class VisitorInmunidad extends VisitorPremioTemporal {
@@ -19,7 +20,10 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 	public void visit(Jugador jug) {
 		EstadoJugador estado_actual = jug.getEstadoJugador();
 		jug.setEstadoJugador(new EstadoInmune(jug));
+		PremioTemporal p=(PremioTemporal) entidad;
+		int valor=p.getValor();
 		entidad.eliminar();
+		Juego.getJuego().setEstadoPremio(valor, true);
 		
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
@@ -27,6 +31,7 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoJugador(estado_actual);
+				Juego.getJuego().setEstadoPremio(valor, false);
 				this.cancel();
 			};
 		};

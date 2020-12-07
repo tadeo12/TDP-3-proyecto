@@ -63,40 +63,38 @@ public class Menu extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_1.setBackground(new Color(0, 255, 0));
-		btnNewButton_1.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/normal.gif")));
-		//btnNewButton_1.setOpaque(true);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton botonNormal = new JButton("");
+		botonNormal.setBorder(new LineBorder(Color.BLACK));
+		botonNormal.setBackground(new Color(0, 255, 0));
+		botonNormal.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/normal.gif")));
+		//botonNormal.setOpaque(true);
+		botonNormal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Gui frame = new Gui();
+				Gui frame = new Gui(0);
 				frame.setVisible(true);
 				frame.setResizable(false);
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(45, 301, 397, 93);
-		contentPane.add(btnNewButton_1);
+		botonNormal.setBounds(45, 301, 397, 93);
+		contentPane.add(botonNormal);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBackground(new Color(0, 255, 0));//
-		btnNewButton.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/hardcore.gif")));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton botonHardcore = new JButton("");
+		botonHardcore.setBorder(new LineBorder(Color.BLACK));
+		botonHardcore.setForeground(new Color(0, 0, 0));
+		botonHardcore.setBackground(new Color(0, 255, 0));//
+		botonHardcore.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/hardcore.gif")));
+		botonHardcore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				Gui frame = new Gui();
+				Gui frame = new Gui(1);
 				frame.setVisible(true);
 				frame.setResizable(false);
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(45, 407, 397, 93);
-		contentPane.add(btnNewButton);
+		botonHardcore.setBounds(45, 407, 397, 93);
+		contentPane.add(botonHardcore);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Menu.class.getResource("/RecursosGraficos_Extras/FONDO MENU.png")));

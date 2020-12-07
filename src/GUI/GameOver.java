@@ -35,36 +35,36 @@ public class GameOver extends JFrame {
 		setLocationRelativeTo(null);
 		
 
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton tryAgain = new JButton("New button");
+		tryAgain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Gui gui = new Gui();
-				gui.setVisible(true);
+				Menu frame = new Menu();
+				frame.setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/tryAgain.png")));
-		btnNewButton.setBounds(415, 527, 208, 49);
-		contentPane.add(btnNewButton);
+		tryAgain.setBackground(Color.BLACK);
+		tryAgain.setBorder(new LineBorder(Color.BLACK));
+		tryAgain.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/tryAgain.png")));
+		tryAgain.setBounds(415, 527, 208, 49);
+		contentPane.add(tryAgain);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton salir = new JButton("New button");
+		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBorder(new LineBorder(Color.BLACK));
-		btnNewButton_1.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/salir.png")));
-		btnNewButton_1.setBounds(669, 527, 184, 49);
-		contentPane.add(btnNewButton_1);
+		salir.setBorder(new LineBorder(Color.BLACK));
+		salir.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/salir.png")));
+		salir.setBounds(669, 527, 184, 49);
+		contentPane.add(salir);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/GAME_OVER.gif")));
-		lblNewLabel.setOpaque(false);
-		lblNewLabel.setBounds(0, 0, 921, 643);
-		contentPane.add(lblNewLabel);
+		JLabel gameOver = new JLabel("");
+		gameOver.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/GAME_OVER.gif")));
+		gameOver.setOpaque(false);
+		gameOver.setBounds(0, 0, 921, 643);
+		contentPane.add(gameOver);
 		
 	}
 }

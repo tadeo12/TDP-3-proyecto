@@ -14,6 +14,7 @@ public class Inmunidad extends PremioTemporal {
 		duracion = 20000;
 		visitor = new VisitorInmunidad(this);
 		velocidad=5;
+		valor=1;
 	}
 
 	@Override
