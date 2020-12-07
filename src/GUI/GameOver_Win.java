@@ -17,11 +17,13 @@ import java.awt.event.ActionEvent;
 public class GameOver_Win extends JFrame {
 
 	private JPanel contentPane;
-
+	private int pantalla;
 	/**
 	 * Create the frame.
 	 */
 	public GameOver_Win( int pantalla ) {// si es 1 entonces gano, 0 caso contrario :)
+		
+		setIconImage(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/icon.png")).getImage());
 		
 		this.setResizable(false);
 		
@@ -35,7 +37,7 @@ public class GameOver_Win extends JFrame {
 		setLocationRelativeTo(null);
 		
 
-		JButton tryAgain = new JButton("New button");
+		JButton tryAgain = new JButton("");
 		tryAgain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Menu frame = new Menu();
@@ -45,23 +47,23 @@ public class GameOver_Win extends JFrame {
 		});
 		tryAgain.setBackground(Color.BLACK);
 		tryAgain.setBorder(new LineBorder(Color.BLACK));
-		tryAgain.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/tryAgain.png")));
-		tryAgain.setBounds(415, 527, 208, 49);
+		tryAgain.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/tryAgain"+pantalla+".png")));
+		tryAgain.setBounds(459, 527, 198, 49);
 		contentPane.add(tryAgain);
 		
-		JButton salir = new JButton("New button");
+		JButton salir = new JButton("");
 		salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
 		salir.setBorder(new LineBorder(Color.BLACK));
-		salir.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/salir.png")));
+		salir.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/salir"+pantalla+".png")));
 		salir.setBounds(669, 527, 184, 49);
 		contentPane.add(salir);
 		
 		JLabel gameOver = new JLabel("");
-		gameOver.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/GAME_OVER.gif")));
+		gameOver.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/pantalla"+pantalla+".gif")));
 		gameOver.setOpaque(false);
 		gameOver.setBounds(0, 0, 921, 643);
 		contentPane.add(gameOver);

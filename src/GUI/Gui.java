@@ -40,6 +40,8 @@ public class Gui extends JFrame {
 	private JLabel[] estados;
 
 	public Gui(int dificultad) {
+		
+		setIconImage(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/icon.png")).getImage());
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 949, 700);
@@ -74,7 +76,7 @@ public class Gui extends JFrame {
 		}
 		estados[0].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/bajoCero.png")));
 		estados[1].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/inmunidad.png")));
-		estados[2].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Jugador/disparo_boost.gif")));
+		estados[2].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/superArma.gif")));
 		estados[3].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/velocidad.png")));
 		for (int i = 0; i < 4; i++) {
 			reDimensionar(estados[i], (ImageIcon) estados[i].getIcon());
@@ -152,7 +154,7 @@ public class Gui extends JFrame {
 		hiloJuego = null;
 		this.panelJuego = null;
 		this.dispose();
-		GameOver_Win go = new GameOver_Win(0);
+		GameOver_Win go = new GameOver_Win(1);
 		go.setVisible(true);
 
 	}
@@ -190,9 +192,10 @@ public class Gui extends JFrame {
 
 	public void sonidoDisparar() {
 		try {
+			
 			Clip disparo = AudioSystem.getClip();
 			disparo.open(AudioSystem
-					.getAudioInputStream(getClass().getResource("/RercursosMP3/DisparosJugador/disparo_normal.wav")));
+					.getAudioInputStream(getClass().getResource("/RercursosWAV/disparo_normal.wav")));
 			disparo.start();
 
 		} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {

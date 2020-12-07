@@ -24,14 +24,14 @@ public class VisitorSuperVelocidad extends VisitorPremioTemporal {
 		PremioTemporal p=(PremioTemporal) entidad;
 		int valor=p.getValor();
 		entidad.eliminar();
-		Juego.getJuego().setEstadoPremio(valor, false);
+		Juego.getJuego().setEstadoPremio(valor, true);
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
 			public void run() {
 				jug.setEstadoJugador(estado_actual);
-				Juego.getJuego().setEstadoPremio(valor, true);
+				Juego.getJuego().setEstadoPremio(valor, false);
 				this.cancel();
 			};
 		};
