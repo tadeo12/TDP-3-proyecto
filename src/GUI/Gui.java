@@ -136,8 +136,15 @@ public class Gui extends JFrame {
 	}
 
 	public void gano() {
-		System.out.println("gano");
+		
+		GameOver_Win win = new GameOver_Win(1);
+		
+		hiloJuego = null;
+		this.panelJuego = null;
+		this.dispose();
 		this.juego = null;
+		
+		
 	}
 
 	public void perdio() {
@@ -145,7 +152,7 @@ public class Gui extends JFrame {
 		hiloJuego = null;
 		this.panelJuego = null;
 		this.dispose();
-		GameOver go = new GameOver();
+		GameOver_Win go = new GameOver_Win(0);
 		go.setVisible(true);
 
 	}

@@ -14,14 +14,14 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GameOver extends JFrame {
+public class GameOver_Win extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Create the frame.
 	 */
-	public GameOver() {
+	public GameOver_Win( int pantalla ) {// si es 1 entonces gano, 0 caso contrario :)
 		
 		this.setResizable(false);
 		
@@ -45,7 +45,7 @@ public class GameOver extends JFrame {
 		});
 		tryAgain.setBackground(Color.BLACK);
 		tryAgain.setBorder(new LineBorder(Color.BLACK));
-		tryAgain.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/tryAgain.png")));
+		tryAgain.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/tryAgain.png")));
 		tryAgain.setBounds(415, 527, 208, 49);
 		contentPane.add(tryAgain);
 		
@@ -56,12 +56,12 @@ public class GameOver extends JFrame {
 			}
 		});
 		salir.setBorder(new LineBorder(Color.BLACK));
-		salir.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/salir.png")));
+		salir.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/salir.png")));
 		salir.setBounds(669, 527, 184, 49);
 		contentPane.add(salir);
 		
 		JLabel gameOver = new JLabel("");
-		gameOver.setIcon(new ImageIcon(GameOver.class.getResource("/RecursosGraficos_Extras/GAME_OVER.gif")));
+		gameOver.setIcon(new ImageIcon(GameOver_Win.class.getResource("/RecursosGraficos_Extras/GAME_OVER.gif")));
 		gameOver.setOpaque(false);
 		gameOver.setBounds(0, 0, 921, 643);
 		contentPane.add(gameOver);

@@ -24,7 +24,7 @@ public abstract class Label_infectado extends Entidad_grafica {
 		Random rand = new Random();
 		int i = rand.nextInt(7);
 		
-			if(lado == 1 ) {//se va para la der
+			if( lado == 1 ) {//se va para la der
 				imagen = new ImageIcon(this.getClass().getResource(this.movRight[i]));
 			}
 			else {//se va para la izq
