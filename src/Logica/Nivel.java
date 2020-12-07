@@ -35,11 +35,11 @@ public class Nivel {
 			if(tandaActual+1<tandas.size()){
 				tandaActual++;
 				tandas.get(tandaActual).aparecer();
-				juego.setNivelCompletado(false);
+			//	juego.setNivelCompletado(false);
 			}
 			else {
 				juego.nivelCompleto();
-				juego.setNivelCompletado(true);
+			//juego.setNivelCompletado(true);
 			}
 		}
 	}
