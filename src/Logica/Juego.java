@@ -17,6 +17,7 @@ public class Juego implements Runnable {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 	private boolean nivelCompletado;
+	
 	private static Juego juego;
 
 	private boolean jugando;
@@ -123,13 +124,7 @@ public class Juego implements Runnable {
 		return this.nivelActual.getValor();
 	}
 	
-	public boolean getNivelCompletado() {
-		return this.nivelCompletado;
-	}
-	
-	public void setNivelCompletado(boolean nivelCompleto) {
-		this.nivelCompletado = nivelCompleto;
-	}
+
 	
 	public void jugar() {
 		try {
