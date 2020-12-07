@@ -33,16 +33,16 @@ public abstract class Visitor {
 	public void visit(SuperArma premio) {
 	}
 
-	public void visit(Curacion objeto) {
+	public void visit(Curacion premio) {
 	}
 
-	public void visit(BajoCero objeto) {
+	public void visit(BajoCero premio) {
 	}
 
 	public void visit(SuperVelocidad premio) {
 	}
 
-	public void visit(Inmunidad objeto) {
+	public void visit(Inmunidad premio) {
 	}
 
 	public void visit(ParticulaV particula) {

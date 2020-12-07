@@ -5,14 +5,14 @@ import Entidades.Premios.ObjetoPrecioso;
 
 public class VisitorCuracion extends VisitorObjetoPrecioso {
 
-	public VisitorCuracion(ObjetoPrecioso cur) {
-		super(cur);
+	public VisitorCuracion(ObjetoPrecioso entidad) {
+		super(entidad);
 
 	}
 
-	public void visit(Jugador jug) {
+	public void visit(Jugador jugador) {
 		entidad.eliminar();
-		jug.setCargaViral(0);
+		jugador.setCargaViral(0);
 	}
 
 }
