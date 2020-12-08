@@ -144,12 +144,11 @@ public class Gui extends JFrame {
 	public void gano() {
 		
 		GameOver_Win win = new GameOver_Win(1);
-		
 		hiloJuego = null;
 		this.panelJuego = null;
 		this.dispose();
 		this.juego = null;
-		
+		win.setVisible(true);
 		
 	}
 
