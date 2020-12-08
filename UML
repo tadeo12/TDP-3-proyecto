@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-08T04:37:16.864Z" agent="5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="pjIBfsERQc9ozlSI3ZM5" version="13.11.0" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-08T04:47:46.214Z" agent="5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="hBHNUwr1UfLzJ4a8npyI" version="13.11.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="3863" dy="1729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="6137" dy="2569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -71,8 +71,9 @@
             <Array as="points">
               <mxPoint x="-330" y="980" />
               <mxPoint x="-585" y="980" />
-              <mxPoint x="-585" y="400" />
-              <mxPoint x="-205" y="400" />
+              <mxPoint x="-585" y="660" />
+              <mxPoint x="-370" y="660" />
+              <mxPoint x="-370" y="198" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -448,7 +449,7 @@
           <mxGeometry y="346" width="180" height="26" as="geometry" />
         </mxCell>
         <mxCell id="dSYnKOCOrunItc8l694S-54" value="VIsitor *" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;shadow=0;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;sketch=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-1280" y="210" width="220" height="430" as="geometry">
+          <mxGeometry x="-1520" y="205" width="220" height="430" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -771,10 +772,10 @@
         </mxCell>
         <mxCell id="v9egMInNRLxaqqi-I0rl-30" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;startSize=16;endArrow=block;endFill=0;endSize=16;sketch=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="v9egMInNRLxaqqi-I0rl-20" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-1170" y="640" as="targetPoint" />
+            <mxPoint x="-1410" y="640" as="targetPoint" />
             <Array as="points">
               <mxPoint x="-1650" y="790" />
-              <mxPoint x="-1170" y="790" />
+              <mxPoint x="-1410" y="790" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -1477,7 +1478,7 @@
           <mxGeometry y="60" width="210" height="26" as="geometry" />
         </mxCell>
         <mxCell id="CYBP4yBlzRl9qNuG8tUW-4" value="barra de vida&lt;br&gt;power ups mostrados en la barra&lt;br&gt;HECHO splashScreen&lt;br&gt;HECHO pantalla de menu&amp;nbsp;&lt;br&gt;HECHO sprites proyectiles &amp;lt;- SE PODRIAN CAMBIAR A&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; IMAGENES, NO SE APRECIAN&amp;nbsp;&lt;br&gt;HECHO hacer que ande el movimiento del jugador&lt;br&gt;HECHO el paso de los niveles, con la barra de cambio de nivel&lt;br&gt;decidir como se utilizaria la velocidad de disparo&lt;br&gt;&lt;div&gt;&lt;span&gt;implementar entidades graficas&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;HECHO infectados, hacer que entren de a uno todos los de la tanda&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;en los factorys setear la posición&amp;nbsp;de los infectados&lt;/span&gt;&lt;/div&gt;&lt;div&gt;VISITORS&lt;/div&gt;&lt;div&gt;implementar los estados&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-1328" y="-1110" width="380" height="380" as="geometry" />
+          <mxGeometry x="1900" y="-1050" width="380" height="380" as="geometry" />
         </mxCell>
         <mxCell id="q8KwtaokT5z9HUr_xnD0-4" value="VisitorBajoCero" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;shadow=0;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;sketch=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-2233" y="1268.5" width="250" height="89" as="geometry">
@@ -1655,14 +1656,14 @@
         </mxCell>
         <mxCell id="q8KwtaokT5z9HUr_xnD0-107" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;startSize=16;endArrow=block;endFill=0;endSize=16;sketch=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Yy9ENhgKaCjBHOMG8HXy-13" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-1170" y="640" as="targetPoint" />
+            <mxPoint x="-1410" y="630" as="targetPoint" />
             <mxPoint x="-880" y="802.5" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="-900" y="1145" />
               <mxPoint x="-900" y="786" />
               <mxPoint x="-1130" y="786" />
               <mxPoint x="-1130" y="790" />
-              <mxPoint x="-1170" y="790" />
+              <mxPoint x="-1410" y="790" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -1679,11 +1680,11 @@
         </mxCell>
         <mxCell id="q8KwtaokT5z9HUr_xnD0-108" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;startSize=16;endArrow=block;endFill=0;endSize=16;sketch=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Yy9ENhgKaCjBHOMG8HXy-6" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-1170" y="640" as="targetPoint" />
+            <mxPoint x="-1410" y="640" as="targetPoint" />
             <mxPoint x="-645" y="980" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="-1025" y="790" />
-              <mxPoint x="-1170" y="790" />
+              <mxPoint x="-1410" y="790" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -1704,7 +1705,7 @@
               <mxPoint x="-1171" y="899" />
               <mxPoint x="-1160" y="899" />
               <mxPoint x="-1160" y="790" />
-              <mxPoint x="-1170" y="790" />
+              <mxPoint x="-1410" y="790" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -1726,17 +1727,19 @@
             <Array as="points">
               <mxPoint x="-1390" y="904" />
               <mxPoint x="-1390" y="790" />
-              <mxPoint x="-1170" y="790" />
+              <mxPoint x="-1410" y="790" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="q8KwtaokT5z9HUr_xnD0-111" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;startSize=16;endArrow=block;endFill=0;endSize=16;sketch=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="32I4uiyo9MOdw012Cdwp-3" edge="1">
+        <mxCell id="q8KwtaokT5z9HUr_xnD0-111" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;startSize=16;endArrow=block;endFill=0;endSize=16;sketch=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="32I4uiyo9MOdw012Cdwp-3" edge="1" target="dSYnKOCOrunItc8l694S-54">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-1170" y="640" as="targetPoint" />
             <mxPoint x="-1954.2857142857142" y="846" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="-1838" y="790" />
               <mxPoint x="-1170" y="790" />
+              <mxPoint x="-1170" y="780" />
+              <mxPoint x="-1410" y="780" />
             </Array>
           </mxGeometry>
         </mxCell>
