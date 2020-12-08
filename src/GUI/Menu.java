@@ -35,7 +35,7 @@ public class Menu extends JFrame {
 				try {
 
 					Menu frame = new Menu();
-					
+
 					frame.setVisible(true);
 					
 				} catch (Exception e) {

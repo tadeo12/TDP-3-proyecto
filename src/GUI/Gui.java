@@ -20,6 +20,7 @@ import Entidades.InfectadoBeta;
 import Logica.Juego;
 
 import javax.swing.JLabel;
+
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
@@ -40,6 +41,7 @@ public class Gui extends JFrame {
 	private Thread hiloJuego;
 	private JLabel cargaViral, cargaViralMaxima, nivelTanda;
 	private JLabel[] estados;
+	private JLabel fondoJuego;
 	
 	public Gui(int dificultad) {
 		
@@ -51,12 +53,20 @@ public class Gui extends JFrame {
 		setBounds(100, 100, 949, 700);
 		JPanel contentPane = new JPanel();
 		contentPane.setLayout(null);
-
+		
 		panelJuego = new FondoPanel();
 		panelJuego.setBounds(0, 60, 933, 601);
 		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelJuego.setLayout(null);
 		contentPane.add(panelJuego);
+		
+		fondoJuego = new JLabel("New label");
+		fondoJuego.setIcon(new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL01.png")));
+		fondoJuego.setBounds(0, 0, 933,601);
+		reDimensionar(fondoJuego, (ImageIcon) fondoJuego.getIcon());
+		panelJuego.add(fondoJuego);
+		panelJuego.moveToBack(fondoJuego);
+		
 		panelJuego.repaint();
 		JPanel barraSuperior = new JPanel();
 		barraSuperior.setBounds(0, 0, 933, 60);
@@ -103,8 +113,7 @@ public class Gui extends JFrame {
 		barraSuperior.add(cargaViralMaxima);
 
 		nivelTanda = new JLabel("");
-		nivelTanda
-				.setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel1tanda1.png")));
+		nivelTanda.setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel1tanda1.png")));
 
 		nivelTanda.setBounds(520, 0, 95, 60);
 		barraSuperior.add(nivelTanda);
@@ -123,13 +132,17 @@ public class Gui extends JFrame {
 		hiloJuego = new Thread() {
 			public void run() {
 				juego.run();
+				
 			}
 		};
 
+		
 		hiloJuego.start();
 
+		
 		this.repaint();
 		panelJuego.repaint();
+		
 	}
 
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
@@ -137,6 +150,7 @@ public class Gui extends JFrame {
 		if (image != null) {
 			Image newimg = image.getScaledInstance(label.getWidth(), label.getHeight(), java.awt.Image.SCALE_SMOOTH);
 			grafico.setImage(newimg);
+			label.setIcon(grafico);
 			label.repaint();
 		}
 	}
@@ -144,12 +158,11 @@ public class Gui extends JFrame {
 	public void gano() {
 		
 		GameOver_Win win = new GameOver_Win(1);
-		
 		hiloJuego = null;
 		this.panelJuego = null;
 		this.dispose();
 		this.juego = null;
-		
+		win.setVisible(true);
 		
 	}
 
@@ -169,6 +182,8 @@ public class Gui extends JFrame {
 
 	public void cambioNivel(int nivel) {
 		
+		this.reDimensionar(fondoJuego, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL0"+nivel+".png")));
+		panelJuego.moveToBack(fondoJuego);
 		panelJuego.setFondoNivel(nivel - 1);
 		panelJuego.pantallaNivel(nivel - 1);
 		juego.pausa();

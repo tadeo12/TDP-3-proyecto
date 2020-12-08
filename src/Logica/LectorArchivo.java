@@ -22,7 +22,6 @@ public class LectorArchivo {
 		
 		try {
 			String rutaArchivo= dificultad==0?archivoNormal:archivoHardcore;
-			System.out.println(rutaArchivo);
 			InputStream in = LectorArchivo.class.getClassLoader().getResourceAsStream(rutaArchivo);
             InputStreamReader inr = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(inr);

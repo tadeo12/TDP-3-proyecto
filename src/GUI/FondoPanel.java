@@ -6,11 +6,14 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import java.awt.Component;
 //import java.awt.BorderLayout;
 
-class FondoPanel extends JPanel {
+class FondoPanel extends JLayeredPane  {
 
 	private Image imagen;
 	private String[] nivelesTransicion = new String[] { "/RecursosGraficosNiveles/LVL01.png",
@@ -24,29 +27,20 @@ class FondoPanel extends JPanel {
 
 		nivelActual = 0;
 		setLayout(null);
-
 		nivelTransicionLabel = new JLabel();
 		this.add(nivelTransicionLabel);
+		this.repaint();
 		
-
 	}
 
-	public void paint(Graphics g) {
-
-			imagen = new ImageIcon(getClass().getResource(this.fondoNiveles[nivelActual])).getImage();
-		// else
-		// imagen = new
-		// ImageIcon(getClass().getResource("RecursosGraficos_Extras/GAME_OVER.gif")).getImage();
-
-		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-		setOpaque(false);
-		super.paint(g);
-
+	public Component add(Component p) {
+		Component comp = super.add(p);
+		this.moveToFront(p);
+		return comp;
 	}
 
 	public void setFondoNivel(int nivelActual) {
-		// imagen = new ImageIcon( getClass().getResource( this.fondoNiveles[
-		// nivelActual ] )).getImage();
+
 		this.nivelActual = nivelActual;
 		this.nivelTransicionLabel.setVisible(false);
 		this.repaint();
