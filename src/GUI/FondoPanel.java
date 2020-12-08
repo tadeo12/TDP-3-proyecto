@@ -18,9 +18,7 @@ class FondoPanel extends JPanel {
 	private String[] fondoNiveles = new String[] { "/RecursosGraficosNiveles/FONDO-LVL01.png ",
 			"/RecursosGraficosNiveles/FONDO-LVL02.png", "/RecursosGraficosNiveles/FONDO-LVL03.png" };
 	private JLabel nivelTransicionLabel;
-	private JPanel panelGameOver;
 	private int nivelActual;
-	private boolean gameOver;
 
 	public FondoPanel() {
 
@@ -34,7 +32,7 @@ class FondoPanel extends JPanel {
 	}
 
 	public void paint(Graphics g) {
-		if (!gameOver)
+
 			imagen = new ImageIcon(getClass().getResource(this.fondoNiveles[nivelActual])).getImage();
 		// else
 		// imagen = new
@@ -62,16 +60,6 @@ class FondoPanel extends JPanel {
 		this.nivelTransicionLabel.repaint();
 		this.nivelTransicionLabel.setBounds(this.getX(), (this.getY() + this.getHeight() - 165) / 2, this.getWidth(),
 				165);
-	}
-
-	public void gameOver() {
-		this.gameOver = true;
-		panelGameOver = new JPanel();
-		panelGameOver.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panelGameOver.setBackground(Color.PINK);
-		panelGameOver.setBounds(0, 185, 450, -73);
-		this.add(panelGameOver);
-		this.repaint();
 	}
 
 }
