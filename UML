@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-12-07T21:44:56.074Z" agent="5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="AXMiGmSGOOjgAIrBi79m" version="13.11.0" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-08T02:55:23.552Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36" etag="Z0ufeJxotzzyMpoLL7D8" version="13.11.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="6665" dy="4298" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="4961" dy="2575" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -1434,7 +1434,7 @@
           <mxGeometry y="60" width="210" height="26" as="geometry" />
         </mxCell>
         <mxCell id="CYBP4yBlzRl9qNuG8tUW-4" value="barra de vida&lt;br&gt;power ups mostrados en la barra&lt;br&gt;HECHO splashScreen&lt;br&gt;HECHO pantalla de menu&amp;nbsp;&lt;br&gt;HECHO sprites proyectiles &amp;lt;- SE PODRIAN CAMBIAR A&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; IMAGENES, NO SE APRECIAN&amp;nbsp;&lt;br&gt;HECHO hacer que ande el movimiento del jugador&lt;br&gt;HECHO el paso de los niveles, con la barra de cambio de nivel&lt;br&gt;decidir como se utilizaria la velocidad de disparo&lt;br&gt;&lt;div&gt;&lt;span&gt;implementar entidades graficas&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;HECHO infectados, hacer que entren de a uno todos los de la tanda&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;en los factorys setear la posición&amp;nbsp;de los infectados&lt;/span&gt;&lt;/div&gt;&lt;div&gt;VISITORS&lt;/div&gt;&lt;div&gt;implementar los estados&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-590" y="-1290" width="380" height="380" as="geometry" />
+          <mxGeometry x="-1328" y="-1110" width="380" height="380" as="geometry" />
         </mxCell>
         <mxCell id="q8KwtaokT5z9HUr_xnD0-4" value="VisitorBajoCero" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;shadow=0;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;sketch=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-2073" y="1238.5" width="250" height="89" as="geometry">
