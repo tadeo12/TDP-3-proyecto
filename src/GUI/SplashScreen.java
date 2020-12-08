@@ -32,7 +32,7 @@ public class SplashScreen extends JWindow{
 		
 		repaint();
 	
-		
+
 
 	}
 
