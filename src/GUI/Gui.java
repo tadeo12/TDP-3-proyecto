@@ -30,6 +30,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 public class Gui extends JFrame {
 
@@ -53,7 +55,7 @@ public class Gui extends JFrame {
 		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelJuego.setLayout(null);
 		contentPane.add(panelJuego);
-
+		panelJuego.repaint();
 		JPanel barraSuperior = new JPanel();
 		barraSuperior.setBounds(0, 0, 933, 60);
 		contentPane.add(barraSuperior);
@@ -204,5 +206,4 @@ public class Gui extends JFrame {
 			System.out.println("error audio");
 		}
 	}
-
 }
