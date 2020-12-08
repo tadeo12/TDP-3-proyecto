@@ -5,7 +5,7 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-public class Label_super_proyectil extends Label_proyectil{
+public class Label_super_proyectil extends Label_proyectil_sanitario{
 	
 	public Label_super_proyectil(Point p) {
 		super();
