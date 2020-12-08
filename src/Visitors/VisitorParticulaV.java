@@ -13,5 +13,4 @@ public class VisitorParticulaV extends Visitor {
 		p.eliminar();
 		j.incrementarCargaViral(p.getDamage()) ;
 	}
-
 }

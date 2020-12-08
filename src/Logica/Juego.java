@@ -17,7 +17,7 @@ public class Juego implements Runnable {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 	private boolean nivelCompletado;
-	
+
 	private static Juego juego;
 
 	private boolean jugando;
@@ -30,7 +30,7 @@ public class Juego implements Runnable {
 	private Director director;
 	private Nivel nivelActual;
 	private int dificultad;
-	
+
 	private List<Boolean> listaPowerUps;
 
 	private Juego() {
@@ -42,9 +42,9 @@ public class Juego implements Runnable {
 		entidades = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
-		dificultad=0;
-		listaPowerUps=new LinkedList<Boolean>();
-		for(int i=0;i<4;i++) {
+		dificultad = 0;
+		listaPowerUps = new LinkedList<Boolean>();
+		for (int i = 0; i < 4; i++) {
 			listaPowerUps.add(false);
 		}
 
@@ -87,9 +87,11 @@ public class Juego implements Runnable {
 
 	public void eliminarEntidad(Entidad a_eliminar) {
 		aEliminar.add(a_eliminar);
-		Entidad_grafica ent=a_eliminar.getGrafico();
-		getMapa().remove(ent);
-		getMapa().repaint();
+		Entidad_grafica ent = a_eliminar.getGrafico();
+		if (jugando) {
+			getMapa().remove(ent);
+			getMapa().repaint();
+		}
 	}
 
 	public void nivelCompleto() {
@@ -105,15 +107,15 @@ public class Juego implements Runnable {
 
 	private void siguienteNivel() {
 		for (Entidad e : entidades) {
-			if(e!=jugador) {
+			if (e != jugador) {
 				gui.getMapa().remove(e.getGrafico());
 			}
 		}
-		entidades=new LinkedList<Entidad>();
-		entidades.add(jugador); 
+		entidades = new LinkedList<Entidad>();
+		entidades.add(jugador);
 		nivelActual = director.construirSiguienteNivel();
-		this.gui.cambioNivel( nivelActual.getValor()+1 );
-		
+		this.gui.cambioNivel(nivelActual.getValor() + 1);
+
 	}
 
 	public void setGUI(Gui gui) {
@@ -123,16 +125,14 @@ public class Juego implements Runnable {
 	public int getNivel() {
 		return this.nivelActual.getValor();
 	}
-	
 
-	
 	public void jugar() {
 		try {
 			jugando = true;
 			director = new Director(dificultad);
 			this.gui.cambioNivel(1);
 			nivelActual = director.construirSiguienteNivel();
-			jugador=new Jugador();
+			jugador = new Jugador();
 			while (jugando) {
 				for (Entidad e : entidades) {
 					e.accionar();
@@ -150,7 +150,7 @@ public class Juego implements Runnable {
 
 	private void actualizarDatosJuego() {
 		gui.actualizarBarraViral(jugador.getCargaViral());
-		gui.actualizarNivelTanda(nivelActual.getValor()+1, nivelActual.getNumeroTanda()+1);
+		gui.actualizarNivelTanda(nivelActual.getValor() + 1, nivelActual.getNumeroTanda() + 1);
 		gui.actualizarPowerUps(listaPowerUps);
 	}
 
@@ -160,7 +160,7 @@ public class Juego implements Runnable {
 			Entidad a = entidades.get(i);
 			for (int j = i + 1; j < cantEntidades; j++) {
 				Entidad b = entidades.get(j);
-				if (colisionan(a, b) ) {
+				if (colisionan(a, b)) {
 					a.accept(b.getVisitor());
 					b.accept(a.getVisitor());
 				}
@@ -192,7 +192,6 @@ public class Juego implements Runnable {
 		return gui.getMapa();
 	}
 
-	
 	public void run() {
 		jugar();
 	}
@@ -202,7 +201,7 @@ public class Juego implements Runnable {
 		eliminarEntidad(infectado);
 
 	}
-	
+
 	public void pausa() {
 		try {
 			Thread.sleep(3000);
@@ -214,27 +213,27 @@ public class Juego implements Runnable {
 
 	public void perdio() {
 		this.juego = null;
-		jugando=false;
+		jugando = false;
 		gui.perdio();
 	}
 
 	public List<Infectado> getInfectados() {
 		return nivelActual.getTanda().getInfectados();
 	}
-	
+
 	public void seDisparo() {
 		gui.sonidoDisparar();
 	}
 
 	public void setDificultad(int dificultad) {
-		if(dificultad>0)
-			this.dificultad=1;
+		if (dificultad > 0)
+			this.dificultad = 1;
 	}
-	
+
 	public boolean jugando() {
 		return jugando;
 	}
-	
+
 	public void setEstadoPremio(int i, boolean estado) {
 		listaPowerUps.remove(i);
 		listaPowerUps.add(i, estado);

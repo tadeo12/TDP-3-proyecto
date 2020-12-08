@@ -11,14 +11,13 @@ public class VisitorProyectilSanitario extends Visitor {
 	public void visit(InfectadoAlpha i) {
 		ProyectilSanitario e = (ProyectilSanitario) entidad;
 		e.eliminar();
-		i.disminuirCargaViral(e.getDamage());
-		
+		i.disminuirCargaViral(e.getDamage());		
 	}
 
 	public void visit(InfectadoBeta i) {
 		ProyectilSanitario e = (ProyectilSanitario) entidad;		
-		i.disminuirCargaViral(e.getDamage());
-		e.eliminar();
+		e.eliminar();     
+		i.disminuirCargaViral(e.getDamage());		
 	}
 
 }
