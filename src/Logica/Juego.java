@@ -10,18 +10,16 @@ import Entidades.Infectado;
 import Entidades.Jugador;
 import EntidadesGraficas.Entidad_grafica;
 import GUI.Gui;
-import Visitors.Visitor;
 
 public class Juego implements Runnable {
 	private boolean moviendoIzquierda;
 	private boolean moviendoDerecha;
 	private boolean disparando;
-	private boolean nivelCompletado;
 
-	private static Juego juego;
+	private static Juego juego;//
 
 	private boolean jugando;
-	private Gui gui;
+	private Gui gui;//
 	private List<Entidad> entidades;
 	private List<Entidad> aEliminar;
 	private List<Entidad> aAgregar;
@@ -38,7 +36,6 @@ public class Juego implements Runnable {
 		moviendoIzquierda = false;
 		moviendoDerecha = false;
 		disparando = false;
-		nivelCompletado = false;
 		entidades = new LinkedList<Entidad>();
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
