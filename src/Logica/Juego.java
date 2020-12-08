@@ -95,7 +95,6 @@ public class Juego implements Runnable {
 	}
 
 	public void nivelCompleto() {
-		System.out.println("nivel completo");
 		if (director.finJuego()) {
 			this.juego = null;
 			gui.gano();

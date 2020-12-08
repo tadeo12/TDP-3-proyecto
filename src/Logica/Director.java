@@ -20,7 +20,6 @@ public class Director {
 	public Nivel construirSiguienteNivel() {
 		int cantInfectados;
 		boolean primerTanda=true;
-		System.out.println("nivel: "+(nivelActual+1));
 		for (int n = 0; n < tandasPorNivel; n++) {
 			for (int j = 0; j < infectadosPorNivel[0].length; j++) {
 				cantInfectados = infectadosPorNivel[nivelActual * tandasPorNivel+n][j];
