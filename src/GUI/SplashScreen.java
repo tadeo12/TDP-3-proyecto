@@ -22,7 +22,7 @@ public class SplashScreen extends JWindow{
 		this.setLocationRelativeTo(null);   
         this.setAlwaysOnTop(true);          // Lo mantenemos siempre al frente al ejecutar
         
-        Image img = Toolkit.getDefaultToolkit().getImage(SplashScreen.class.getResource("/RecursosGraficos_Extras/splashScreen.png"));
+        Image img = Toolkit.getDefaultToolkit().getImage(SplashScreen.class.getResource("/RecursosGraficos_Extras/SplashScreen.png"));
         setLocationRelativeTo(null);
 		JLabel lblNewLabel = new JLabel("");
 		ImageIcon ii = new ImageIcon();
