@@ -30,6 +30,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 
 public class Gui extends JFrame {
 
@@ -38,8 +40,10 @@ public class Gui extends JFrame {
 	private Thread hiloJuego;
 	private JLabel cargaViral, cargaViralMaxima, nivelTanda;
 	private JLabel[] estados;
-
+	
 	public Gui(int dificultad) {
+		
+		this.setResizable(false);
 		
 		setIconImage(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/icon.png")).getImage());
 
@@ -53,7 +57,7 @@ public class Gui extends JFrame {
 		panelJuego.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panelJuego.setLayout(null);
 		contentPane.add(panelJuego);
-
+		panelJuego.repaint();
 		JPanel barraSuperior = new JPanel();
 		barraSuperior.setBounds(0, 0, 933, 60);
 		contentPane.add(barraSuperior);
@@ -76,7 +80,7 @@ public class Gui extends JFrame {
 		}
 		estados[0].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/bajoCero.png")));
 		estados[1].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/inmunidad.png")));
-		estados[2].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/superArma.gif")));
+		estados[2].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/superArma.png")));
 		estados[3].setIcon(new ImageIcon(getClass().getResource("/RecursosGraficos_Premios/velocidad.png")));
 		for (int i = 0; i < 4; i++) {
 			reDimensionar(estados[i], (ImageIcon) estados[i].getIcon());
@@ -156,7 +160,7 @@ public class Gui extends JFrame {
 		this.dispose();
 		GameOver_Win go = new GameOver_Win(0);
 		go.setVisible(true);
-
+		
 	}
 
 	public Container getMapa() {
@@ -175,6 +179,7 @@ public class Gui extends JFrame {
 
 	public void actualizarBarraViral(int infeccion) {
 		cargaViral.setSize((cargaViralMaxima.getWidth() / 100) * infeccion, cargaViral.getHeight());
+		this.repaint();
 
 	}
 
@@ -204,5 +209,4 @@ public class Gui extends JFrame {
 			System.out.println("error audio");
 		}
 	}
-
 }

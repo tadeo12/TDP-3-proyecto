@@ -21,7 +21,9 @@ public class GameOver_Win extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GameOver_Win( int pantalla ) {// si es 1 entonces gano, 0 caso contrario :)
+	public GameOver_Win( int p ) {// si es 1 entonces gano, 0 caso contrario :)
+		
+		this.pantalla = p;
 		
 		setIconImage(new ImageIcon(getClass().getResource("/RecursosGraficos_Extras/icon.png")).getImage());
 		

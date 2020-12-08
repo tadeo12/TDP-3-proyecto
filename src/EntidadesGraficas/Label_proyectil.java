@@ -1,8 +1,11 @@
 package EntidadesGraficas;
 
-public abstract class Label_proyectil extends Entidad_grafica{
+import java.awt.Point;
 
-	public Label_proyectil() {
+public abstract class Label_proyectil extends Entidad_grafica {
+
+	public Label_proyectil(Point p) {
 		super();
+		this.setLocation(p);
 	}
 }

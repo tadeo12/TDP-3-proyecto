@@ -1,8 +1,5 @@
 package Movimientos;
 
-import java.awt.Container;
-import java.awt.Rectangle;
-
 import Entidades.Entidad;
 import EntidadesGraficas.Entidad_grafica;
 

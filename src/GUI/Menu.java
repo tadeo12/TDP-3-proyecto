@@ -24,10 +24,9 @@ public class Menu extends JFrame {
 
 	private JPanel contentPane;
 
-	
 	/**
 	 * Launch the application.
-	 */
+	*/
 	public static void main(String[] args) {
 		SplashScreen splash = new SplashScreen(2000);
 		splash.showSplash();
@@ -74,7 +73,7 @@ public class Menu extends JFrame {
 				
 				Gui frame = new Gui(0);
 				frame.setVisible(true);
-				frame.setResizable(false);
+				//frame.setResizable(false);
 				dispose();
 			}
 		});

@@ -1,9 +1,11 @@
 package EntidadesGraficas;
 
-public abstract class Label_proyectil_sanitario extends Label_proyectil{
+import java.awt.Point;
 
-	public Label_proyectil_sanitario() {
-		super();
-		this.setSize(50,50);
+public abstract class Label_proyectil_sanitario extends Label_proyectil {
+
+	public Label_proyectil_sanitario(Point p) {
+		super(p);
+		this.setSize(50, 50);
 	}
 }

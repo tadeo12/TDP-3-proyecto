@@ -12,7 +12,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import Logica.Juego;
 public class OyenteTeclado implements KeyListener {
 	private Juego juego;
-	private Clip disparo;
 	
 	public OyenteTeclado(Juego j){
 		juego=j;
