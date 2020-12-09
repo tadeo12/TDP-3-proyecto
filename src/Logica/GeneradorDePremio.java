@@ -12,23 +12,27 @@ import Entidades.Premios.SuperVelocidad;
 
 public class GeneradorDePremio {
 	
+	private static final int cantidadPremiosTemporales=4;
+	private static final int cantidadPremios=5;
+	
 	public static void generar(Point p) {
 		Random r= new Random();
-		int indice=r.nextInt(5);	
-		//indice=3;
+		int indice=r.nextInt(cantidadPremios);
+		Juego juego=Juego.getJuego();
+		while(indice<cantidadPremiosTemporales && juego.getEstadoPremio(indice)) {
+			indice=r.nextInt(cantidadPremios);
+		}
 		switch(indice) {
-			case 0: new SuperArma(p);
+			case 0: new BajoCero(p);
 				break;
-			case 1: new SuperVelocidad(p);
+			case 1: new SuperArma(p);
 				break;
 			case 2: new Inmunidad(p);
 				break;
-			case 3: new BajoCero(p);
+			case 3: new SuperVelocidad(p);
 				break;
 			case 4: new Curacion(p);
 				break;
-				
-			
 		}
 	}
 }

@@ -204,9 +204,9 @@ public class Gui extends JFrame {
 		this.nivelTanda.setIcon(im);
 	}
 
-	public void actualizarPowerUps(List<Boolean> mejoras) {
+	public void actualizarPowerUps(boolean[] mejoras) {
 		for (int i = 0; i < estados.length; i++) {
-			estados[i].setEnabled(mejoras.get(i));
+			estados[i].setEnabled(mejoras[i]);
 		}
 	}
 
