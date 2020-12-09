@@ -1,13 +1,15 @@
 package Entidades;
 
+import java.awt.Point;
+
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_proyectil_normal;
 import Visitors.Visitor;
 
 public class ProyectilNormal extends ProyectilSanitario {
 
-	public ProyectilNormal(Entidad_grafica entidad_jugador) {
-		super(new Label_proyectil_normal(entidad_jugador.getLocation()));
+	public ProyectilNormal(Point posicion) {
+		super(new Label_proyectil_normal(posicion));
 		velocidad = 6;
 		damage = 5;
 	}

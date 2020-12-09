@@ -29,7 +29,7 @@ public class Juego implements Runnable {
 	private Nivel nivelActual;
 	private int dificultad;
 
-	private List<Boolean> listaPowerUps;
+	private boolean[] powerUps;
 
 	private Juego() {
 		juego = this;
@@ -40,9 +40,9 @@ public class Juego implements Runnable {
 		aEliminar = new LinkedList<Entidad>();
 		aAgregar = new LinkedList<Entidad>();
 		dificultad = 0;
-		listaPowerUps = new LinkedList<Boolean>();
+		powerUps = new boolean [4];
 		for (int i = 0; i < 4; i++) {
-			listaPowerUps.add(false);
+			powerUps[i]=false;
 		}
 
 	}
@@ -147,7 +147,7 @@ public class Juego implements Runnable {
 	private void actualizarDatosJuego() {
 		gui.actualizarBarraViral(jugador.getCargaViral());
 		gui.actualizarNivelTanda(nivelActual.getValor() + 1, nivelActual.getNumeroTanda() + 1);
-		gui.actualizarPowerUps(listaPowerUps);
+		gui.actualizarPowerUps(powerUps);
 	}
 
 	private void detectarColisiones() {
@@ -231,8 +231,11 @@ public class Juego implements Runnable {
 	}
 
 	public void setEstadoPremio(int i, boolean estado) {
-		listaPowerUps.remove(i);
-		listaPowerUps.add(i, estado);
+		powerUps[i]=estado;
+	}
+	
+	public boolean getEstadoPremio(int valorPremio) {
+		return powerUps[valorPremio];
 	}
 
 }

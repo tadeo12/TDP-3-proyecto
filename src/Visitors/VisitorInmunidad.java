@@ -25,7 +25,6 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 		int valor=p.getValor();
 		entidad.eliminar();
 		Juego.getJuego().setEstadoPremio(valor, true);
-		
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
