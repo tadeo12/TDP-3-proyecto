@@ -11,7 +11,7 @@ public class LectorArchivo {
 
 	private String archivoNormal = "Datos/generacionNormal.txt";
 	private String archivoHardcore = "Datos/generacionHardcore.txt";
-	
+
 	private int cantTiposInfectados = 2;
 	private int cantTandas = 6;
 
@@ -19,23 +19,22 @@ public class LectorArchivo {
 
 		int[][] toReturn = new int[cantTandas][cantTiposInfectados];
 
-		
 		try {
-			String rutaArchivo= dificultad==0?archivoNormal:archivoHardcore;
+			String rutaArchivo = dificultad == 0 ? archivoNormal : archivoHardcore;
 			InputStream in = LectorArchivo.class.getClassLoader().getResourceAsStream(rutaArchivo);
-            InputStreamReader inr = new InputStreamReader(in);
+			InputStreamReader inr = new InputStreamReader(in);
 			BufferedReader br = new BufferedReader(inr);
-			
+
 			String linea = br.readLine();
-			int fila = 0; 
+			int fila = 0;
 			while (linea != null) {
-				
+
 				String[] enteros = linea.split(" ");
 				for (int i = 0; i < cantTiposInfectados; i++)
 					toReturn[fila][i] = Integer.parseInt(enteros[i]);
 
-				fila++; 
-				linea = br.readLine(); 
+				fila++;
+				linea = br.readLine();
 			}
 			br.close();
 //			for (int i = 0; i < cantTandas; i++) {
