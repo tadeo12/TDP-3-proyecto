@@ -3,7 +3,7 @@ package EntidadesGraficas;
 import javax.swing.ImageIcon;
 
 public class Label_jugador extends Entidad_grafica {
-
+	
 	public Label_jugador() {
 		super();
 		this.setSize(55, 80);
