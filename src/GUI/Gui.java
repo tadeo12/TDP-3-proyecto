@@ -184,10 +184,9 @@ public class Gui extends JFrame {
 		
 		this.reDimensionar(fondoJuego, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL0"+nivel+".png")));
 		panelJuego.moveToBack(fondoJuego);
-		panelJuego.setFondoNivel(nivel - 1);
 		panelJuego.pantallaNivel(nivel - 1);
 		juego.pausa();
-		panelJuego.setFondoNivel(nivel - 1);
+		panelJuego.CambioDeLvl(nivel - 1);
 		panelJuego.repaint();
 
 	}

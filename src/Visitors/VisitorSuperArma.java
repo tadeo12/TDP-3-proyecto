@@ -21,6 +21,7 @@ public class VisitorSuperArma extends VisitorPremioTemporal {
 	public void visit(Jugador jug) {
 		EstadoArma estado_actual = jug.getEstadoArma();
 		jug.setEstadoArma(new ConSuperArma(jug));
+		jug.setConSuperArma();
 		PremioTemporal p=(PremioTemporal) entidad;
 		int valor=p.getValor();
 		entidad.eliminar();
@@ -32,6 +33,7 @@ public class VisitorSuperArma extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoArma(estado_actual);
+				jug.setSinPowerUp();
 				Juego.getJuego().setEstadoPremio(valor, false);
 				this.cancel();
 			};

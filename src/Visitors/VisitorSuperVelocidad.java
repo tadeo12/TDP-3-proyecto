@@ -20,6 +20,7 @@ public class VisitorSuperVelocidad extends VisitorPremioTemporal {
 	@Override
 	public void visit(Jugador jug) {
 		EstadoJugador estado_actual = jug.getEstadoJugador();
+		jug.setConVelocidad();
 		jug.setEstadoJugador(new EstadoSuperVeloz(jug));
 		PremioTemporal p=(PremioTemporal) entidad;
 		int valor=p.getValor();
@@ -31,6 +32,7 @@ public class VisitorSuperVelocidad extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoJugador(estado_actual);
+				jug.setSinPowerUp();
 				Juego.getJuego().setEstadoPremio(valor, false);
 				this.cancel();
 			};

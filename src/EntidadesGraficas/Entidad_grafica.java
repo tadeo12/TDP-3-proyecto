@@ -17,7 +17,8 @@ public abstract class Entidad_grafica extends JLabel {
 		if (grafico.getImage() != null) {
 			grafico.setImage(
 					grafico.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
-
+			label.setIcon(grafico);
+			label.repaint();
 		}
 	
 	}

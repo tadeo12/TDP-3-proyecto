@@ -20,6 +20,7 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 	public void visit(Jugador jug) {
 		EstadoJugador estado_actual = jug.getEstadoJugador();
 		jug.setEstadoJugador(new EstadoInmune(jug));
+		jug.setConInmunidad();
 		PremioTemporal p=(PremioTemporal) entidad;
 		int valor=p.getValor();
 		entidad.eliminar();
@@ -31,6 +32,7 @@ public class VisitorInmunidad extends VisitorPremioTemporal {
 			@Override
 			public void run() {
 				jug.setEstadoJugador(estado_actual);
+				jug.setSinPowerUp();
 				Juego.getJuego().setEstadoPremio(valor, false);
 				this.cancel();
 			};

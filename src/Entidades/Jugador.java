@@ -1,5 +1,7 @@
 package Entidades;
 
+import javax.swing.ImageIcon;
+
 import EntidadesGraficas.Label_jugador;
 import EstadosArma.ConArmaNormal;
 import EstadosArma.EstadoArma;
@@ -13,7 +15,6 @@ public class Jugador extends Entidad {
 	protected EstadoJugador estado_jugador;
 	protected int carga_viral;
 	protected int tiros;
-	
 
 	public Jugador() {
 		super(new Label_jugador());
@@ -55,10 +56,12 @@ public class Jugador extends Entidad {
 			this.movimiento.setDireccion(Horizontal.DERECHA);
 			this.movimiento.mover();
 		}
+		
 		if (juego.moviendoIzquierda()) {
 			this.movimiento.setDireccion(Horizontal.IZQUIERDA);
-			this.movimiento.mover();
+			this.movimiento.mover();				
 		}
+		
 		if (juego.disparando()) {
 			tiros++;
 			if(tiros==8) {
@@ -97,4 +100,21 @@ public class Jugador extends Entidad {
 	public int getVelocidad() {
 		return estado_jugador.getVelocidad();
 	}
+	
+	public void setConVelocidad() {
+		( (Label_jugador) super.getGrafico() ).setPowerUpVelocidad();
+	}
+	
+	public void setSinPowerUp() {
+		( (Label_jugador) super.getGrafico() ).setSinPowerUp();
+	}
+	
+	public void setConSuperArma() {
+		( (Label_jugador) super.getGrafico() ).setPowerUpSuperArma();
+	}
+	
+	public void setConInmunidad() {
+		( (Label_jugador) super.getGrafico() ).setPowerUpInmunidad();
+	}
+	
 }
