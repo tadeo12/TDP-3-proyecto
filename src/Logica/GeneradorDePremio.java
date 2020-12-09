@@ -2,8 +2,6 @@ package Logica;
 
 import java.awt.Point;
 import java.util.Random;
-
-import Entidades.*;
 import Entidades.Premios.BajoCero;
 import Entidades.Premios.Curacion;
 import Entidades.Premios.Inmunidad;
@@ -11,6 +9,7 @@ import Entidades.Premios.SuperArma;
 import Entidades.Premios.SuperVelocidad;
 
 public class GeneradorDePremio {
+
 	
 	private static final int cantidadPremiosTemporales=4;
 	private static final int cantidadPremios=5;
