@@ -21,7 +21,7 @@ public class InfectadoBeta extends Infectado {
 
 	@Override
 	public Proyectil disparar() {
-		return new ParticulaV_Beta(this.getGrafico());
+		return new ParticulaV_Beta(new Point(entidad_graf.getX(),entidad_graf.getY()+40));
 	}
 
 	@Override

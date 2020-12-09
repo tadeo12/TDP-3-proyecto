@@ -1,5 +1,7 @@
 package Entidades;
 
+import java.awt.Point;
+
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_particulaV_Beta;
 import Movimientos.EstrategiaMovimiento;
@@ -9,8 +11,8 @@ import Visitors.VisitorParticulaV;
 
 public class ParticulaV_Beta extends ParticulaV {
 
-	public ParticulaV_Beta(Entidad_grafica entidad_infectado) {
-		super(new Label_particulaV_Beta(entidad_infectado.getLocation()));
+	public ParticulaV_Beta(Point posicion) {
+		super(new Label_particulaV_Beta(posicion));
 		velocidad = 5;
 		damage = 5;
 		rango = 300;

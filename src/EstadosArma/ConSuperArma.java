@@ -1,8 +1,11 @@
 package EstadosArma;
 
+import java.awt.Point;
+
 import Entidades.Jugador;
 import Entidades.Proyectil;
 import Entidades.SuperProyectil;
+import EntidadesGraficas.Entidad_grafica;
 
 public class ConSuperArma extends EstadoArma {
 
@@ -12,8 +15,9 @@ public class ConSuperArma extends EstadoArma {
 	}
 
 	@Override
-	public Proyectil disparar() {		
-		return new SuperProyectil(jugador.getGrafico().getLocation());
+	public Proyectil disparar() {
+		Entidad_grafica g=this.jugador.getGrafico();
+		return new SuperProyectil(new Point(g.getX(),g.getY()-30));
 	}
 
 }
