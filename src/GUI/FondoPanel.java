@@ -33,12 +33,17 @@ class FondoPanel extends JLayeredPane  {
 		
 	}
 
+	@Override
 	public Component add(Component p) {
 		Component comp = super.add(p);
 		this.moveToFront(p);
 		return comp;
 	}
 
+	/**
+	 * Actualiza el panel y sus componentes
+	 * @param nivelActual 
+	 */
 	public void CambioDeLvl(int nivelActual) {
 
 		this.nivelActual = nivelActual;
@@ -47,6 +52,10 @@ class FondoPanel extends JLayeredPane  {
 
 	}
 
+	/**
+	 * actualiza el mapa al correspondiente nivel actual
+	 * @param nivel Nivel actual
+	 */
 	public void pantallaNivel(int nivel) {// 1, 2, .... , n
 		imagen = null;
 		this.nivelTransicionLabel.setIcon(new ImageIcon(getClass().getResource(this.nivelesTransicion[nivel])));

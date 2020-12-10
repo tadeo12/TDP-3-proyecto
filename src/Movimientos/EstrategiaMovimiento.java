@@ -9,6 +9,11 @@ public abstract class EstrategiaMovimiento {
 	protected Entidad entidad;
 	protected int limiteX, limiteY;
 
+	/**
+	 * Crea la estrategia de movimiento de la entidad
+	 * @param entidad 
+	 * @param direccion
+	 */
 	public EstrategiaMovimiento(Entidad entidad, int direccion) {
 		this.direccion = direccion;
 		this.entidad = entidad;
@@ -17,8 +22,15 @@ public abstract class EstrategiaMovimiento {
 		limiteY = (int) mapa.getHeight() - (int) entidad.getGrafico().getHeight();
 	}
 
+	/**
+	 * Mueve la entidad a su posicion siguiente 
+	 */
 	public abstract void mover();
 
+	/**
+	 * Settea la dirección de movimiento de la entidad
+	 * @param direccion
+	 */
 	public void setDireccion(int direccion) {
 		this.direccion = direccion;
 	}
