@@ -11,6 +11,6 @@ public class EstadoInmune extends ConPowerUp {
 
 	@Override
 	public void incrementarCargaViral(int carga) {
-		//no hace nada por que es inmune 
+		//no hace nada porque es inmune 
 	}
 }
