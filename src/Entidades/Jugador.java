@@ -1,7 +1,5 @@
 package Entidades;
 
-import javax.swing.ImageIcon;
-
 import EntidadesGraficas.Label_jugador;
 import EstadosArma.ConArmaNormal;
 import EstadosArma.EstadoArma;
@@ -10,6 +8,10 @@ import EstadosJugador.EstadoJugador;
 import Movimientos.Horizontal;
 import Visitors.Visitor;
 
+/**
+ * Clase que modela al jugador del juego
+ *
+ */
 public class Jugador extends Entidad {
 	protected EstadoArma estado_arma;
 	protected EstadoJugador estado_jugador;
@@ -21,8 +23,8 @@ public class Jugador extends Entidad {
 		movimiento = new Horizontal(this, Horizontal.DERECHA);
 		estado_arma = new ConArmaNormal(this);
 		estado_jugador = new EstadoInicial(this);
-		carga_viral = 0;		
-		tiros=0;
+		carga_viral = 0;
+		tiros = 0;
 	}
 
 	public void setVisitor(Visitor visitor) {
@@ -30,17 +32,14 @@ public class Jugador extends Entidad {
 	}
 
 	public void setCargaViral(int carga) {
-		if(carga>100)
-			carga=100;
-		if(carga<0)
-			carga=0;
+		if (carga < 0)
+			carga = 0;
 		this.carga_viral = carga;
 	}
 
 	public int getCargaViral() {
 		return carga_viral;
 	}
-
 
 	public void incrementarCargaViral(int carga) {
 		estado_jugador.incrementarCargaViral(carga);
@@ -56,17 +55,17 @@ public class Jugador extends Entidad {
 			this.movimiento.setDireccion(Horizontal.DERECHA);
 			this.movimiento.mover();
 		}
-		
+
 		if (juego.moviendoIzquierda()) {
 			this.movimiento.setDireccion(Horizontal.IZQUIERDA);
-			this.movimiento.mover();				
+			this.movimiento.mover();
 		}
-		
+
 		if (juego.disparando()) {
 			tiros++;
-			if(tiros==8) {
+			if (tiros == 8) {
 				this.estado_arma.disparar();
-				tiros=0;
+				tiros = 0;
 				juego.seDisparo();
 			}
 		}
@@ -100,21 +99,21 @@ public class Jugador extends Entidad {
 	public int getVelocidad() {
 		return estado_jugador.getVelocidad();
 	}
-	
+
 	public void setConVelocidad() {
-		( (Label_jugador) super.getGrafico() ).setPowerUpVelocidad();
+		((Label_jugador) super.getGrafico()).setPowerUpVelocidad();
 	}
-	
+
 	public void setSinPowerUp() {
-		( (Label_jugador) super.getGrafico() ).setSinPowerUp();
+		((Label_jugador) super.getGrafico()).setSinPowerUp();
 	}
-	
+
 	public void setConSuperArma() {
-		( (Label_jugador) super.getGrafico() ).setPowerUpSuperArma();
+		((Label_jugador) super.getGrafico()).setPowerUpSuperArma();
 	}
-	
+
 	public void setConInmunidad() {
-		( (Label_jugador) super.getGrafico() ).setPowerUpInmunidad();
+		((Label_jugador) super.getGrafico()).setPowerUpInmunidad();
 	}
-	
+
 }

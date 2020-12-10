@@ -10,8 +10,8 @@ public abstract class Premio extends Entidad {
 
 	public Premio(Entidad_grafica entidad_graf) {
 		super(entidad_graf);
-		movimiento = new Vertical_remove(this,Vertical.ABAJO);
 		velocidad = 4;
+		movimiento = new Vertical_remove(this,Vertical.ABAJO);		
 	}
 	
 	public abstract void accept(Visitor visitor);

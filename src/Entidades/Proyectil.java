@@ -2,6 +2,11 @@ package Entidades;
 
 import EntidadesGraficas.Entidad_grafica;
 
+/**
+ * Clase que modela
+ * @author Usuario
+ *
+ */
 public abstract class Proyectil extends Entidad {
 	protected int damage;
 
