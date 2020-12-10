@@ -27,7 +27,7 @@ public class InfectadoAlpha extends Infectado {
 				carga_viral -= desinfeccion;
 				if (carga_viral < 20 && !loco) {
 					loco = true;
-					velocidad = velocidad * 2;
+					velocidad = velocidad * 2; //al volverse loco la velocidad del infectado se duplica
 				}
 			}
 		}

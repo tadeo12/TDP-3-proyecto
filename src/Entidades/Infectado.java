@@ -27,15 +27,20 @@ public abstract class Infectado extends Entidad {
 	protected Random random;
 
 	/**
+	 * Constructor de un infectado
 	 * 
 	 * @param entidad_graf entidad grafica de la entidad
-	 * @param duracion 
-	 * @param enEspera
+	 * @param duracion     tiempo que permanecerá quieto el infectado, en
+	 *                     milisegundos desde que empieza su tanda
+	 * @param enEspera     parametro necesario para saber si el infectado que se
+	 *                     crea pertene a la primer tanda(en ese caso no estara en
+	 *                     espera) o y si deberia quedarse quieto hasta que se
+	 *                     notifique(cuando se llegue a su tanda)
 	 */
 	public Infectado(Entidad_grafica entidad_graf, int duracion, boolean enEspera) {
 		super(entidad_graf);
 		velocidad = 1;
-		movimiento = null;
+		movimiento = null;// en principio no se moveran hasta que se indique que aparezca por pantalla
 		random = new Random();
 		suelta_premio = random.nextInt(3) == 1;
 		carga_viral = 100;
@@ -50,6 +55,10 @@ public abstract class Infectado extends Entidad {
 		visitor = new VisitorInfectado(this);
 	}
 
+	/**
+	 * cuando se llama a este método empieza a contar el tiempo de espera del
+	 * infectado para luego aparecer en pantalla
+	 */
 	public void aparecer() {
 		Infectado inf = this;
 		Timer timer = new Timer();
@@ -58,7 +67,7 @@ public abstract class Infectado extends Entidad {
 			public void run() {
 				if (juego.jugando())
 					movimiento = new Vertical_loop(inf, Vertical.ABAJO);
-				timer.cancel();
+				timer.cancel();// se ejecuta una vez el run y se cancela el timer
 			};
 		};
 
@@ -77,13 +86,14 @@ public abstract class Infectado extends Entidad {
 	public void eliminar() {
 		juego.eliminarInfectado(this);
 	}
-	
+
 	public void accionar() {
 		if (!quieto || desinfectado) {
 			if (movimiento != null)
 				movimiento.mover();
 
-			if (!desinfectado && random.nextInt(100) == 1) {
+			if (!desinfectado && random.nextInt(100) == 1) {// para que no dispare demasiado se considera solo una de
+															// cada 100 veces que se llame al accionar (en promedio)
 				disparar();
 			}
 		}

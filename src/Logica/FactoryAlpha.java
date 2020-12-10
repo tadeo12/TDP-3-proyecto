@@ -18,7 +18,7 @@ public class FactoryAlpha extends Factory {
 	public Infectado crearInfectado(boolean enEspera) {
 		Point p = posicion();
 		Infectado inf = new InfectadoAlpha(p, tiempo, enEspera);
-		tiempo = tiempo + 5000;
+		tiempo = tiempo + 5000;// cada infectado aparecera con una diferencia de 5 segundos
 		return inf;
 	}
 

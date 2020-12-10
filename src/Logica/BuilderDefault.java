@@ -40,6 +40,7 @@ public class BuilderDefault extends BuilderNivel {
 		Nivel aRetornar = nivel;
 		nivel = new Nivel(nivelesCreados);
 		tandaActual = new Tanda();
+		primerTanda=true;
 		return aRetornar;
 	}
 
