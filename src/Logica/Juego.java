@@ -25,10 +25,12 @@ public class Juego implements Runnable {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 
+
 	// Atributo utilizado para el patron singleton
 	private static Juego juego;
 
 	// Listas de entidades
+
 	private List<Entidad> entidades;
 	private List<Entidad> aEliminar;
 	private List<Entidad> aAgregar;

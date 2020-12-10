@@ -11,13 +11,13 @@ public class ConSuperArma extends EstadoArma {
 
 	public ConSuperArma(Jugador jugador) {
 		super(jugador);
-		velocidad_disparo *=2;
+		velocidad_disparo *= 2;
 	}
 
 	@Override
 	public Proyectil disparar() {
-		Entidad_grafica g=this.jugador.getGrafico();
-		return new SuperProyectil(new Point(g.getX(),g.getY()-53));
+		Entidad_grafica g = this.jugador.getGrafico();
+		return new SuperProyectil(new Point(g.getX(), g.getY() - 53));
 	}
 
 }

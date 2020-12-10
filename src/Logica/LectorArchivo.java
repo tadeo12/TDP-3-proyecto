@@ -2,7 +2,6 @@ package Logica;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -49,11 +48,6 @@ public class LectorArchivo {
 				linea = br.readLine();
 			}
 			br.close();
-//			for (int i = 0; i < cantTandas; i++) {
-//				for (int j = 0; j < cantTiposInfectados; j++)
-//					System.out.print(toReturn[i][j] + " ");
-//				System.out.println();
-//			}
 
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encuentra archivo");

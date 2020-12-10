@@ -6,10 +6,6 @@ import EntidadesGraficas.Label_particulaV_Alpha;
 import Movimientos.Vertical;
 import Movimientos.VerticalRemoveRango;
 
-/**
- * Clase que modela la particula de un infectado de tipo ALPHA
- *
- */
 public class ParticulaV_Alpha extends ParticulaV {
 
 	public ParticulaV_Alpha(Point posicion) {

@@ -4,10 +4,6 @@ import EntidadesGraficas.Entidad_grafica;
 import Visitors.Visitor;
 import Visitors.VisitorParticulaV;
 
-/**
- * Clase que modela la particula de un Infectado
- *
- */
 public abstract class ParticulaV extends Proyectil {
 	
 	protected int rango;
