@@ -14,11 +14,7 @@ class FondoPanel extends JLayeredPane {
 	private JLabel nivelTransicionLabel;
 
 	public FondoPanel() {
-<<<<<<< HEAD
 
-=======
-		nivelActual = 0;
->>>>>>> 956a60545aee57a355ce6c988ecf792a6f6b139e
 		setLayout(null);
 		nivelTransicionLabel = new JLabel();
 		this.add(nivelTransicionLabel);

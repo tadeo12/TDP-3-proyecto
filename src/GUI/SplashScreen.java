@@ -26,11 +26,6 @@ public class SplashScreen extends JWindow {
 		ii.setImage(img);
 		lblNewLabel.setIcon(ii);
 		add(lblNewLabel);
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> 956a60545aee57a355ce6c988ecf792a6f6b139e
 		repaint();
 
 	}
