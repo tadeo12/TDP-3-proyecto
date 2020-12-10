@@ -1,4 +1,4 @@
- package Entidades;
+package Entidades;
 
 import java.awt.Point;
 import EntidadesGraficas.Label_super_proyectil;

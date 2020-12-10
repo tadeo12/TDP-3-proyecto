@@ -1,19 +1,12 @@
 package GUI;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-
 import java.awt.Component;
-//import java.awt.BorderLayout;
 
-class FondoPanel extends JLayeredPane  {
+class FondoPanel extends JLayeredPane {
 
 
 	private String[] nivelesTransicion = new String[] { "/RecursosGraficosNiveles/LVL01.png",
@@ -21,12 +14,15 @@ class FondoPanel extends JLayeredPane  {
 	private JLabel nivelTransicionLabel;
 
 	public FondoPanel() {
+<<<<<<< HEAD
 
+=======
+		nivelActual = 0;
+>>>>>>> 956a60545aee57a355ce6c988ecf792a6f6b139e
 		setLayout(null);
 		nivelTransicionLabel = new JLabel();
 		this.add(nivelTransicionLabel);
 		this.repaint();
-		
 	}
 
 	@Override
@@ -38,7 +34,8 @@ class FondoPanel extends JLayeredPane  {
 
 	/**
 	 * Actualiza el panel y sus componentes
-	 * @param nivelActual 
+	 * 
+	 * @param nivelActual
 	 */
 	public void CambioDeLvl() {
 		this.nivelTransicionLabel.setVisible(false);
@@ -47,6 +44,7 @@ class FondoPanel extends JLayeredPane  {
 
 	/**
 	 * actualiza el mapa al correspondiente nivel actual
+	 * 
 	 * @param nivel Nivel actual
 	 */
 	public void pantallaNivel(int nivel) {// 1, 2, .... , n		

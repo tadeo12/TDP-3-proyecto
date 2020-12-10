@@ -20,7 +20,16 @@ public abstract class Factory {
 		r = new Random();
 	}
 
+	/**
+	 * @param enEspera boolean que indica si el infectado no pertenece a la primer
+	 *                 tanda
+	 * @return Infectado creado
+	 */
 	public abstract Infectado crearInfectado(boolean enEspera);
 
+	/**
+	 * metodo que debe ser llamado cuando se quiere empezar a construir dinfectados
+	 * de una tanda siguiente
+	 */
 	protected abstract void reiniciar();
 }

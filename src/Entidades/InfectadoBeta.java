@@ -5,10 +5,6 @@ import java.awt.Point;
 import EntidadesGraficas.Label_infectado_beta;
 import Visitors.Visitor;
 
-/**
- * Clase que modela un infectado de tipo BETA
- *
- */
 public class InfectadoBeta extends Infectado {
 
 	public InfectadoBeta(Point p, int tiempoQuieto, boolean enEspera) {
