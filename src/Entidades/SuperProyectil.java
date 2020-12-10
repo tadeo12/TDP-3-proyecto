@@ -1,8 +1,6 @@
  package Entidades;
 
 import java.awt.Point;
-
-import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_super_proyectil;
 import Visitors.Visitor;
 

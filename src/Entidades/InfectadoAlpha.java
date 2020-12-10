@@ -1,29 +1,21 @@
 package Entidades;
 
-
 import java.awt.Point;
-
-import EntidadesGraficas.Label_infectado;
 import EntidadesGraficas.Label_infectado_alpha;
-import EntidadesGraficas.Label_infectado_beta;
-
-import java.util.Random;
-
-import javax.swing.ImageIcon;
-
-import Movimientos.Horizontal;
-import Movimientos.Horizontal_remove;
-
 import Visitors.Visitor;
 
+/**
+ * Clase que modela un infectado de tipo ALPHA
+ *
+ */
 public class InfectadoAlpha extends Infectado {
-	
+
 	protected boolean loco;
 
-	public InfectadoAlpha(Point p,int tiempoQuieto, boolean enEspera) {
-		super(new Label_infectado_alpha(p),tiempoQuieto,enEspera);
-		loco=false;
- 	}
+	public InfectadoAlpha(Point p, int tiempoQuieto, boolean enEspera) {
+		super(new Label_infectado_alpha(p), tiempoQuieto, enEspera);
+		loco = false;
+	}
 
 	@Override
 	public void disminuirCargaViral(int desinfeccion) {
@@ -33,9 +25,9 @@ public class InfectadoAlpha extends Infectado {
 				desinfectar();
 			} else {
 				carga_viral -= desinfeccion;
-				if(carga_viral<20 && !loco) {
-					loco=true;
-					velocidad=velocidad*2;
+				if (carga_viral < 20 && !loco) {
+					loco = true;
+					velocidad = velocidad * 2;
 				}
 			}
 		}
@@ -47,8 +39,7 @@ public class InfectadoAlpha extends Infectado {
 
 	@Override
 	public Proyectil disparar() {
-		return new ParticulaV_Alpha(new Point(entidad_graf.getX(),entidad_graf.getY()+40));
+		return new ParticulaV_Alpha(new Point(entidad_graf.getX(), entidad_graf.getY() + 40));
 	}
 
-	
 }

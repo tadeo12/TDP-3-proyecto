@@ -3,13 +3,8 @@ package Entidades;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.swing.ImageIcon;
-
 import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_infectado;
-import EntidadesGraficas.Label_infectado_alpha;
-import EntidadesGraficas.Label_infectado_beta;
 import Logica.GeneradorDePremio;
 import Movimientos.Horizontal;
 import Movimientos.Horizontal_remove;
@@ -17,6 +12,10 @@ import Movimientos.Vertical;
 import Movimientos.Vertical_loop;
 import Visitors.VisitorInfectado;
 
+/**
+ * Clase que modela un infectado del juego
+ *
+ */
 public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;
@@ -24,9 +23,15 @@ public abstract class Infectado extends Entidad {
 	protected int tiempoEspera;
 	protected int damage;
 	protected boolean quieto;
-	
+
 	protected Random random;
 
+	/**
+	 * 
+	 * @param entidad_graf entidad grafica de la entidad
+	 * @param duracion 
+	 * @param enEspera
+	 */
 	public Infectado(Entidad_grafica entidad_graf, int duracion, boolean enEspera) {
 		super(entidad_graf);
 		velocidad = 1;
@@ -37,11 +42,11 @@ public abstract class Infectado extends Entidad {
 		damage = 1;
 		desinfectado = false;
 		quieto = false;
-		
+
 		tiempoEspera = duracion;
 		if (!enEspera)
 			aparecer();
-		
+
 		visitor = new VisitorInfectado(this);
 	}
 
@@ -51,7 +56,7 @@ public abstract class Infectado extends Entidad {
 		TimerTask timer_task = new TimerTask() {
 			@Override
 			public void run() {
-				if(juego.jugando())
+				if (juego.jugando())
 					movimiento = new Vertical_loop(inf, Vertical.ABAJO);
 				timer.cancel();
 			};
@@ -72,20 +77,24 @@ public abstract class Infectado extends Entidad {
 	public void eliminar() {
 		juego.eliminarInfectado(this);
 	}
-
+	
 	public void accionar() {
-		if (!quieto || desinfectado)  {
+		if (!quieto || desinfectado) {
 			if (movimiento != null)
 				movimiento.mover();
 
 			if (!desinfectado && random.nextInt(100) == 1) {
 				disparar();
-				//System.out.println("disparo");
 			}
 		}
 	}
 
+	/**
+	 * Es invocado cuando el Infectado alcanza una carga viral igual a cero
+	 */
 	public void desinfectar() {
+		// el Infectado desaparece del mapa desplazandose hacia la derecha o hacia la
+		// izquierda segun el valor random obtenido
 		desinfectado = true;
 		int direccion = random.nextInt(2);
 		Label_infectado li = (Label_infectado) this.getGrafico();

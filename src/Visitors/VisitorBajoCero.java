@@ -11,33 +11,32 @@ import EstadosJugador.EstadoInmune;
 import EstadosJugador.EstadoJugador;
 import Logica.Juego;
 
-public class VisitorBajoCero extends VisitorPremioTemporal{
+public class VisitorBajoCero extends VisitorPremioTemporal {
 
 	public VisitorBajoCero(PremioTemporal entidad) {
-		super (entidad);
-		this.duracion=entidad.getDuracion();
+		super(entidad);
+		this.duracion = entidad.getDuracion();
 	}
-	
-	
+
 	public void visit(Jugador jug) {
 
-		List<Infectado> infectados=jug.getJuego().getInfectados();
-		for(Infectado i: infectados) {
+		List<Infectado> infectados = Juego.getJuego().getInfectados();
+		for (Infectado i : infectados) {
 			i.setQuieto(true);
 		}
-		PremioTemporal p=(PremioTemporal) entidad;
-		int valor=p.getValor();
+		PremioTemporal p = (PremioTemporal) entidad;
+		int valor = p.getValor();
 		entidad.eliminar();
 		Juego.getJuego().setEstadoPremio(valor, true);
-		
+
 		Timer timer = new Timer();
 		TimerTask timer_task = new TimerTask() {
 
 			@Override
 			public void run() {
-				List<Infectado> infectados=jug.getJuego().getInfectados();
+				List<Infectado> infectados = Juego.getJuego().getInfectados();
 				Juego.getJuego().setEstadoPremio(valor, false);
-				for(Infectado i: infectados) {
+				for (Infectado i : infectados) {
 					i.setQuieto(false);
 				}
 				this.cancel();

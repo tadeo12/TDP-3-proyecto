@@ -2,7 +2,6 @@ package Entidades;
 
 import java.awt.Point;
 
-import EntidadesGraficas.Entidad_grafica;
 import EntidadesGraficas.Label_proyectil_normal;
 import Visitors.Visitor;
 
