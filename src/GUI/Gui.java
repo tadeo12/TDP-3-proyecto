@@ -19,7 +19,6 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import java.awt.Color;
-import java.awt.Font;
 
 public class Gui extends JFrame {
 

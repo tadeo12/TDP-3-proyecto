@@ -9,7 +9,7 @@ import EstadosJugador.EstadoJugador;
 import EstadosJugador.EstadoSuperVeloz;
 import Logica.Juego;
 
-//TEMPORAL
+
 public class VisitorSuperVelocidad extends VisitorPremioTemporal {
 
 	public VisitorSuperVelocidad(PremioTemporal premioTemp) {

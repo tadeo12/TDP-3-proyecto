@@ -9,7 +9,7 @@ import EstadosArma.ConSuperArma;
 import EstadosArma.EstadoArma;
 import Logica.Juego;
 
-//TEMPORAL
+
 public class VisitorSuperArma extends VisitorPremioTemporal {
 
 	public VisitorSuperArma(PremioTemporal premioTemp) {

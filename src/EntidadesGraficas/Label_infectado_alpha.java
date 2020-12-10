@@ -1,8 +1,6 @@
 package EntidadesGraficas;
 
 import java.awt.Point;
-import java.util.Random;
-
 import javax.swing.ImageIcon;
 
 public class Label_infectado_alpha extends Label_infectado {
