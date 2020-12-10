@@ -17,9 +17,11 @@ public class OyenteTeclado implements KeyListener {
 		juego=j;
 	}
 	
+	@Override
 	public void keyTyped(KeyEvent e) {
 	}
 
+	@Override
 	public void keyPressed(KeyEvent e) {
 		int codigoTecla = e.getKeyCode();
 		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {
@@ -34,6 +36,7 @@ public class OyenteTeclado implements KeyListener {
 		}
 	}
 
+	@Override
 	public void keyReleased(KeyEvent e) {
 		int codigoTecla = e.getKeyCode();
 		if (codigoTecla == KeyEvent.VK_LEFT || codigoTecla == KeyEvent.VK_A) {

@@ -18,6 +18,7 @@ public class GameOver_Win extends JFrame {
 
 	private JPanel contentPane;
 	private int pantalla;
+	
 	/**
 	 * Create the frame.
 	 */

@@ -43,6 +43,12 @@ public class Gui extends JFrame {
 	private JLabel[] estados;
 	private JLabel fondoJuego;
 	
+	/**
+	 * Crea el mapa de juego
+	 * @param dificultad de juego 
+	 * -> 0 si es normal
+	 * -> 1 si es dificil
+	 */
 	public Gui(int dificultad) {
 		
 		this.setResizable(false);
@@ -144,7 +150,12 @@ public class Gui extends JFrame {
 		panelJuego.repaint();
 		
 	}
-
+	
+	/**
+	 * Redimensiona el ImageIcon grafico en base al JLabel label
+	 * @param label
+	 * @param grafico
+	 */
 	private void reDimensionar(JLabel label, ImageIcon grafico) {
 		Image image = grafico.getImage();
 		if (image != null) {
@@ -155,6 +166,9 @@ public class Gui extends JFrame {
 		}
 	}
 
+	/**
+	 * Se crea abre un nuevo frame donde se muestra que se gano el juego
+	 */
 	public void gano() {
 		
 		GameOver_Win win = new GameOver_Win(1);
@@ -166,6 +180,9 @@ public class Gui extends JFrame {
 		
 	}
 
+	/**
+	 * Se crea abre un nuevo frame donde se muestra que se perdio el juego
+	 */
 	public void perdio() {
 		this.juego = null;
 		hiloJuego = null;
@@ -176,10 +193,19 @@ public class Gui extends JFrame {
 		
 	}
 
+	/**
+	 * retorna el mapa donde se muestra el juego 
+	 * @return mapa de tipo Container
+	 */
 	public Container getMapa() {
 		return panelJuego;
 	}
 
+	/**
+	 * Muestra en el panel de juego la transicion del nivel. Esta transicion muestra el nivel actual
+	 * A su vez que cambia el mapa al correspondiente del nivel actual
+	 * @param nivel Nivel actual
+	 */
 	public void cambioNivel(int nivel) {
 		
 		this.reDimensionar(fondoJuego, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL0"+nivel+".png")));
@@ -191,24 +217,42 @@ public class Gui extends JFrame {
 
 	}
 
+	/**
+	 * Actualiza la barra de estados de los premios 
+	 * @param infeccion
+	 */
 	public void actualizarBarraViral(int infeccion) {
 		cargaViral.setSize((cargaViralMaxima.getWidth() / 100) * infeccion, cargaViral.getHeight());
 		this.repaint();
 
 	}
 
+	/**
+	 * actualiza el label que muestra la tanda y nivel actuales
+	 * @param nivel
+	 * @param tanda
+	 */
 	public void actualizarNivelTanda(int nivel, int tanda) {
 		ImageIcon im = new ImageIcon(
 				getClass().getResource("/RecursosGraficos_Extras/NivelTanda/nivel" + nivel + "tanda" + tanda + ".png"));
 		this.nivelTanda.setIcon(im);
 	}
 
+	/**
+	 * actualiza la barra que muestra los estados de los premios.
+	 * Si un premio esta activo entonces se mostrará con su label activo
+	 * en caso contrario se mostrara con su label desactivado
+	 * @param mejoras estado de cada premios
+	 */
 	public void actualizarPowerUps(boolean[] mejoras) {
 		for (int i = 0; i < estados.length; i++) {
 			estados[i].setEnabled(mejoras[i]);
 		}
 	}
 
+	/**
+	 * Activa el sonido de disparo
+	 */
 	public void sonidoDisparar() {
 		try {
 			

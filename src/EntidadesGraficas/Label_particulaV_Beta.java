@@ -12,6 +12,5 @@ public class Label_particulaV_Beta extends Label_particulaV {
 				Label_particulaV_Beta.class.getResource("/RecursosGraficos_Infectados/disparo1.gif"));
 		this.setIcon(imagen);
 		reDimensionar(this, imagen);
-		this.setLocation(p);
 	}
 }

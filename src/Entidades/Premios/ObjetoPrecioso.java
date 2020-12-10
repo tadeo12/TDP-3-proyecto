@@ -1,7 +1,5 @@
 package Entidades.Premios;
 
-import java.awt.Point;
-
 import EntidadesGraficas.Entidad_grafica;
 import Visitors.Visitor;
 

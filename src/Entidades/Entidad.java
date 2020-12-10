@@ -6,6 +6,10 @@ import Movimientos.EstrategiaMovimiento;
 import Visitors.Element;
 import Visitors.Visitor;
 
+/**
+ * Clase que modela la Entidad del juego
+ *
+ */
 public abstract class Entidad extends Element {
 	protected int velocidad;
 	protected Entidad_grafica entidad_graf;
@@ -47,9 +51,5 @@ public abstract class Entidad extends Element {
 
 	public Visitor getVisitor() {
 		return visitor;
-	}
-
-	public Juego getJuego() {
-		return juego;
 	}
 }
