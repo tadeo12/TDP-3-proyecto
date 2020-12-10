@@ -16,6 +16,7 @@ public class SplashScreen extends JWindow{
 	private int duration;
 
 	public SplashScreen(int d) {
+		
 		duration = d;
 		setBounds(100, 100, 932, 647);
 		
@@ -31,8 +32,6 @@ public class SplashScreen extends JWindow{
 		add(lblNewLabel);
 		
 		repaint();
-	
-
 
 	}
 

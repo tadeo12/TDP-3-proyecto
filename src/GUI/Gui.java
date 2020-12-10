@@ -207,14 +207,12 @@ public class Gui extends JFrame {
 	 * @param nivel Nivel actual
 	 */
 	public void cambioNivel(int nivel) {
-		
 		this.reDimensionar(fondoJuego, new ImageIcon(Gui.class.getResource("/RecursosGraficosNiveles/FONDO-LVL0"+nivel+".png")));
 		panelJuego.moveToBack(fondoJuego);
 		panelJuego.pantallaNivel(nivel - 1);
 		juego.pausa();
-		panelJuego.CambioDeLvl(nivel - 1);
+		panelJuego.CambioDeLvl();
 		panelJuego.repaint();
-
 	}
 
 	/**
@@ -224,7 +222,6 @@ public class Gui extends JFrame {
 	public void actualizarBarraViral(int infeccion) {
 		cargaViral.setSize((cargaViralMaxima.getWidth() / 100) * infeccion, cargaViral.getHeight());
 		this.repaint();
-
 	}
 
 	/**

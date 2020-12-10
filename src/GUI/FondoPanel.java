@@ -15,17 +15,13 @@ import java.awt.Component;
 
 class FondoPanel extends JLayeredPane  {
 
-	private Image imagen;
+
 	private String[] nivelesTransicion = new String[] { "/RecursosGraficosNiveles/LVL01.png",
 			"/RecursosGraficosNiveles/LVL02.png", "/RecursosGraficosNiveles/LVL03.png" };
-	private String[] fondoNiveles = new String[] { "/RecursosGraficosNiveles/FONDO-LVL01.png ",
-			"/RecursosGraficosNiveles/FONDO-LVL02.png", "/RecursosGraficosNiveles/FONDO-LVL03.png" };
 	private JLabel nivelTransicionLabel;
-	private int nivelActual;
 
 	public FondoPanel() {
 
-		nivelActual = 0;
 		setLayout(null);
 		nivelTransicionLabel = new JLabel();
 		this.add(nivelTransicionLabel);
@@ -44,20 +40,16 @@ class FondoPanel extends JLayeredPane  {
 	 * Actualiza el panel y sus componentes
 	 * @param nivelActual 
 	 */
-	public void CambioDeLvl(int nivelActual) {
-
-		this.nivelActual = nivelActual;
+	public void CambioDeLvl() {
 		this.nivelTransicionLabel.setVisible(false);
 		this.repaint();
-
 	}
 
 	/**
 	 * actualiza el mapa al correspondiente nivel actual
 	 * @param nivel Nivel actual
 	 */
-	public void pantallaNivel(int nivel) {// 1, 2, .... , n
-		imagen = null;
+	public void pantallaNivel(int nivel) {// 1, 2, .... , n		
 		this.nivelTransicionLabel.setIcon(new ImageIcon(getClass().getResource(this.nivelesTransicion[nivel])));
 		this.nivelTransicionLabel.setVisible(true);
 		this.nivelTransicionLabel.repaint();
