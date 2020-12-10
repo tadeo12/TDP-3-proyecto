@@ -7,8 +7,6 @@ import java.util.TimerTask;
 import Entidades.Infectado;
 import Entidades.Jugador;
 import Entidades.Premios.PremioTemporal;
-import EstadosJugador.EstadoInmune;
-import EstadosJugador.EstadoJugador;
 import Logica.Juego;
 
 public class VisitorBajoCero extends VisitorPremioTemporal {

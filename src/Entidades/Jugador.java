@@ -8,10 +8,6 @@ import EstadosJugador.EstadoJugador;
 import Movimientos.Horizontal;
 import Visitors.Visitor;
 
-/**
- * Clase que modela al jugador del juego
- *
- */
 public class Jugador extends Entidad {
 	protected EstadoArma estado_arma;
 	protected EstadoJugador estado_jugador;

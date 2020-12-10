@@ -16,10 +16,10 @@ public class Juego implements Runnable {
 	private boolean moviendoDerecha;
 	private boolean disparando;
 
-	private static Juego juego;//
+	private static Juego juego;
 
 	private boolean jugando;
-	private Gui gui;//
+	private Gui gui;
 	private List<Entidad> entidades;
 	private List<Entidad> aEliminar;
 	private List<Entidad> aAgregar;

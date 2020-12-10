@@ -4,10 +4,6 @@ import java.awt.Point;
 import EntidadesGraficas.Label_infectado_alpha;
 import Visitors.Visitor;
 
-/**
- * Clase que modela un infectado de tipo ALPHA
- *
- */
 public class InfectadoAlpha extends Infectado {
 
 	protected boolean loco;

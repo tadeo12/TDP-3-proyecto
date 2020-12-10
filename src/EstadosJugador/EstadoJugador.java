@@ -8,7 +8,6 @@ public abstract class EstadoJugador {
 
 	public EstadoJugador(Jugador jugador) {
 		this.jugador = jugador;
-
 	}
 
 	public int getVelocidad() {

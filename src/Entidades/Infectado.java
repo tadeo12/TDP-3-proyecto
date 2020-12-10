@@ -12,10 +12,6 @@ import Movimientos.Vertical;
 import Movimientos.Vertical_loop;
 import Visitors.VisitorInfectado;
 
-/**
- * Clase que modela un infectado del juego
- *
- */
 public abstract class Infectado extends Entidad {
 	protected int carga_viral;
 	protected boolean suelta_premio;

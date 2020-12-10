@@ -6,6 +6,10 @@ import Movimientos.Vertical;
 import Movimientos.Vertical_remove;
 import Visitors.Visitor;
 
+/**
+ * Clase que modela un premio del juego
+ *
+ */
 public abstract class Premio extends Entidad {
 
 	public Premio(Entidad_grafica entidad_graf) {

@@ -10,10 +10,4 @@ public class EstadoInicial extends EstadoJugador {
 		velocidad=3; 
 		this.jugador.setVisitor(new VisitorJugador(jugador));
 	}
-
-	
-	
-	
-	
-
 }
