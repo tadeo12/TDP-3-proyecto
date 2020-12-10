@@ -5,6 +5,10 @@ import java.util.Random;
 
 import Entidades.Infectado;
 
+/**
+ * clase abstracta que modela la creacion de los infectados, cada tipo concreto
+ * de Factory realiza la construccion de un tipo distinto de Infectado
+ */
 public abstract class Factory {
 	protected Container mapa;
 	protected Random r;

@@ -4,6 +4,10 @@ import java.awt.Point;
 import Entidades.Infectado;
 import Entidades.InfectadoAlpha;
 
+/**
+ * clase que se encarga de construir los infectados de tipo Alpha
+ *
+ */
 public class FactoryAlpha extends Factory {
 
 	public FactoryAlpha() {
