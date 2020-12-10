@@ -80,7 +80,6 @@ public abstract class Infectado extends Entidad {
 
 			if (!desinfectado && random.nextInt(100) == 1) {
 				disparar();
-				//System.out.println("disparo");
 			}
 		}
 	}

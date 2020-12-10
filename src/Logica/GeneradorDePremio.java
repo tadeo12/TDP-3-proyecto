@@ -24,9 +24,9 @@ public class GeneradorDePremio {
 		switch(indice) {
 			case 0: new BajoCero(p);
 				break;
-			case 1: new SuperArma(p);
+			case 1: new Inmunidad(p);
 				break;
-			case 2: new Inmunidad(p);
+			case 2: new SuperArma(p);
 				break;
 			case 3: new SuperVelocidad(p);
 				break;
