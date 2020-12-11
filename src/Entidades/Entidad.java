@@ -26,7 +26,8 @@ public abstract class Entidad extends Element {
 	public void accionar() {
 		this.movimiento.mover();
 	}
-
+	
+	@Override
 	public abstract void accept(Visitor visitor);
 
 	public void setMovimiento(EstrategiaMovimiento movimiento) {

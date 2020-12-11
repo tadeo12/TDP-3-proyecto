@@ -8,5 +8,4 @@ public class EstadoSuperVeloz extends ConPowerUp {
 		super(jugador);
 		velocidad=10  ; 
 	}
-
 }

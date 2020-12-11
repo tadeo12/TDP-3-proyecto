@@ -96,20 +96,4 @@ public class Jugador extends Entidad {
 		return estado_jugador.getVelocidad();
 	}
 
-	public void setConVelocidad() {
-		((Label_jugador) super.getGrafico()).setPowerUpVelocidad();
-	}
-
-	public void setSinPowerUp() {
-		((Label_jugador) super.getGrafico()).setSinPowerUp();
-	}
-
-	public void setConSuperArma() {
-		((Label_jugador) super.getGrafico()).setPowerUpSuperArma();
-	}
-
-	public void setConInmunidad() {
-		((Label_jugador) super.getGrafico()).setPowerUpInmunidad();
-	}
-
 }

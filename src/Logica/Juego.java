@@ -9,6 +9,7 @@ import Entidades.Entidad;
 import Entidades.Infectado;
 import Entidades.Jugador;
 import EntidadesGraficas.Entidad_grafica;
+import EntidadesGraficas.Label_jugador;
 import GUI.Gui;
 
 /**
@@ -160,6 +161,8 @@ public class Juego implements Runnable {
 		gui.actualizarBarraViral(jugador.getCargaViral());
 		gui.actualizarNivelTanda(nivelActual.getValor() + 1, nivelActual.getNumeroTanda() + 1);
 		gui.actualizarPowerUps(powerUps);
+		Label_jugador labelJugador=(Label_jugador)jugador.getGrafico();
+		labelJugador.setPowerUp(powerUps);
 	}
 
 	private void detectarColisiones() {
