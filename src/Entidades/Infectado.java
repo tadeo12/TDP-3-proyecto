@@ -38,7 +38,7 @@ public abstract class Infectado extends Entidad {
 		velocidad = 1;
 		movimiento = null;// en principio no se moveran hasta que se indique que aparezca por pantalla
 		random = new Random();
-		suelta_premio = random.nextInt(3) == 1;
+		suelta_premio = random.nextInt(5) == 1;
 		carga_viral = 100;
 		damage = 1;
 		desinfectado = false;
