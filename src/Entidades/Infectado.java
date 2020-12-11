@@ -23,7 +23,7 @@ public abstract class Infectado extends Entidad {
 	protected Random random;
 
 	/**
-	 * Constructor de un infectado
+	 * Crea un infectado
 	 * 
 	 * @param entidad_graf entidad grafica de la entidad
 	 * @param duracion     tiempo que permanecerá quieto el infectado, en

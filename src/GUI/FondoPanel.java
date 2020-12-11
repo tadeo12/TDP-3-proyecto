@@ -35,7 +35,7 @@ class FondoPanel extends JLayeredPane {
 	 */
 	public void CambioDeLvl() {
 		this.nivelTransicionLabel.setVisible(false);
-		this.repaint();
+		this.repaint(); 
 	}
 
 	/**
